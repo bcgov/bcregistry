@@ -5,22 +5,26 @@
         <article>
           <header class="hero-banner d-flex align-center">
             <div class="container">
-              <h1 class="text--left">
-                My Registry Dashboard
-              </h1><v-row>
-              <v-col class="text--left col-2 mt-7 mb-10">
-                
-                <v-btn color="primary" class="cta-btn-auth font-weight-bold" to="/ppr/dashboard">
+              <h1 class="text--left">My Registry Dashboard</h1>
+              <v-row>
+                <v-col class="text--left col-2 mt-7 mb-10">
+                  <v-btn
+                    color="primary"
+                    class="cta-btn-auth font-weight-bold"
+                    to="/ppr/dashboard"
+                  >
                     PPR Dashboard
-                </v-btn>
-                 
-              </v-col>
-              <v-col class="text--left col-5 mt-7 mb-10">
-               <v-btn color="primary" class="cta-btn-auth font-weight-bold"
-                to="/business/auth/home/decide-business">
+                  </v-btn>
+                </v-col>
+                <v-col class="text--left col-5 mt-7 mb-10">
+                  <v-btn
+                    color="primary"
+                    class="cta-btn-auth font-weight-bold"
+                    to="/business/auth/home/decide-business"
+                  >
                     Manage Businesses
-                </v-btn>
-              </v-col>
+                  </v-btn>
+                </v-col>
               </v-row>
             </div>
           </header>
@@ -31,8 +35,8 @@
 </template>
 
 <script>
-export default {
-}
+export default {}
+
 </script>
 
 <style lang="scss" scoped>
