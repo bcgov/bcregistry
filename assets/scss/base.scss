@@ -231,6 +231,7 @@ a.v-btn {
   font-weight: bold;
   font-size: 16px;
   padding-left: 30px;
+  padding-top: 12px !important;
 }
 .menu-item {
   font-size: 16px;
@@ -239,6 +240,10 @@ a.v-btn {
   padding-right: 30px;
   padding-top: 35px;
   padding-bottom: 35px;
+}
+.menu-item-title {
+  font-size: 16px !important;
+  font-weight: bold !important;
 }
 .menu-title {
   font-size: 32px;
@@ -258,6 +263,19 @@ a.v-btn {
   font-weight: bold;
   color: #212529;
   text-align: center;
+}
+.menu-title-badge {
+  color: #003366 !important;
+  background: $BCgovGold5 !important;
+  font-weight: bold;
+  font-size: 14px;
+  text-decoration: none !important;
+  text-align: center;
+  border-bottom-left-radius: 0.25rem;
+  border-bottom-right-radius: 0.25rem;
+  margin: 0px;
+  padding-top: 0px !important;
+  height: 35px !important;
 }
 // Common account menu end
 

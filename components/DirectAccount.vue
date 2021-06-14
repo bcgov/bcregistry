@@ -26,7 +26,7 @@
         <v-col cols="4" style="pr-5">
           <v-card>
             <v-card-title class="menu-header">
-              <span class="text-h5">Corporate Registry</span>
+              <span class="menu-item-title">Corporate Registry</span>
               <v-spacer></v-spacer>
             </v-card-title>
             <v-card-text class="menu-item">
@@ -50,7 +50,7 @@
         <v-col cols="4" style="pr-5">
           <v-card>
             <v-card-title class="menu-header">
-              <span class="text-h5">OneStop Business Registry</span>
+              <span class="menu-item-title">OneStop Business Registry</span>
               <v-spacer></v-spacer>
             </v-card-title>
             <v-card-text class="menu-item">
@@ -74,7 +74,7 @@
         <v-col cols="4" style="pr-5">
           <v-card>
             <v-card-title class="menu-header">
-              <span class="text-h5">Societies Online</span>
+              <span class="menu-item-title">Societies Online</span>
               <v-spacer></v-spacer>
             </v-card-title>
             <v-card-text class="menu-item">

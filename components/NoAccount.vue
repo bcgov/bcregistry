@@ -17,8 +17,21 @@
         <v-col cols="4" style="pr-5">
           <v-card>
             <v-card-title class="menu-header">
-              <span class="text-h5">Name Requests (Beta)</span>
-              <v-spacer></v-spacer>
+              <v-row>
+                <v-col cols="9"
+                  ><span class="menu-item-title"
+                    >Name Requests (Beta)</span
+                  ></v-col
+                >
+                <v-col cols="3">
+                  <v-row>
+                    <v-col cols="auto" class="menu-title-badge">NEW</v-col>
+                  </v-row>
+                  <v-row>
+                    <v-col cols="auto"></v-col>
+                  </v-row>
+                </v-col>
+              </v-row>
             </v-card-title>
             <v-card-text class="menu-item">
               <p>

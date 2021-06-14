@@ -25,7 +25,7 @@
         <v-col cols="4" style="pr-5">
           <v-card>
             <v-card-title class="menu-header">
-              <span class="text-h5">Corporate Registry</span>
+              <span class="menu-item-title">Corporate Registry</span>
               <v-spacer></v-spacer>
             </v-card-title>
             <v-card-text class="menu-item">
@@ -37,7 +37,7 @@
         <v-col cols="4" style="pr-5">
           <v-card>
             <v-card-title class="menu-header">
-              <span class="text-h5">Name Request Online (NRO)</span>
+              <span class="menu-item-title">Name Request Online (NRO)</span>
               <v-spacer></v-spacer>
             </v-card-title>
             <v-card-text class="menu-item">
@@ -48,7 +48,7 @@
         <v-col cols="4" style="pr-5">
           <v-card>
             <v-card-title class="menu-header">
-              <span class="text-h5">Personal Property Registry</span>
+              <span class="menu-item-title">Personal Property Registry</span>
               <v-spacer></v-spacer>
             </v-card-title>
             <v-card-text class="menu-item">
@@ -63,7 +63,7 @@
         <v-col cols="4" style="pr-5">
           <v-card>
             <v-card-title class="menu-header">
-              <span class="text-h5">Manufactured Homes Registry</span>
+              <span class="menu-item-title">Manufactured Homes Registry</span>
               <v-spacer></v-spacer>
             </v-card-title>
             <v-card-text class="menu-item">
@@ -74,7 +74,7 @@
         <v-col cols="4" style="pr-5">
           <v-card>
             <v-card-title class="menu-header">
-              <span class="text-h5">Wills Registry</span>
+              <span class="menu-item-title">Wills Registry</span>
               <v-spacer></v-spacer>
             </v-card-title>
             <v-card-text class="menu-item">
@@ -89,7 +89,7 @@
         <v-col cols="4" style="pr-5">
           <v-card>
             <v-card-title class="menu-header">
-              <span class="text-h5">Address Change BC</span>
+              <span class="menu-item-title">Address Change BC</span>
               <v-spacer></v-spacer>
             </v-card-title>
             <v-card-text class="menu-item">

@@ -25,7 +25,7 @@
         <v-col cols="4" style="pr-5">
           <v-card>
             <v-card-title class="menu-header">
-              <span class="text-h5">BC Business Registry</span>
+              <span class="menu-item-title">BC Business Registry</span>
               <v-spacer></v-spacer>
             </v-card-title>
             <v-card-text class="menu-item">
@@ -59,11 +59,22 @@
             </v-card-text>
           </v-card>
         </v-col>
-        <v-col cols="4" style="pr-5">
+        <v-col cols="4">
           <v-card>
             <v-card-title class="menu-header">
-              <span class="text-h5">Name Requests (Beta)</span>
-              <v-spacer></v-spacer>
+              <v-row>
+                <v-col cols="9">
+                  <span class="menu-item-title">Name Requests (Beta)</span>
+                </v-col>
+                <v-col cols="3">
+                  <v-row>
+                    <v-col cols="auto" class="menu-title-badge">NEW</v-col>
+                  </v-row>
+                  <v-row>
+                    <v-col cols="auto"></v-col>
+                  </v-row>
+                </v-col>
+              </v-row>
             </v-card-title>
             <v-card-text class="menu-item">
               <p>
@@ -96,8 +107,21 @@
         <v-col cols="4" style="pr-5">
           <v-card>
             <v-card-title class="menu-header">
-              <span class="text-h5">Wills Registry</span>
-              <v-spacer></v-spacer>
+              <v-row>
+                <v-col cols="7">
+                  <span class="menu-item-title">Wills Registry</span>
+                </v-col>
+                <v-col cols="5">
+                  <v-row>
+                    <v-col cols="auto" class="menu-title-badge"
+                      >COMING SOON</v-col
+                    >
+                  </v-row>
+                  <v-row>
+                    <v-col cols="auto"></v-col>
+                  </v-row>
+                </v-col>
+              </v-row>
             </v-card-title>
             <v-card-text class="menu-item">
               <p>
@@ -131,8 +155,21 @@
         <v-col cols="4" style="pr-5">
           <v-card>
             <v-card-title class="menu-header">
-              <span class="text-h5">Personal Property Registry</span>
-              <v-spacer></v-spacer>
+              <v-row>
+                <v-col cols="9"
+                  ><span class="menu-item-title"
+                    >Personal Property Registry</span
+                  ></v-col
+                >
+                <v-col cols="3">
+                  <v-row>
+                    <v-col cols="auto" class="menu-title-badge">ALPHA</v-col>
+                  </v-row>
+                  <v-row>
+                    <v-col cols="auto"></v-col>
+                  </v-row>
+                </v-col>
+              </v-row>
             </v-card-title>
             <v-card-text class="menu-item">
               <p>
