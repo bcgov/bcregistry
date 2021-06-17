@@ -16,10 +16,10 @@
 
       <v-card
         flat
-        class="justify-center d-flex flex-wrap"
+        class="justify-center d-md-flex flex-wrap"
         style="background-color: #f1f3f5; padding-top: 30px"
       >
-        <v-card flat max-width="400px" class="mr-5">
+        <v-card flat max-width="350px" class="mr-5">
           <v-card-title class="menu-header">
             <v-row>
               <v-col cols="9"

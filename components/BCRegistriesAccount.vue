@@ -25,10 +25,10 @@
 
       <v-card
         flat
-        class="d-flex flex-wrap"
+        class="d-md-flex flex-wrap"
         style="background-color: #f1f3f5; padding-top: 30px"
       >
-        <v-card flat max-width="400px" class="mr-5 mb-7">
+        <v-card flat max-width="350px" class="mr-5 mb-7">
           <v-card-title class="menu-header">
             <span class="menu-item-title">BC Business Registry</span>
             <v-spacer></v-spacer>
@@ -64,7 +64,7 @@
             </p>
           </v-card-text>
         </v-card>
-        <v-card flat max-width="400px" class="mr-5 mb-7">
+        <v-card flat max-width="350px" class="mr-5 mb-7">
           <v-card-title class="menu-header">
             <v-row>
               <v-col cols="9">
@@ -109,7 +109,7 @@
             </p>
           </v-card-text>
         </v-card>
-        <v-card flat max-width="400px" class="mr-5 mb-7">
+        <v-card flat max-width="350px" class="mr-5 mb-7">
           <v-card-title class="menu-header">
             <v-row>
               <v-col cols="7">
@@ -159,10 +159,10 @@
 
       <v-card
         flat
-        class="d-flex flex-wrap"
+        class="d-md-flex flex-wrap"
         style="background-color: #f1f3f5; padding-top: 2px"
       >
-        <v-card flat max-width="400px" class="mr-5">
+        <v-card flat max-width="350px" class="mr-5">
           <v-card-title class="menu-header">
             <v-row>
               <v-col cols="9"
