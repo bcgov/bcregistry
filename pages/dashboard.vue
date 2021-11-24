@@ -40,7 +40,7 @@ export default {
       context.redirect('/signin')
     }
   },
-  data(context) {
+  data() {
     return {
       productInfo: { ...ProductInfo },
       subscribedProducts: []
