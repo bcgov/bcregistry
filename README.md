@@ -1,5 +1,12 @@
 # BCRegistry
 
+This project requires node v14.x.x (npm v6.14.x). You can use Node Version manager (nvm) to manage several versions of node...
+```
+curl -o- https://raw.githubusercontent.com/nvm-sh/nvm/v0.39.1/install.sh | bash
+nvm install 14
+```
+...and then you can do `npm install` etc as below.
+
 ## Build Setup
 
 ```bash
