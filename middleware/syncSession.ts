@@ -14,7 +14,6 @@ export default async function ({ $config, route }) {
   if (!isSigninRoute(route.path) && !isSignoutRoute(route.path)) {
     // Initialize token service which will do a check-sso to initiate session.
     await KeycloakService.initializeToken(null)
-      .then(() => {})
       .catch(err => {
         if (err?.message !== 'NOT_AUTHENTICATED') {
           throw err

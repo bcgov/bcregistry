@@ -2,7 +2,7 @@
   <div></div>
 </template>
 
-<script>
+<script lang="ts">
 // This component is loaded when user selects menu option to login using IDIR.
 export default {
   asyncData ({ $config, redirect }) {

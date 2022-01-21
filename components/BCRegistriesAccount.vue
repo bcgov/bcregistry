@@ -82,7 +82,7 @@
       <!-- Wills Registry -->
       <v-card elevation="2">
         <v-card-title>
-          <span class="word-break-normal">Wills Registry</span>
+          <span>Wills Registry</span>
           <span class="card-title-badge-container">
             <div class="card-title-badge">COMING SOON</div>
           </span>
@@ -116,12 +116,7 @@
 
       <!-- Personal Property Registry -->
       <v-card elevation="2">
-        <v-card-title>
-          <span class="word-break-normal">Personal Property Registry</span>
-          <span class="card-title-badge-container">
-            <div class="card-title-badge">COMING SOON</div>
-          </span>
-        </v-card-title>
+        <v-card-title>Personal Property Registry</v-card-title>
 
         <v-card-text>
           <p>

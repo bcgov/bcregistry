@@ -2,7 +2,7 @@
   <div></div>
 </template>
 
-<script>
+<script lang="ts">
 // This component is loaded when user selects menu option to login using BCSC.
 export default {
   asyncData ({ $config, redirect }) {

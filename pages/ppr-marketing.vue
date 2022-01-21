@@ -51,12 +51,14 @@
     </header>
 
     <v-container class="body-text">
-      <h1 class="text-center" style="padding-top: 80px">Coming Soon...</h1>
+      <h1 class="text-center" style="padding-top: 80px">
+        A Modern Personal Property Registry for B.C.
+      </h1>
 
       <v-row class="pt-3 pb-8">
         <v-col cols="12" class="text-center">
-          In early 2022, the BC Personal Property Registry will be launching an
-          all-new application.
+          The Personal Property Registry is now one of BC Registries and Online
+          Services' new modernized applications.
         </v-col>
       </v-row>
 
@@ -214,7 +216,6 @@
                   See if your registrations are due to expire or if they have been discharged.
                 </li>
                 <li>Amend, Renew, or Discharge registrations.</li>
-                <li>Re-register expired or discharged registrations.</li>
               </ul>
             </div>
           </v-col>

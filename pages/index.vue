@@ -42,7 +42,7 @@
   </div>
 </template>
 
-<script>
+<script lang="ts">
 import AccountsFooter from '~/components/AccountsFooter.vue'
 import BCOnlineAccount from '~/components/BCOnlineAccount.vue'
 import BCRegistriesAccount from '~/components/BCRegistriesAccount.vue'

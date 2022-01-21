@@ -28,8 +28,8 @@ export default {
 
   // Plugins to run before rendering page: https://nuxtjs.org/docs/directory-structure/plugins/
   plugins: [
-    '~/plugins/printNameVersion.js',
-    '~/plugins/setSessionStorage.js',
+    '~/plugins/printNameVersion.ts',
+    '~/plugins/setSessionStorage.ts',
   ],
 
   // Auto import components: https://go.nuxtjs.dev/config-components

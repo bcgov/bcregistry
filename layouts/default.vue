@@ -7,7 +7,7 @@
   </v-app>
 </template>
 
-<script>
+<script lang="ts">
 import SbcFooter from 'sbc-common-components/src/components/SbcFooter.vue'
 import SbcHeader from 'sbc-common-components/src/components/SbcHeader.vue'
 import Breadcrumb from '~/components/Breadcrumb.vue'

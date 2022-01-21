@@ -17,7 +17,7 @@
   </v-menu>
 </template>
 
-<script>
+<script lang="ts">
 import SbcAuthMenu from 'sbc-common-components/src/components/SbcAuthMenu.vue'
 
 export default {
