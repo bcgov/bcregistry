@@ -23,6 +23,8 @@ $ npm run start
 
 # generate static project
 $ npm run generate
+
+# locally preview the static project
 $ npm run start
 ```
 
