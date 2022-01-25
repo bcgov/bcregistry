@@ -1,17 +1,14 @@
 <template>
   <div></div>
 </template>
-<script>
-// Required for generated site to work with header login.
+
+<script lang="ts">
+// This component is loaded when user selects menu option to login using BCSC.
 export default {
-  asyncData(context) {
-    const redirectURL =
-      context.$config.authURL +
-      'signin/bcsc/' +
-      encodeURIComponent(context.$config.baseURL + 'dashboard')
-    context.redirect(redirectURL)
+  asyncData ({ $config, redirect }) {
+    // redirect to Auth to sign in and then return to dashboard
+    const url = $config.signinBcscUrl + encodeURIComponent($config.registryDashboard)
+    redirect(url)
   },
 }
 </script>
-
-<style lang="scss" scoped></style>

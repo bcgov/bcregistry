@@ -1,169 +1,170 @@
 <template>
-  <v-container class="breadcrumb-row pa-0">
-    <div class="container pa-0">
-      <v-row no-gutters class="pad-wide">
+  <div id="breadcrumb">
+    <v-container>
+      <v-row no-gutters>
         <v-col cols="auto">
-          <v-row no-gutters>
-            <v-col v-if="backDisabled" cols="auto" class="pad-wide">
-              <v-btn
-                id="breadcrumb-back-btn"
-                class="back-btn-disabled"
-                exact
-                :href="backUrl"
-                disabled
-                icon
-                small
-              >
-                <v-icon>mdi-arrow-left</v-icon>
-              </v-btn>
-            </v-col>
-            <v-col v-else cols="auto" class="pad-wide">
-              <v-btn
-                id="breadcrumb-back-btn"
-                class="back-btn"
-                exact
-                :href="backUrl"
-                icon
-                small
-              >
-                <v-icon>mdi-arrow-left</v-icon>
-              </v-btn>
-            </v-col>
-            <v-col class="pl-3" cols="auto" style="padding-top: 2px">
-              <div style="border-right: thin solid #ced4da; height: 28px" />
-            </v-col>
-          </v-row>
+          <v-btn
+            id="breadcrumb-back-btn"
+            class="back-btn"
+            exact
+            :href="backUrl"
+            icon small
+            :disabled="isBackDisabled"
+          >
+            <v-icon color="primary">mdi-arrow-left</v-icon>
+          </v-btn>
         </v-col>
-        <v-col class="pl-3 pt-2 col-md-10 pad-wide">
-          <v-breadcrumbs class="pa-0" :items="breadcrumbs">
+
+        <v-divider class="mx-3" color="white" vertical />
+
+        <v-col cols="auto" class="breadcrumb-col">
+          <v-breadcrumbs :items="breadcrumbs" class="pa-0 ma-0">
+            <template #divider>
+              <v-icon color="white" class="mx-n2">mdi-chevron-right</v-icon>
+            </template>
+
             <v-breadcrumbs-item
               slot="item"
               slot-scope="{ item }"
               exact
               :href="item.href"
             >
-              <span v-if="!item.disabled" class="underlined breadcrumb-text">
+              <span
+                class="breadcrumb-text"
+                :class="item.disabled ? 'inactive-crumb' : 'active-crumb'"
+              >
                 {{ item.text }}
               </span>
-              <span v-else class="breadcrumb-text">{{ item.text }}</span>
             </v-breadcrumbs-item>
-            <v-breadcrumbs-divider slot="divider" class="px-1">
-              <v-icon color="white">mdi-chevron-right</v-icon>
-            </v-breadcrumbs-divider>
           </v-breadcrumbs>
         </v-col>
       </v-row>
-    </div>
-  </v-container>
+    </v-container>
+  </div>
 </template>
+
 <script lang="ts">
-import { getKeycloakRoles } from '@/utils'
-export default {
-  computed: {
-    backDisabled() {
-      // @ts-ignore - not sure why typescript isn't picking $route up
-      if ((this.$route.path === '/dashboard') || (this.$route.path === '/')) {
-        return true
-      }
-      return false
-    },
-    breadcrumbs() {
-      // @ts-ignore - not sure why typescript isn't picking $route up
-      if ((this.$route.path === '/ppr-marketing') || (this.$route.path === '/ppr-marketing/')) {
+import { Component, Vue } from 'vue-property-decorator'
+import { Getter } from 'vuex-class'
+import { Routes } from '@/enums'
+
+@Component({})
+export default class Breacrumb extends Vue {
+  @Getter isSbcStaff!: boolean
+
+  /** Whether the back button should be disabled. */
+  get isBackDisabled (): boolean {
+    switch (this.$route.path) {
+      case `${Routes.HOME}`:
+      case `${Routes.DASHBOARD}`:
+      case `${Routes.DASHBOARD}/`: return true
+    }
+    return false
+  }
+
+  /** The list of breadcrumbs for the current route. */
+  get breadcrumbs (): any[] {
+    switch (this.$route.path) {
+      case `${Routes.PPR_MARKETING}`: 
+      case `${Routes.PPR_MARKETING}/`:
         return [
           {
             disabled: false,
-            href: '/dashboard',
+            href: `${Routes.HOME}`,
             text: 'BC Registries and Online Services',
           },
           {
             disabled: true,
-            href: '',
+            href: null,
             text: 'Personal Property Registry',
           },
         ]
-      }
-      // @ts-ignore - not sure why typescript isn't picking $route up
-      if (this.$route.path === '/dashboard') {
-        const keycloakRoles = getKeycloakRoles()
-        if (keycloakRoles && keycloakRoles.includes('gov_account_user')) {
-          return [
-            {
-              disabled: true,
-              href: '',
-              text: 'Staff Dashboard',
-            },
-          ]
-        }
+
+      case `${Routes.DASHBOARD}`:
+      case `${Routes.DASHBOARD}/`:
         return [
           {
             disabled: true,
-            href: '',
-            text: 'BC Registries Dashboard',
+            href: null,
+            text: this.isSbcStaff ? 'Staff Dashboard' : 'BC Registries Dashboard',
           },
         ]
-      }
-      // @ts-ignore - not sure why typescript isn't picking $route up
-      if (this.$route.path === '/') {
+
+      case `${Routes.HOME}`:
         return [
           {
             disabled: true,
-            href: '',
-            text: 'Access and manage your BC Registries and Online services',
+            href: null,
+            text: 'BC Registries and Online Services',
           },
         ]
-      }
-      return []
-    },
-    backUrl() {
-      // @ts-ignore - not sure why typescript isn't picking $route up
-      if ((this.$route.path === '/ppr-marketing') || (this.$route.path === '/ppr-marketing/')) {
-        return '/'
-      }
-      return false
-    },
-  },
+    }
+
+    return []
+  }
+
+  /** The back URL for the current route. */
+  get backUrl (): string {
+    // for now, in all cases, the back URL is the top route
+    // this can be updated later if the back URL is anything else
+    return `${Routes.HOME}`
+  }
 }
 </script>
 
 <style lang="scss" scoped>
 @import '@/assets/scss/theme.scss';
+
+#breadcrumb {
+  max-height: 45px;
+  background-color: $app-dk-blue;
+  color: white;
+  display: flex;
+  align-items: center;
+
+  li {
+    margin-bottom: 0 !important;
+  }
+}
+
 .back-btn {
   background-color: white;
-  color: $primary-blue !important;
-  min-height: 32px !important;
-  min-width: 32px !important;
+  color: $app-dk-blue;
 }
-.back-btn-disabled {
-  background-color: white;
-  color: $primary-blue !important;
-  min-height: 32px !important;
-  min-width: 32px !important;
-  opacity: 0.4 !important;
-}
-.breadcrumb-row {
-  background-color: $BCgovBlue3-5;
-  color: white;
-  max-width: none;
-}
+
 .breadcrumb-text {
-  color: white !important;
-  font-size: 0.8125rem !important;
-}
-.underlined {
-  color: white !important;
-  text-decoration: underline;
+  font-size: $px-13 !important;
+  color: white;
 }
 
-@media (min-width: 960px) {
-  .row.no-gutters.pad-wide, .col.pad-wide {
-    padding: 2px 0
-  }
-}
-@media (max-width: 960px) {
-  .row.no-gutters.pad-wide, .col.pad-wide {
-    margin: 4px 0;
-  }
+.breadcrumb-col {
+  display: flex;
+  align-items: center;
 }
 
-</style>
+.active-crumb {
+  text-decoration: underline !important;
+  cursor: pointer !important;
+}
+
+.inactive-crumb {
+  cursor: default !important; // To override default or local link styling
+}
+
+::v-deep {
+  .v-breadcrumbs .v-breadcrumbs__divider {
+    color: white !important;
+    margin-bottom: 0;
+
+    &:nth-child(2n) {
+      padding: 0 12px !important;
+    }
+  }
+
+  .theme--light.v-btn.v-btn--disabled {
+    opacity: .4;
+    .v-icon {
+      color: $app-blue !important;
+    }
+  }
+}</style>

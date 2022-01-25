@@ -19,13 +19,13 @@ export default {
       default: null,
     },
   },
-  data() {
+  data () {
     return {
       pageNotFound: '404 Not Found',
       otherError: 'An error occurred',
     }
   },
-  head() {
+  head () {
     const title =
       this.error.statusCode === 404 ? this.pageNotFound : this.otherError
     return {
@@ -35,8 +35,10 @@ export default {
 }
 </script>
 
-<style scoped>
+<style lang="scss" scoped>
+@import '@/assets/scss/theme.scss';
+
 h1 {
-  font-size: 20px;
+  font-size: $px-20;
 }
 </style>

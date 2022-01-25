@@ -1,46 +1,55 @@
 <template>
   <div>
-    <div class="pa-0">
-      <article>
-        <header class="hero-banner d-flex align-center">
-          <div class="container">
-            <h1>Access and manage your BC Registries and Online services</h1>
-            <p class="services-info">
-              All registrations of businesses, not-for-profit societies,
-              cooperative associations, personal property and manufactured homes
-              are administered and supported by BC Registries and Online
-              Services.
+    <header class="hero-banner d-flex align-center">
+      <v-container>
+        <v-row no-gutters>
+          <v-col class="col-md-6 col-xl-7">
+            <h1>Access and manage your BC Registries and Online Services</h1>
+          </v-col>
+        </v-row>
+
+        <v-row no-gutters>
+          <v-col class="col-md-4 col-lg-5 col-xl-7">
+            <p>
+              All registrations of businesses, not-for-profit societies, cooperative
+              associations, personal property and manufactured homes are administered
+              and supported by BC Registries and Online Services.
             </p>
-            <p class="services-info">
-              As our online modernization initiative continues, refer to this
-              page for updates on ways to manage registration information
+            <p>
+              As our online modernization initiative continues, refer to this page for
+              updates on ways to manage registration information.
             </p>
-            <div role="dialog" class="v-dialog__container">
-              <div role="document" class="v-dialog__content" style="z-index: 0">
-                <div
-                  class="v-dialog"
-                  style="max-width: 640px; display: none"
-                ></div>
-              </div>
-            </div>
-          </div>
-        </header>
-      </article>
-    </div>
+          </v-col>
+        </v-row>
+      </v-container>
+    </header>
+
+    <v-divider class="h-divider"></v-divider>
     <AccountsFooter />
-    <BCRegistriesAccount />
-    <BCOnlineAccount />
-    <DirectAccount />
-    <NoAccount />
+    <v-divider class="h-divider"></v-divider>
+
+    <div class="container">
+      <BCRegistriesAccount />
+      <v-divider class="h-divider"></v-divider>
+      <BCOnlineAccount />
+      <v-divider class="h-divider"></v-divider>
+      <DirectAccount />
+      <v-divider class="h-divider"></v-divider>
+      <NoAccount />
+    </div>
+
+    <ContactInfo />
   </div>
 </template>
 
-<script>
+<script lang="ts">
 import AccountsFooter from '~/components/AccountsFooter.vue'
 import BCOnlineAccount from '~/components/BCOnlineAccount.vue'
 import BCRegistriesAccount from '~/components/BCRegistriesAccount.vue'
 import DirectAccount from '~/components/DirectAccount.vue'
 import NoAccount from '~/components/NoAccount.vue'
+import ContactInfo from '~/components/ContactInfoBcros.vue'
+
 export default {
   components: {
     AccountsFooter,
@@ -48,6 +57,7 @@ export default {
     BCOnlineAccount,
     DirectAccount,
     NoAccount,
+    ContactInfo,
   },
 }
 </script>
@@ -55,91 +65,44 @@ export default {
 <style lang="scss" scoped>
 @import '@/assets/scss/theme.scss';
 
-h1 {
-  font-size: 2.5rem;
-  font-weight: bold;
-  max-width: 30ch;
-  line-height: 3.125rem;
-  color: $gray9;
-  text-align: left;
+.hero-banner {
+  background-color: white;
+  background-image: none;
 }
 
-h1 + p {
-  max-width: 55ch;
-  margin-right: auto;
-  margin-left: auto;
-  font-size: 1rem;
-  line-height: 1.5rem;
-}
-
-// Card Container
-$card-container-spacing: 1rem;
-$card-width: 50%;
-
-.card-container {
-  display: flex;
-  justify-content: space-between;
-  margin: 2rem calc(#{$card-container-spacing} * -1);
-
-  .card {
-    margin: $card-container-spacing;
-    width: $card-width;
+// "md" breakpoint
+@media (min-width: 960px) {
+  .hero-banner {
+    height: 30rem;
+    background-image: url(../assets/img/BCReg_homebanner_images_final_80compressed_032521.jpg);
+    background-position: bottom right;
+    background-repeat: no-repeat;
+    background-size: 845px;
   }
 }
 
-.card-icon {
-  margin-top: -0.5rem;
-  margin-bottom: 1rem;
-  font-size: 4rem;
-  background: -webkit-linear-gradient(#b9d6f6, #1867c0);
-  -webkit-text-fill-color: transparent;
+// "lg" breakpoint
+@media (min-width: 1264px) {
+  .hero-banner {
+    background-size: 955px;
+  }
 }
 
-.card-body p {
-  margin: 1rem auto;
-  max-width: 35ch;
+// "xl" breakpoint
+@media (min-width: 1904px) {
+  .hero-banner {
+    height: 35rem;
+    background-size: 1145px;
+  }
 }
 
-.hero-banner {
-  color: #212529;
-  background-color: #fff;
-  background-image: url(../assets/img/BCReg_homebanner_images_final_80compressed_032521.jpg);
-  background-position: 100% 100%;
-  background-size: 75%;
-  background-repeat: no-repeat;
-}
-.hero-banner h1 {
-  margin-bottom: 1.5rem;
-  color: inherit;
-  letter-spacing: -0.02rem;
+h1 {
   line-height: 1.25;
-  font-size: 2.5rem;
-}
-.hero-banner h1 sup {
-  top: -0.9rem;
-  margin-left: 0.25rem;
-  vertical-align: middle;
-  color: #fcba19;
-  text-transform: uppercase;
-  letter-spacing: 0.05rem;
-  font-size: 0.875rem;
-}
-.hero-banner p {
-  max-width: 40rem;
-  margin: 1.5rem 0;
-  font-size: 1rem;
-}
-.hero-banner .container {
-  padding: 2rem 1.5rem;
+  font-size: $px-40;
 }
 
-article {
-  padding: 0;
-}
-.services-info {
-  font-size: 1rem;
-  line-height: 1.5rem;
+p {
+  margin: 1.5rem 0;
   color: $gray7;
-  text-align: left;
 }
 </style>
