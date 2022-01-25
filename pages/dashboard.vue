@@ -12,7 +12,7 @@
           v-for="product in subscribedProducts"
           :key="product.code"
           class="mt-5"
-          :product="getProductInfo($config, product.code)"
+          :product="product"
         />
       </div>
       <div class="pl-6 col-md-4 col-sm-12">
@@ -71,8 +71,15 @@ export default {
         },
       ]
     } else products = await getAccountProducts()
-    this.subscribedProducts = products.filter(
+    const currentProducts = products.filter(
       product => product.subscriptionStatus === ProductStatus.ACTIVE)
+    // only show products with no placeholder
+    for (let i = 0; i < currentProducts.length; i++) {
+      let thisProduct = getProductInfo(this.$config, currentProducts[i].code)
+      if (thisProduct.title !== 'placeholder_title') {
+        this.subscribedProducts.push(thisProduct)
+      }
+    }
   }
 }
 </script>
