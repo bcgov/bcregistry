@@ -129,7 +129,7 @@ export default Vue.extend ({
       product => product.subscriptionStatus === ProductStatus.ACTIVE)
     // only show products with no placeholder
     for (let i = 0; i < currentProducts.length; i++) {
-      let thisProduct = getProductInfo(this.$config, currentProducts[i].code)
+      const thisProduct = getProductInfo(this.$config, currentProducts[i].code)
       if (thisProduct.title !== 'placeholder_title') {
         this.subscribedProducts.push(thisProduct)
       }
