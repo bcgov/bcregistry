@@ -7,7 +7,7 @@
         <v-card-title>
           <v-img
             max-height="260"
-            src="img/BCReg_Generic_Login_image.jpg"
+            src="/img/BCReg_Generic_Login_image.jpg"
             alt="Generic Login Image">
           </v-img>
         </v-card-title>
