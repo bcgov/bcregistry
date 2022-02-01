@@ -6,7 +6,6 @@ import { SessionStorageKeys } from 'sbc-common-components/src/util/constants'
  */
 export default function (context) {
   if (process.client) {
-    // TODO: use keys here
     if (!sessionStorage.getItem(SessionStorageKeys.AuthWebUrl)) {
       sessionStorage.setItem(SessionStorageKeys.AuthWebUrl, context.$config.authWebUrl)
       // console.log('Auth Web URL:', sessionStorage.getItem('AUTH_WEB_URL'))
