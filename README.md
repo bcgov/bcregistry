@@ -22,6 +22,7 @@ $ npm run build
 $ npm run start
 
 # generate static project
+# To view the statis website, it has to be hosted by a http server
 $ npm run generate
 
 # locally preview the static project
