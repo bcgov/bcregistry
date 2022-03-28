@@ -1,8 +1,8 @@
 steps:
-  - name: node
+  - name: node:16.14.2
     entrypoint: npm
     args: ['install']
-  - name: node
+  - name: node:16.14.2
     entrypoint: npm
     args: ['--openssl-legacy-provider', 'run', 'generate']
   - name: gcr.io/yfthig-dev/firebase
