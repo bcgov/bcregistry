@@ -4,6 +4,6 @@ steps:
     args: ['install']
   - name: node
     entrypoint: npm
-    args: ['run', 'generate', '--openssl-legacy-provider']
+    args: ['--openssl-legacy-provider', 'run', 'generate']
   - name: gcr.io/yfthig-dev/firebase
     args: ['hosting:channel:deploy', '--project=yfthig-dev', 'PR-$_PR_NUMBER']
