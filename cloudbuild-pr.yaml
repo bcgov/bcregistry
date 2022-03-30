@@ -33,7 +33,7 @@ steps:
         https://api.github.com/repos/bcgov/bcregistry/issues/$_PR_NUMBER/comments \
         --header "Authorization: Token $$TOKEN" \
         --header "Accept: application/vnd.github.v3+json" \
-        --data-binary '{"body": "Temporary Url for review:'"$url"'"}'
+        --data-binary '{"body": "Temporary Url for review: '"$url"'"}'
     secretEnv: ['TOKEN']
 availableSecrets:
   secretManager:
