@@ -7,4 +7,20 @@ steps:
     args: ['--openssl-legacy-provider', 'run', 'generate']
   - name: gcr.io/yfthig-dev/firebase
     entrypoint: bash
-    args: ['-c', 'firebase hosting:channel:deploy --project=yfthig-dev PR-$_PR_NUMBER > firebase-deploy.txt']
+    args: ['-c', 'firebase hosting:channel:deploy --project=yfthig-dev PR-$_PR_NUMBER > /workspace/firebase-deploy.txt']
+  - id: "Read Values"
+    name: gcr.io/cloud-builders/curl
+    entrypoint: bash
+    args:
+      - -c
+      - |
+        generate_post_data()
+        {
+        cat <<EOF
+        {"body": "$message"}
+        EOF
+        }
+        # Read from "/workspace"
+        url=`cat /workspace/firebase-deploy.txt| grep 'Channel URL'| cut -c 84-`
+        message="Temporary Url for review: $url"
+        echo "this is the body:" $(generate_post_data)
