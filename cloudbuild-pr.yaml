@@ -40,7 +40,7 @@ steps:
         -H "Authorization: Token $$TOKEN" \
         -H "Accept: application/vnd.github.v3+json" \
         https://api.github.com/repos/bcgov/bcregistry/issues/$_PR_NUMBER/comments \
-        -d '{"body": "Temporary Url for review: https://yfthig-dev--pr-68-l4h01uvw.web.app [expires 2022-04-06 02:05:13]"}'
+        -d '$(generate_post_data)'
     secretEnv: ['TOKEN']
 availableSecrets:
   secretManager:
