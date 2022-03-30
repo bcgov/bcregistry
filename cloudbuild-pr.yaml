@@ -27,11 +27,13 @@ steps:
       - |
         # Read from "/workspace"
         url=`cat /workspace/firebase-deploy.txt| grep 'Channel URL'| cut -c 77-`
+        echo "this is the body:"
+        echo '{"body": "Temporary Url for review:'"$url"'"}'
         curl -X POST \
         https://api.github.com/repos/bcgov/bcregistry/issues/$_PR_NUMBER/comments \
         --header "Authorization: Token $$TOKEN" \
         --header "Accept: application/vnd.github.v3+json" \
-        --data-binary '{"body": "'"$url"'"}'
+        --data-binary '{"body": "Temporary Url for review:'"$url"'"}'
     secretEnv: ['TOKEN']
 availableSecrets:
   secretManager:
