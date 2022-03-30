@@ -25,24 +25,13 @@ steps:
     args:
       - -c
       - |
-        generate_post_data()
-        {
-        cat <<EOF
-        {"body": "$message"}
-        EOF
-        }
         # Read from "/workspace"
         url=`cat /workspace/firebase-deploy.txt| grep 'Channel URL'| cut -c 77-`
-        message=`echo "Temporary Url for review: $url"`
-        body=$(generate_post_data)
-        body=${body//[^[:ascii:]]/}
-        echo "this is the body:" $body
-        echo "posted to: https://api.github.com/repos/bcgov/bcregistry/issues/$_PR_NUMBER/comments"
         curl -X POST \
         -H "Authorization: Token $$TOKEN" \
         -H "Accept: application/vnd.github.v3+json" \
         https://api.github.com/repos/bcgov/bcregistry/issues/$_PR_NUMBER/comments \
-        -d $body
+        --data-binary '{"body": "Temporary Url for review:'"$url"'"}'
 
     secretEnv: ['TOKEN']
 availableSecrets:
