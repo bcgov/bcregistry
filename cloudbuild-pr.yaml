@@ -6,4 +6,5 @@ steps:
     entrypoint: npm
     args: ['--openssl-legacy-provider', 'run', 'generate']
   - name: gcr.io/yfthig-dev/firebase
-    args: ['hosting:channel:deploy', '--project=yfthig-dev', 'PR-$_PR_NUMBER']
+    entrypoint: bash
+    args: ['-c', 'firebase hosting:channel:deploy --project=yfthig-dev PR-$_PR_NUMBER > firebase-deploy.txt']
