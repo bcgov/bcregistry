@@ -33,7 +33,7 @@ steps:
         }
         # Read from "/workspace"
         url=`cat /workspace/firebase-deploy.txt| grep 'Channel URL'| cut -c 77-`
-        message="Temporary Url for review: $url"
+        message=`echo "Temporary Url for review: $url"`
         echo "this is the body:" $(generate_post_data)
         echo "posted to: https://api.github.com/repos/bcgov/bcregistry/issues/$_PR_NUMBER/comments"
         curl -X POST \
