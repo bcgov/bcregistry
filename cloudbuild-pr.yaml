@@ -26,7 +26,7 @@ steps:
       - -c
       - |
         # Read from "/workspace"
-        url=`cat /workspace/firebase-deploy.txt| grep 'Channel URL'| cut -c 77-`
+        url=`cat /workspace/firebase-deploy.txt| grep 'Channel URL'| cut -c 77-| cut -d ' ' -f 1`
         echo "this is the body:"
         echo '{"body": "Temporary Url for review:'"$url"'"}'
         curl -X POST \
