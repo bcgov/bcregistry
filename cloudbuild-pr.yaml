@@ -32,7 +32,7 @@ steps:
         EOF
         }
         # Read from "/workspace"
-        url=`cat /workspace/firebase-deploy.txt| grep 'Channel URL'| cut -c 84-`
+        url=`cat /workspace/firebase-deploy.txt| grep 'Channel URL'| cut -c 77-`
         message="Temporary Url for review: $url"
         echo "this is the body:" $(generate_post_data)
         curl -X POST \
