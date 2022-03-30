@@ -13,6 +13,7 @@ steps:
       - -c
       - |
         echo $$ENVVARS > .env
+        cat .env
     secretEnv: ['ENVVARS']
   #
   # Generate the static site
