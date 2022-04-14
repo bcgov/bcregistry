@@ -56,7 +56,5 @@ availableSecrets:
   secretManager:
   - versionName: projects/$PROJECT_ID/secrets/github-appkey/versions/latest
     env: 'TOKEN'
-# substitutions:
-#     __BCROS_BASE_URL: 'https://yfthig-dev--pr-72-64mhera2.web.app/'
-# options:
-#     dynamic_substitutions: true
+options:
+    dynamic_substitutions: true
