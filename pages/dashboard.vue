@@ -32,14 +32,16 @@
             </p>
           </v-container>
           <a
-          class="text-decoration-none" target="_blank" rel="noopener noreferrer"
+          class="text-decoration-none"
+          target="_blank"
+          rel="noopener noreferrer"
           :href="'https://www2.gov.bc.ca/gov/content/employment-business/business/managing-a-business/'
             +'permits-licences/news-updates/modernization-updates/using-the-business-registry'">
             <v-container fluid rounded class="dash-container-info service-container mt-5 white">
               <h4>Help with How to Use BC Registries Products and Services</h4>
               <p class="ma-0 pt-3">
                 Learn about the registries and how to use the applications through step-by-step guides,
-                 online videos, and downloadable quick guides.
+                online videos, and downloadable quick guides.
               </p>
               <v-row no-gutters class="align-bottom" style="padding-top:30px;">
                 <span class="primary--text font-weight-bold">Go to the Registry Application Help Page</span>
