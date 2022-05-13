@@ -43,7 +43,7 @@
                 Learn about the registries and how to use the applications through step-by-step guides,
                 online videos, and downloadable quick guides.
               </p>
-              <v-row no-gutters class="align-bottom" style="padding-top:30px;">
+              <v-row no-gutters class="align-bottom pt-7">
                 <span class="primary--text font-weight-bold">Go to the Registry Application Help Page</span>
                 <v-icon color="primary" small right>mdi-open-in-new</v-icon>
               </v-row>
