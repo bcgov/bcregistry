@@ -44,8 +44,8 @@
                 online videos, and downloadable quick guides.
               </p>
               <v-row no-gutters class="align-bottom pt-7">
-                <span class="primary2--text font-weight-bold">Go to the Registry Application Help Page</span>
-                <v-icon color="primary2" small right>mdi-open-in-new</v-icon>
+                <span class="appBlue--text font-weight-bold">Go to the Registry Application Help Page</span>
+                <v-icon color="appBlue" small right>mdi-open-in-new</v-icon>
               </v-row>
             </v-container>
           </a>
