@@ -205,7 +205,10 @@ export default Vue.extend ({
 
 .service-container {
   cursor: pointer;
-  font-size: $px-14;
+  
+  span {
+    font-size: $px-14;
+  }
 
   &:hover {
     box-shadow: 1px 1px 6px 0px $gray6;
