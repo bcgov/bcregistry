@@ -25,6 +25,7 @@ steps:
     - 'ADDRESSCHANGE_URL=$_ADDRESSCHANGE_URL'
     - 'BUSINESS_URL=$_BUSINESS_URL'
     - 'AUTH_LD_CLIENT_ID=$_AUTH_LD_CLIENT_ID'
+    - 'RPT_URL=$_RPT_URL'
     args: ['--openssl-legacy-provider', 'run', 'generate']
   #
   # Deploy to firebase channel, using the PR #
