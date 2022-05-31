@@ -64,7 +64,8 @@ import { ProductCode, ProductStatus } from '@/enums'
 import {
   fetchAccountProducts, fetchOrganization,
   getFeatureFlag, getKeycloakRoles,
-  getProductInfo, sleep, setLogoutUrl
+  getProductInfo, sleep, setLogoutUrl,
+  hasMhrAndPprProducts, combineAssetProducts
 } from '@/utils'
 
 export default Vue.extend ({
@@ -167,9 +168,13 @@ export default Vue.extend ({
         products = await fetchAccountProducts(accountId)
       }
 
-      const currentProducts = products.filter(
+      let currentProducts = products.filter(
         product => product.subscriptionStatus === ProductStatus.ACTIVE
       )
+
+      if (hasMhrAndPprProducts(currentProducts)) {
+        currentProducts = combineAssetProducts(currentProducts)
+      }
 
       // only show products with no placeholder
       for (let i = 0; i < currentProducts.length; i++) {
