@@ -6,6 +6,9 @@ import flushPromises from 'flush-promises'
 import UserProduct from '@/components/UserProduct.vue'
 import { state } from '@/store'
 import { createComponent } from '@/test/utils'
+import { hasMhrAndPprProducts, combineAssetProducts, getProductInfo } from '@/utils'
+import { ProductCode } from '@/enums'
+
 
 Vue.use(Vuetify)
 const vuetify = new Vuetify({})
@@ -47,3 +50,73 @@ describe('UserProduct tests', () => {
     expect(wrapper.find('.service-info p').text()).toBe(testProduct.text)
   })
 })
+
+describe('User Product helper functions tests', () => {
+  test('should check for PPR and MHR products', () => {
+
+    let products = [
+      {
+        "description": "Business Registry & Name Request",
+        "code": "BUSINESS",
+      },
+      {
+        "description": "Personal Property Registry",
+        "code": "PPR",
+      },
+      {
+        "description": "Manufactured Home Registry",
+        "code": "MHR",
+      },
+      {
+        "description": "Wills Registry",
+        "code": "VS"
+      }
+    ]
+
+    expect(hasMhrAndPprProducts(products)).toBe(true)
+
+    products = [
+      {
+        "description": "Business Registry & Name Request",
+        "code": "BUSINESS",
+      },
+      {
+        "description": "Personal Property Registry",
+        "code": "PPR"
+      }
+    ]
+
+    expect(hasMhrAndPprProducts(products)).toBe(false)
+
+  })
+
+  test('should combine MHR and PPR products into one registry (asset)', () => {
+
+    const products = [
+      {
+        "description": "Business Registry & Name Request",
+        "code": "BUSINESS",
+      },
+      {
+        "description": "Personal Property Registry",
+        "code": "PPR",
+      },
+      {
+        "description": "Manufactured Home Registry",
+        "code": "MHR",
+      },
+      {
+        "description": "Wills Registry",
+        "code": "VS"
+      }
+    ]
+
+    const combinedProducts = combineAssetProducts(products)
+    const mhrPprProduct = combinedProducts.find(p => p.code === ProductCode.PPR_MHR)
+
+    expect(combinedProducts.length).toBe(3)
+    expect(mhrPprProduct).not.toBe(null)
+    expect(getProductInfo({ pprDashboard: '' }, mhrPprProduct.code).title).toContain('My Asset Registries')
+  })
+})
+
