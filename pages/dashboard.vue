@@ -189,7 +189,9 @@ export default Vue.extend ({
       }
 
       // if user has both MHR and PPR product codes - add a My Asset Registries tile
-      isMhrPpr && addMyAssetRegistriesTile(this.$config, this.subscribedProducts)
+      if (isMhrPpr) {
+        addMyAssetRegistriesTile(this.$config, this.subscribedProducts)
+      } 
     }
 
     // wait 250ms so it doesn't look glitchy if products come back immediately
