@@ -6,8 +6,7 @@ import flushPromises from 'flush-promises'
 import UserProduct from '@/components/UserProduct.vue'
 import { state } from '@/store'
 import { createComponent } from '@/test/utils'
-import { hasMhrAndPprProducts, combineAssetProducts, getProductInfo } from '@/utils'
-import { ProductCode } from '@/enums'
+import { hasMhrAndPprProducts, addMyAssetRegistriesTile } from '@/utils'
 
 
 Vue.use(Vuetify)
@@ -90,33 +89,20 @@ describe('User Product helper functions tests', () => {
 
   })
 
-  test('should combine MHR and PPR products into one registry (asset)', () => {
+  test('should add MHR and PPR product to subscribed list of products', () => {
 
-    const products = [
-      {
-        "description": "Business Registry & Name Request",
-        "code": "BUSINESS",
-      },
-      {
-        "description": "Personal Property Registry",
-        "code": "PPR",
-      },
-      {
-        "description": "Manufactured Home Registry",
-        "code": "MHR",
-      },
-      {
-        "description": "Wills Registry",
-        "code": "VS"
-      }
-    ]
+    const subscribedProducts = [{
+      image: 'placeholder_image',
+      link: 'placeholder_link',
+      text: 'placeholder_text',
+      title: 'placeholder_title'
+    }]
 
-    const combinedProducts = combineAssetProducts(products)
-    const mhrPprProduct = combinedProducts.find(p => p.code === ProductCode.PPR_MHR)
+    addMyAssetRegistriesTile({ myBusinessRegistryDashboard: '', pprDashboard: '' }, subscribedProducts)
+    const mhrPprProduct = subscribedProducts.find(p => p.title === 'My Asset Registries')
 
-    expect(combinedProducts.length).toBe(3)
-    expect(mhrPprProduct).not.toBe(null)
-    expect(getProductInfo({ pprDashboard: '' }, mhrPprProduct.code).title).toContain('My Asset Registries')
+    expect(subscribedProducts).toHaveLength(2)
+    expect(mhrPprProduct).not.toBeUndefined()
   })
 })
 

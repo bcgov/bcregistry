@@ -4,7 +4,6 @@ export enum ProductCode {
   CSO = 'CSO',
   PPR = 'PPR',
   MHR = 'MHR',
-  PPR_MHR = 'PPR_MHR',
   RPT = 'RPT',
   VS = 'VS'
 }
