@@ -1,5 +1,4 @@
 import Vue from 'vue'
-import Vuex, { Store } from 'vuex'
 import Vuetify from 'vuetify'
 import { createLocalVue } from '@vue/test-utils'
 import { createSandbox } from 'sinon'
@@ -9,15 +8,14 @@ import { SessionStorageKeys } from 'sbc-common-components/src/util/constants'
 // local
 import dashboard from '@/pages/dashboard.vue'
 import UserProduct from '@/components/UserProduct.vue'
-import { state, actions, getters, mutations } from '@/store'
+import { getVuexStore } from '@/store'
 import { ProductCode, ProductStatus } from '@/enums'
 import { authAxios, getProductInfo } from '@/utils'
 import { createComponent } from '@/test/utils'
 
 Vue.use(Vuetify)
-Vue.use(Vuex)
 const vuetify = new Vuetify({})
-const store = new Store({ state, getters, mutations, actions })
+const store = getVuexStore()
 const localVue = createLocalVue()
 localVue.use(Vuetify)
 jest.useFakeTimers()
@@ -84,7 +82,7 @@ describe('Dashboard tests', () => {
   test('Displays active products with My Asset Registries tile', async () => {
     expect(wrapper.findComponent(dashboard).exists()).toBe(true)
 
-    // Add a delay because of products could be still loading
+    // Add a delay because of expicit timeout set in the dashboard
     jest.advanceTimersByTime(250)
     await Vue.nextTick()
 
