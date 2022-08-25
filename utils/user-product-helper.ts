@@ -21,6 +21,13 @@ export function getProductInfo (config, type: ProductCode): ProductI {
         text: 'Search for businesses registered in B.C. and access business documents.',
         title: 'Business Search'
       } as ProductI
+    case ProductCode.BCA:
+      return {
+        image: 'img/BCA_dashboard_thumbnail_image.jpg',
+        link: appendAccountId(config?.bcaURL) || 'link_not_configured',
+        text: 'Search for real property information including assessment, ownership, location and residential inventory details.',
+        title: 'BC Assessment'
+      } as ProductI
     case ProductCode.CSO:
       return {
         image: 'placeholder_image',
@@ -57,7 +64,7 @@ export function getProductInfo (config, type: ProductCode): ProductI {
         link: appendAccountId(config?.willsURL) || 'link_not_configured',
         text: 'File a wills notice or search for an existing wills notice.',
         title: 'Wills Registry'
-      } as ProductI
+      } as ProductI    
     default:
       return {
         image: 'placeholder_image',

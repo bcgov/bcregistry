@@ -218,7 +218,7 @@
             </v-tooltip>
           </p>
           <p class="mt-6">
-            Available to use by end of summer 2022.
+            Available to use by end of fall 2022.
           </p>
           <div>
             <a
@@ -228,6 +228,38 @@
               rel="noopener noreferrer"
             >
               <span>Learn more about Business Search</span>
+            </a>
+            <v-icon dense color="primary">mdi-open-in-new</v-icon>
+          </div>
+        </v-card-text>
+      </v-card>
+
+       <!-- BC Assessment -->
+      <v-card elevation="2">
+        <v-card-title>BC Assessment</v-card-title>
+        <span v-if="showNewFlagBCA" class="card-title-badge-container">
+          <div class="card-title-badge font-weight-bold pt-2">NEW</div>
+        </span>
+        <v-card-text>
+          <p>
+            Search the BC Assessment database for information about real property in B.C. Here you 
+            are able to:
+          </p>
+
+          <ul>
+            <li>Find property ownership and location information.</li>
+            <li>Obtain property assessment information.</li>
+            <li>Obtain for residential property inventory details.</li>
+          </ul>
+
+          <div>
+            <a
+              class="link"
+              :href="$config.bcaLearnMoreURL"
+              target="_blank"
+              rel="noopener noreferrer"
+            >
+              <span>Learn more about BC Assessment</span>
             </a>
             <v-icon dense color="primary">mdi-open-in-new</v-icon>
           </div>
@@ -311,6 +343,10 @@ export default class BCRegistriesAccount extends Vue {
 
   get showNewFlagRPT (): boolean {
     return getFeatureFlag('bcregistry-ui-rpt-new-chip') as boolean
+  }
+
+  get showNewFlagBCA (): boolean {
+    return getFeatureFlag('bcregistry-ui-bca-new-chip') as boolean
   }
 
   get showNewFlagPPR (): boolean {

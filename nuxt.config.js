@@ -179,6 +179,8 @@ export default {
     businessSearchUrl: process.env.BUSINESS_SEARCH_URL,
     busSrchLearnMoreURL: process.env.BUS_SEARCH_LEARN_MORE,
     siteMinderLogoutUrl: process.env.SITEMINDER_LOGOUT_URL,
+    bcaURL: process.env.BCA_URL,
+    bcaLearnMoreURL: process.env.BCA_LEARN_MORE_URL
   },
 
   // Build Configuration: https://go.nuxtjs.dev/config-build
