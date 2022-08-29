@@ -6,5 +6,6 @@ export enum ProductCode {
   MHR = 'MHR',
   RPT = 'RPT',
   VS = 'VS',
-  BCA = 'BCA'
+  BCA = 'BCA',
+  ESRA = 'ESRA'
 }

@@ -265,6 +265,39 @@
           </div>
         </v-card-text>
       </v-card>
+
+        <!-- Site Registry -->
+      <v-card elevation="2">
+        <v-card-title>Site Registry</v-card-title>
+        <span v-if="showNewFlagESRA" class="card-title-badge-container">
+          <div class="card-title-badge font-weight-bold pt-2">NEW</div>
+        </span>
+        <v-card-text>
+          <p>
+            The Site Registry retains provincial government information on the 
+            environmental condition of land. The site registry can be a helpful 
+            resource for anyone interested in purchasing or developing a property. 
+            Here you can:
+          </p>
+
+          <ul>
+            <li>Search the Site Registry to identify properties with environmental records submitted 
+              under Part 4 of B.C.'s Environmental Management Act.</li>            
+          </ul>
+
+          <div>
+            <a
+              class="link"
+              :href="$config.siteRegistryLearnMoreURL"
+              target="_blank"
+              rel="noopener noreferrer"
+            >
+              <span>Learn more about Site Registry</span>
+            </a>
+            <v-icon dense color="primary">mdi-open-in-new</v-icon>
+          </div>
+        </v-card-text>
+      </v-card>
     </div>
 
     <div class="payment py-7">
@@ -347,6 +380,10 @@ export default class BCRegistriesAccount extends Vue {
 
   get showNewFlagBCA (): boolean {
     return getFeatureFlag('bcregistry-ui-bca-new-chip') as boolean
+  }
+
+  get showNewFlagESRA (): boolean {
+    return getFeatureFlag('bcregistry-ui-esra-new-chip') as boolean
   }
 
   get showNewFlagPPR (): boolean {

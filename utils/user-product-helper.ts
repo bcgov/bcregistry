@@ -58,6 +58,13 @@ export function getProductInfo (config, type: ProductCode): ProductI {
                excluding municipal and Indigenous lands.`,
         title: 'Rural Property Tax Search'
       } as ProductI
+    case ProductCode.ESRA:
+      return {
+        image: 'img/ESRA_dashboard_thumbnail_image.jpg',
+        link: appendAccountId(config?.siteRegistryURL) || 'link_not_configured',
+        text: 'Search for B.C. government information on the environmental condition of land.',
+        title: 'Site Registry'
+      } as ProductI    
     case ProductCode.VS:
       return {
         image: 'img/VS_dashboard_thumbnail_image.jpg',
