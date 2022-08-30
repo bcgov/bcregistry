@@ -298,6 +298,37 @@
           </div>
         </v-card-text>
       </v-card>
+
+      <!-- Court Services Online -->
+      <v-card elevation="2">
+        <v-card-title>Court Services Online (CSO)</v-card-title>
+        <span v-if="showNewFlagCSO" class="card-title-badge-container">
+          <div class="card-title-badge font-weight-bold pt-2">NEW</div>
+        </span>
+        <v-card-text>
+          <p>
+            Court Services Online is British Columbia's electronic court registry. Here you can:
+          </p>
+
+          <ul>
+            <li>Make applications or file any other court documents in any B.C. court registry.</li>
+            <li>Browse daily court listings across the province.</li>
+            <li>Search court file information.</li>            
+          </ul>
+
+          <div>
+            <a
+              class="link"
+              :href="$config.csoLearnMoreURL"
+              target="_blank"
+              rel="noopener noreferrer"
+            >
+              <span>Learn more about Court Services Online</span>
+            </a>
+            <v-icon dense color="primary">mdi-open-in-new</v-icon>
+          </div>
+        </v-card-text>
+      </v-card>
     </div>
 
     <div class="payment py-7">
@@ -384,6 +415,10 @@ export default class BCRegistriesAccount extends Vue {
 
   get showNewFlagESRA (): boolean {
     return getFeatureFlag('bcregistry-ui-esra-new-chip') as boolean
+  }
+
+  get showNewFlagCSO (): boolean {
+    return getFeatureFlag('bcregistry-ui-cso-new-chip') as boolean
   }
 
   get showNewFlagPPR (): boolean {

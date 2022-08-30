@@ -30,11 +30,11 @@ export function getProductInfo (config, type: ProductCode): ProductI {
       } as ProductI
     case ProductCode.CSO:
       return {
-        image: 'placeholder_image',
-        link: 'placeholder_link',
-        text: 'placeholder_text',
-        title: 'placeholder_title'
-      } as ProductI
+        image: 'img/CSO_dashboard_thumbnail_image.jpg',
+        link: appendAccountId(config?.csoURL) || 'link_not_configured',
+        text: 'Make applications or file other court documents, browse daily court listings, and search court file information.',
+        title: 'Court Services Online'
+      } as ProductI    
     case ProductCode.MHR:
       return {
         image: 'img/MHR_dashboard_thumbnail_image.jpg',
@@ -57,7 +57,7 @@ export function getProductInfo (config, type: ProductCode): ProductI {
         text: `Search property tax records for rural properties or leased crown land in B.C.,
                excluding municipal and Indigenous lands.`,
         title: 'Rural Property Tax Search'
-      } as ProductI
+      } as ProductI    
     case ProductCode.ESRA:
       return {
         image: 'img/ESRA_dashboard_thumbnail_image.jpg',

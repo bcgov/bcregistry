@@ -182,7 +182,9 @@ export default {
     bcaURL: process.env.BCA_URL,
     bcaLearnMoreURL: process.env.BCA_LEARN_MORE_URL,
     siteRegistryURL: process.env.ESRA_URL,
-    siteRegistryLearnMoreURL: process.env.ESRA_LEARN_MORE_URL
+    siteRegistryLearnMoreURL: process.env.ESRA_LEARN_MORE_URL,
+    csoURL: process.env.CSO_URL,
+    csoLearnMoreURL: process.env.CSO_LEARN_MORE_URL
   },
 
   // Build Configuration: https://go.nuxtjs.dev/config-build
