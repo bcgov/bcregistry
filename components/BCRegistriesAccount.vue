@@ -235,7 +235,7 @@
       </v-card>
 
        <!-- BC Assessment -->
-      <v-card elevation="2">
+      <v-card elevation="2" v-if="showBCAFlag">
         <v-card-title>BC Assessment</v-card-title>
         <span v-if="showNewFlagBCA" class="card-title-badge-container">
           <div class="card-title-badge font-weight-bold pt-2">NEW</div>
@@ -267,7 +267,7 @@
       </v-card>
 
         <!-- Site Registry -->
-      <v-card elevation="2">
+      <v-card elevation="2" v-if="showESRAFlag">
         <v-card-title>Site Registry</v-card-title>
         <span v-if="showNewFlagESRA" class="card-title-badge-container">
           <div class="card-title-badge font-weight-bold pt-2">NEW</div>
@@ -300,7 +300,7 @@
       </v-card>
 
       <!-- Court Services Online -->
-      <v-card elevation="2">
+      <v-card elevation="2" v-if="showCSOFlag">
         <v-card-title>Court Services Online (CSO)</v-card-title>
         <span v-if="showNewFlagCSO" class="card-title-badge-container">
           <div class="card-title-badge font-weight-bold pt-2">NEW</div>
@@ -423,6 +423,18 @@ export default class BCRegistriesAccount extends Vue {
 
   get showNewFlagPPR (): boolean {
     return getFeatureFlag('bcregistry-ui-ppr-new-chip') as boolean
+  }
+
+  get showESRAFlag (): boolean {
+    return getFeatureFlag('bcregistry-ui-esra-enabled') as boolean
+  }
+
+  get showCSOFlag (): boolean {
+    return getFeatureFlag('bcregistry-ui-cso-enabled') as boolean
+  }
+
+  get showBCAFlag (): boolean {
+    return getFeatureFlag('bcregistry-ui-bca-enabled') as boolean
   }
 
   get dashboard (): string {
