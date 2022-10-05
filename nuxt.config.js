@@ -147,6 +147,7 @@ export default {
     baseURL: process.env.BCROS_BASE_URL,
     authWebUrl: process.env.AUTH_URL,
     nameRequestURL: process.env.NAME_REQUEST_URL,
+    bceidURL: process.env.BCEID_URL,
     businessURL: process.env.BUSINESS_URL,
     colinURL: process.env.COLIN_URL,
     onestopURL: process.env.ONESTOP_URL,
