@@ -1,6 +1,6 @@
 <template>
   <v-container id="no-account" fluid class="account-container">
-    <h2 class="account-title">No Account Required</h2>
+    <h2 class="account-title">Account Not Required</h2>
 
     <v-row no-gutters class="mt-4">
       <v-col cols="2"></v-col>
