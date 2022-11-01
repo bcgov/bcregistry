@@ -7,7 +7,7 @@ nvm install 16
 ```
 ...and then you can do `npm install` etc as below. \
 
-...You should also create an `.env` file and copy everything from `.env.example` into `.env` to properly preview the 
+You should also create an `.env` file and copy everything from `.env.example` into `.env` to properly preview the 
 static project.
 
 ## Build Setup
