@@ -40,7 +40,7 @@
           <p class="mt-5 mb-0">
             <strong>Hours of Operation:</strong>
             <br />
-            Monday to Friday, 8:30am - 4:30pm Pacific Time
+            Monday to Friday, 8:30am - 4:30pm Pacific time
           </p>
 
           <p class="mt-6 mb-0 wide-16">
@@ -56,7 +56,7 @@
           <p class="mt-5 mb-0">
             <strong>Hours of Operation:</strong>
             <br />
-            Monday to Friday, 8:30am - 4:30pm Pacific Time
+            Monday to Friday, 8:30am - 4:30pm Pacific time
           </p>
         </div>
       </div>
