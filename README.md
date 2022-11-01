@@ -5,7 +5,7 @@ This project requires Node v16.x.x (npm v8.x.x). You can use Node Version manage
 curl -o- https://raw.githubusercontent.com/nvm-sh/nvm/v0.39.1/install.sh | bash
 nvm install 16
 ```
-...and then you can do `npm install` etc as below. \
+...and then you can do `npm install` etc as below.
 
 You should also create an `.env` file and copy everything from `.env.example` into `.env` to properly preview the 
 static project.
