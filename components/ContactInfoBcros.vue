@@ -43,7 +43,7 @@
             Monday to Friday, 8:30am - 4:30pm Pacific time
           </p>
 
-          <p class="mt-6 wide-16">
+          <p class="mt-6 mb-0 wide-16">
             For account setup and login support, contact us at:
           </p>
           <ul class="contact-info-list mt-0">
