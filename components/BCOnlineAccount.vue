@@ -74,7 +74,7 @@
 
         <v-card-text>
           <p>
-            Manage Manufactured home registrations, and search for manufactured
+            Manage manufactured home registrations, and search for manufactured
             homes and personal property liens on homes.
           </p>
           <p v-if="showMhrFlag" class="mt-3">

@@ -161,7 +161,7 @@
           <ul>
             <li>Search for, and download reports for, manufactured homes and personal property
               liens on manufactured homes.</li>
-            <li>Search for registered security agreements and liens.</li>
+            <li>Search by owner name, organization, registration or serial number.</li>
           </ul>
 
           <div>
