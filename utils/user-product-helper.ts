@@ -5,7 +5,7 @@ import { ProductI, APIProductI } from '@/interfaces'
 /**
  * Returns product info object for specified type.
  */
-export function getProductInfo (config, typ -e: ProductCode): ProductI {
+export function getProductInfo (config, type: ProductCode): ProductI {
   switch (type) {
     case ProductCode.BUSINESS:
       return {
