@@ -5,7 +5,7 @@ import { ProductI, APIProductI } from '@/interfaces'
 /**
  * Returns product info object for specified type.
  */
-export function getProductInfo (config, type: ProductCode): ProductI {
+export function getProductInfo (config, typ -e: ProductCode): ProductI {
   switch (type) {
     case ProductCode.BUSINESS:
       return {
@@ -89,7 +89,7 @@ export function getMhrPprTileInfo(config): ProductI {
   return {
     image: 'img/My_Asset_Registries_dashboard_thumbnail_image.jpg',
     link: appendAccountId(config?.pprDashboard) || 'link_not_configured',
-    text: 'Search for manufactured homes, and search for legal claims on personal property.',
+    text: 'Register or search for manufactured homes, and register or search for legal claims on personal property.',
     title: 'My Asset Registries'
   }
 }
