@@ -346,7 +346,7 @@
 
         <v-card-text>
           <p>
-            BC Registries API Gateway Leverage BC Registries API Gateway 
+            Leverage BC Registries API Gateway 
             & Management Services to accelerate your digital transformation.
           </p>
 
