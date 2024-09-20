@@ -29,6 +29,7 @@ export default defineAppConfig({
       }
     },
     button: {
+      rounded: 'rounded',
       size: {
         bcGov: 'text-sm'
       },

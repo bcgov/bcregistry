@@ -1,5 +1,6 @@
 <script setup lang="ts">
 const keycloak = reactive(useKeycloak())
+const isSmallScreen = useMediaQuery('(max-width: 640px)')
 </script>
 <template>
   <header class="bg-white bg-no-repeat lg:h-[30rem] lg:bg-ppr-homebanner lg:bg-[length:836px] lg:bg-right-bottom xl:bg-[length:1010px] 2xl:h-[35rem] 2xl:bg-[length:1130px]">
@@ -11,31 +12,26 @@ const keycloak = reactive(useKeycloak())
           liens against personal property belonging to British Columbia businesses
           and individuals.
         </p>
-        <p>
-          As our online modernization initiative continues, refer to this page for
-          updates on ways to manage registration information.
-        </p>
-        <SbcAuthMenu :items="[]" :block="false" />
-        <div v-if="!keycloak.isAuthenticated" class="py-6">
+        <SbcAuthMenu v-if="!keycloak.isAuthenticated" :block="isSmallScreen" />
+        <div v-if="!keycloak.isAuthenticated" class="pt-6">
           <span>
             New to BC Registries?
             <a
-              href="something"
+              href="https://dev.account.bcregistry.gov.bc.ca/choose-authentication-method"
             >
-              <span>Create a BC Registries Account</span>
+              <span class="font-semibold text-[#1a5a96] underline">Create a BC Registries Account</span>
             </a>
           </span>
         </div>
 
-        <div v-if="keycloak.isAuthenticated" class="py-6">
-          <span>
-            <a
-              href="something"
-            >
-              Go to BC Registries Dashboard
-            </a>
-          </span>
-        </div>
+        <UButton
+          v-else
+          size="bcGov"
+          class="bg-bcGovColor-header font-semibold no-underline"
+          label="Go to BC Registries Dashboard"
+          :block="isSmallScreen"
+          to="https://www.bcregistry.gov.bc.ca/dashboard"
+        />
       </div>
     </div>
   </header>

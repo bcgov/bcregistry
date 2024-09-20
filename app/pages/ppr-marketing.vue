@@ -1,5 +1,7 @@
 <script setup lang="ts">
 const keycloak = reactive(useKeycloak())
+const { locale } = useI18n()
+const isSmallScreen = useMediaQuery('(max-width: 640px)')
 // import { SessionStorageKeys } from 'sbc-common-components/src/util/constants'
 // import { setLoginUrl, setLogoutUrl } from '@/utils'
 
@@ -71,6 +73,11 @@ const helpfulLinks = [
   }
 ]
 
+const { data: pprSections } = await useAsyncData(`ppr-sections-${locale.value}`, () => {
+  return queryContent().where({ _locale: locale.value, _path: { $contains: 'ppr/sections' } }).find()
+})
+
+watchEffect(() => console.log(pprSections.value))
 // computed: {
 //   isLoggedIn (): boolean {
 //     const token = sessionStorage.getItem(SessionStorageKeys.KeyCloakToken)
@@ -110,86 +117,12 @@ const helpfulLinks = [
 
     <div class="bg-white">
       <UContainer class="flex flex-col py-10 lg:py-24">
-        <div class="flex flex-col lg:h-[450px] lg:flex-row">
-          <div class="min-h-[340px] flex-1 bg-ppr-search bg-contain bg-center bg-no-repeat" />
-          <div class="prose prose-bcGov prose-li:list-[square] prose-li:m-0 prose-ul:pl-4 prose-h3:text-2xl my-auto min-w-full flex-1 grow px-4 py-8 text-left marker:text-bcGovGray-500 sm:px-6 lg:min-w-[50%]">
-            <h3>
-              Search for Registered Security Agreements and Liens
-            </h3>
-            <ul>
-              <li>
-                Search for legal claims on personal property as well as the people, businesses, and organizations associated with these claims.
-              </li>
-              <li>
-                Select registrations to download and view the secured parties, debtors, and collateral in each.
-              </li>
-              <li>
-                View and manage your search history.
-              </li>
-              <li>
-                Download copies of your Search Result Reports for your records or for use in court.
-              </li>
-            </ul>
-            <p class="italic">
-              Note: The Personal Property Registry includes interests in fixtures and crops (personal property attached to land), but does not include ownership and interests in real property (land). Find real property interests in the Land Title Surveyor Authority (LTSA) .
-            </p>
-          </div>
-        </div>
-
-        <div class="flex flex-col lg:h-[450px] lg:flex-row">
-          <div class="prose prose-bcGov prose-li:list-[square] prose-li:m-0 prose-ul:pl-4 prose-h3:text-2xl my-auto min-w-full flex-1 grow px-4 py-8 text-left marker:text-bcGovGray-500 sm:px-6 lg:min-w-[50%]">
-            <h3>
-              Get Detailed Search Result Reports
-            </h3>
-            <ul>
-              <li>
-                Get a detailed report containing the list of registrations that match your criteria.
-              </li>
-              <li>
-                See the current information and complete history of each registration in your report.
-              </li>
-              <li>
-                Easily find a particular registration in your report.
-              </li>
-              <li>
-                Use your Search Result Report as evidence of a claim, or lack of a claim, on personal property.
-              </li>
-            </ul>
-          </div>
-          <div class="min-h-[340px] flex-1 bg-ppr-reportpaper bg-contain bg-center bg-no-repeat" />
-        </div>
-
-        <div class="flex flex-col lg:h-[450px] lg:flex-row">
-          <div class="min-h-[340px] flex-1 bg-ppr-register bg-contain bg-center bg-no-repeat" />
-          <div class="prose prose-bcGov prose-li:list-[square] prose-li:m-0 prose-ul:pl-4 prose-h3:text-2xl my-auto min-w-full flex-1 grow px-4 py-8 text-left marker:text-bcGovGray-500 sm:px-6 lg:min-w-[50%]">
-            <h3>
-              Register Security Agreements and Liens
-            </h3>
-            <ul>
-              <li>
-                Register legal claims on personal property.
-              </li>
-              <li>
-                Look up Secured Parties based on a B.C. business name or incorporation number or enter them manually.
-              </li>
-              <li>
-                Save drafts of your financing statements before registering.
-              </li>
-              <li>
-                Review your registration for accuracy prior to payment.
-              </li>
-              <li>
-                Manage and find your draft and registered financing statements easily.
-              </li>
-              <li>
-                See if your registrations are due to expire or if they have been discharged.
-              </li>
-              <li>
-                Amend, Renew, or Discharge registrations.
-              </li>
-            </ul>
-          </div>
-        </div>
+        <PPRSection
+          v-for="(section, i) in pprSections"
+          :key="section._path"
+          :content="section"
+          :alternate="isSmallScreen ? false : i % 2 !== 0"
+        />
       </UContainer>
     </div>
 
@@ -230,7 +163,15 @@ const helpfulLinks = [
             </h4>
             <ul>
               <li>
-                It normally takes about 5 minutes to set up a mobile card .
+                <span>
+                  It normally takes about 5 minutes to
+                  <a
+                    href="https://dev.account.bcregistry.gov.bc.ca/choose-authentication-method"
+                  >
+                    <span class="text-[#1a5a96] underline">set up a mobile card</span>
+                    <UIcon name="i-mdi-open-in-new" class="ml-1 text-[#1a5a96]" />
+                  </a>
+                </span>
               </li>
               <li>
                 You can verify your identity by video right from your mobile device. You don't need to go in person unless you can't verify by video.
@@ -238,7 +179,26 @@ const helpfulLinks = [
             </ul>
           </div>
         </div>
-        <UButton variant="outline" label="Learn More" size="bcGov" class="font-semibold" />
+        <div class="flex flex-col justify-center gap-4 pt-6 sm:flex-row">
+          <ClientOnly>
+            <UButton
+              v-if="!keycloak.isAuthenticated"
+              label="Create a BC Registries Account"
+              size="bcGov"
+              class="bg-bcGovColor-footer font-semibold"
+              to="https://dev.account.bcregistry.gov.bc.ca/choose-authentication-method"
+              :block="isSmallScreen"
+            />
+          </ClientOnly>
+          <UButton
+            variant="outline"
+            label="Learn More"
+            size="bcGov"
+            class="font-semibold text-bcGovColor-footer"
+            to="https://www2.gov.bc.ca/gov/content/governments/government-id/bcservicescardapp"
+            :block="isSmallScreen"
+          />
+        </div>
       </UContainer>
     </div>
 

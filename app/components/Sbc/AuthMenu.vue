@@ -1,10 +1,38 @@
 <script setup lang="ts">
 import type { DropdownItem } from '#ui/types'
+const keycloak = reactive(useKeycloak())
+const { t } = useI18n()
 
 defineProps<{
   block: boolean
-  items: DropdownItem[][]
 }>()
+
+const items = computed<DropdownItem[][]>(() => [
+  [
+    {
+      label: 'n/a',
+      slot: 'method',
+      disabled: true
+    }
+  ],
+  [
+    {
+      label: t('label.bcsc'),
+      icon: 'i-mdi-account-card-details-outline',
+      click: () => keycloak.login(IdpHint.BCSC)
+    },
+    {
+      label: t('label.bceid'),
+      icon: 'i-mdi-two-factor-authentication',
+      click: () => keycloak.login(IdpHint.BCEID)
+    },
+    {
+      label: t('label.idir'),
+      icon: 'i-mdi-account-group-outline',
+      click: () => keycloak.login(IdpHint.IDIR)
+    }
+  ]
+])
 </script>
 <template>
   <UDropdown
@@ -24,7 +52,8 @@ defineProps<{
   >
     <!-- login button on large screens -->
     <UButton
-      class="rounded-md bg-bcGovColor-header px-6 py-3 font-semibold"
+      class="bg-bcGovColor-header font-semibold"
+      size="bcGov"
       label="Log in to my BC Registries Account"
       :block
       :aria-label="$t('label.selectLoginMethod')"
