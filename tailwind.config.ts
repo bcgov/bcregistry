@@ -5,7 +5,11 @@ module.exports = {
   theme: {
     extend: {
       backgroundImage: {
-        homebanner: "url('/img/BCReg_homebanner_images_final_80compressed_032521.jpg')"
+        homebanner: "url('/img/BCReg_homebanner_images_final_80compressed_032521.jpg')",
+        'ppr-homebanner': "url('/img/PPR_homebanner_image_v2_x2.jpg')",
+        'ppr-reportpaper': "url('/img/PPR_reportpaper_x2.jpg')",
+        'ppr-search': "url('/img/PPR_search_screenshot.png')",
+        'ppr-register': "url('/img/PPR_register_screenshot.png')"
       }
     }
   }

@@ -73,6 +73,11 @@ export default defineAppConfig({
       border: 'border-gray-500',
       label: 'text-base text-bcGovColor-midGray font-normal'
     },
+    container: {
+      base: 'mx-auto',
+      padding: 'px-4 sm:px-6 lg:px-8',
+      constrained: 'max-w-bcGovLg'
+    },
     divider: {
       border: {
         base: 'flex border-bcGovGray-500 dark:border-gray-300/50'
