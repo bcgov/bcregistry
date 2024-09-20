@@ -38,7 +38,7 @@ const homeItems = [
         :ui="{
           strategy: 'override',
           active: '',
-          label: 'font-semibold text-blue-500 underline text-base truncate relative',
+          label: 'font-semibold text-[#1a5a96] underline text-base truncate relative',
           inner: 'min-w-0 py-1 px-4 py-1 sm:px-6 md:px-10 lg:px-16',
           container: 'flex flex-wrap items-center min-w-0 divide-x divide-gray-300',
           base: 'group relative w-full flex items-center gap-1.5 rounded-md font-medium text-sm focus:outline-none focus-visible:outline-none dark:focus-visible:outline-none focus-visible:ring-inset focus-visible:ring-2 focus-visible:ring-primary-500 dark:focus-visible:ring-primary-400 disabled:cursor-not-allowed disabled:opacity-75'

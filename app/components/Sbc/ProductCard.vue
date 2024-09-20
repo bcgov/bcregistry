@@ -42,7 +42,7 @@ const hasLinkStyle = 'cursor-pointer transition-transform focus-within:-translat
       <ContentRenderer :value="content" />
     </div>
     <div v-if="content?.link" class="px-4 sm:px-6 pb-4 text-left">
-      <span class="flex flex-wrap items-center font-semibold tracking-wide text-blue-500 underline dark:text-white">
+      <span class="flex flex-wrap items-center font-semibold tracking-wide text-[#1a5a96] underline dark:text-white">
         <span>
           {{ content?.link?.label }}
           <span class="inline-flex align-middle">

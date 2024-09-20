@@ -13,7 +13,7 @@
           updates on ways to manage registration information.
         </p>
         <p>
-          For up-to-date data analytics on our products and services, <a class="text-blue-600 underline" href="https://www.analytics.bcregistry.gov.bc.ca/">visit our BC Registries
+          For up-to-date data analytics on our products and services, <a class="font-semibold text-[#1a5a96] underline" href="https://www.analytics.bcregistry.gov.bc.ca/">visit our BC Registries
             Statistics and Insights page</a>.
         </p>
       </div>

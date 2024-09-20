@@ -14,7 +14,7 @@ const { data: cards } = await useAsyncData(`${props.path}-cards-${locale.value}`
     <div class="px-2">
       <slot name="header" />
     </div>
-    <ul class="m-0 mx-auto flex list-none flex-wrap justify-center gap-8 px-2 py-4">
+    <ul class="m-0 mx-auto flex list-none flex-wrap justify-center gap-8 px-2 pb-10 pt-6">
       <SbcProductCard
         v-for="card in cards"
         :key="card._path"

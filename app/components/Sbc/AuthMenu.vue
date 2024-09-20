@@ -1,43 +1,14 @@
 <script setup lang="ts">
-import type { DropdownItem } from '#ui/types'
-const keycloak = reactive(useKeycloak())
-const { t } = useI18n()
+const connectNav = reactive(useConnectNav())
 
 defineProps<{
   block: boolean
 }>()
-
-const items = computed<DropdownItem[][]>(() => [
-  [
-    {
-      label: 'n/a',
-      slot: 'method',
-      disabled: true
-    }
-  ],
-  [
-    {
-      label: t('label.bcsc'),
-      icon: 'i-mdi-account-card-details-outline',
-      click: () => keycloak.login(IdpHint.BCSC)
-    },
-    {
-      label: t('label.bceid'),
-      icon: 'i-mdi-two-factor-authentication',
-      click: () => keycloak.login(IdpHint.BCEID)
-    },
-    {
-      label: t('label.idir'),
-      icon: 'i-mdi-account-group-outline',
-      click: () => keycloak.login(IdpHint.IDIR)
-    }
-  ]
-])
 </script>
 <template>
   <UDropdown
     id="logged-out-options-dropdown"
-    :items
+    :items="connectNav.loggedOutUserOptions"
     :ui="{
       item: {
         base: 'group flex items-center gap-4 w-full',

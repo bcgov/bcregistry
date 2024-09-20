@@ -39,7 +39,7 @@ const items = computed<DropdownItem[][]>(() => [
       <UButton
         :block="isSmallScreen"
         size="bcGov"
-        class="bg-bcGovColor-header font-semibold no-underline"
+        class="font-semibold text-bcGovColor-footer no-underline"
         label="Create a BC Registries Account"
         variant="outline"
         to="https://www.account.bcregistry.gov.bc.ca"
