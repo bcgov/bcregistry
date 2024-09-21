@@ -1,6 +1,7 @@
 <script setup lang="ts">
-const MAILTO_HREF = ''
-const BCROS_HREF = ''
+const MAILTO_HREF = 'mailto:bcregistries@gov.bc.ca?subject=BC%20Registries%20Support%20Request'
+const BCROS_HREF = 'https://www2.gov.bc.ca/gov/content/governments/organizational-structure/' +
+  'ministries-organizations/ministries/citizens-services/bc-registries-online-services'
 </script>
 <template>
   <div class="w-full bg-bcGovColor-footer p-4 text-white sm:py-9">

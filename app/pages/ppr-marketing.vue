@@ -2,6 +2,7 @@
 const keycloak = reactive(useKeycloak())
 const { locale } = useI18n()
 const isSmallScreen = useMediaQuery('(max-width: 640px)')
+const config = useRuntimeConfig()
 // import { SessionStorageKeys } from 'sbc-common-components/src/util/constants'
 // import { setLoginUrl, setLogoutUrl } from '@/utils'
 
@@ -13,9 +14,6 @@ definePageMeta({
   order: 0,
   layout: 'bcreghome'
 })
-
-const PPR_HREF = 'https://www2.gov.bc.ca/gov/content/employment-business/business/managing-a-business/bc-registry-services-personal-property-registry'
-const VEH_HIST_RPTS_HREF = 'https://www.icbc.com/vehicle-registration/buy-vehicle/buy-a-used-vehicle/Pages/Vehicle-history-reports.aspx'
 
 const featureCards = [
   {
@@ -76,8 +74,6 @@ const helpfulLinks = [
 const { data: pprSections } = await useAsyncData(`ppr-sections-${locale.value}`, () => {
   return queryContent().where({ _locale: locale.value, _path: { $contains: 'ppr/sections' } }).find()
 })
-
-watchEffect(() => console.log(pprSections.value))
 // computed: {
 //   isLoggedIn (): boolean {
 //     const token = sessionStorage.getItem(SessionStorageKeys.KeyCloakToken)
@@ -166,7 +162,8 @@ watchEffect(() => console.log(pprSections.value))
                 <span>
                   It normally takes about 5 minutes to
                   <a
-                    href="https://dev.account.bcregistry.gov.bc.ca/choose-authentication-method"
+                    :href="config.public.setupBCSCURL"
+                    target="_blank"
                   >
                     <span class="text-[#1a5a96] underline">set up a mobile card</span>
                     <UIcon name="i-mdi-open-in-new" class="ml-1 text-[#1a5a96]" />
@@ -186,7 +183,7 @@ watchEffect(() => console.log(pprSections.value))
               label="Create a BC Registries Account"
               size="bcGov"
               class="bg-bcGovColor-footer font-semibold"
-              to="https://dev.account.bcregistry.gov.bc.ca/choose-authentication-method"
+              :to="config.public.authWebURL + 'choose-authentication-method'"
               :block="isSmallScreen"
             />
           </ClientOnly>
@@ -195,7 +192,7 @@ watchEffect(() => console.log(pprSections.value))
             label="Learn More"
             size="bcGov"
             class="font-semibold text-bcGovColor-footer"
-            to="https://www2.gov.bc.ca/gov/content/governments/government-id/bcservicescardapp"
+            :to="config.public.setupBCSCURL"
             :block="isSmallScreen"
           />
         </div>

@@ -106,7 +106,7 @@ export default defineNuxtConfig({
   runtimeConfig: {
     public: {
       // Keys within public, will be also exposed to the client-side
-      baseUrl: process.env.NUXT_BASE_URL,
+      baseURL: process.env.NUXT_BASE_URL,
       environment: process.env.NUXT_ENVIRONMENT_HEADER || '',
       version: `BCROS UI v${process.env.npm_package_version || ''}`,
       addressChangeURL: process.env.NUXT_ADDRESSCHANGE_URL,
@@ -136,7 +136,8 @@ export default defineNuxtConfig({
       statusAPIURL: `${process.env.NUXT_STATUS_API_URL}${process.env.NUXT_STATUS_API_VERSION}`,
       willsLearnMoreURL: process.env.NUXT_WILLS_LEARN_MORE_URL,
       willsURL: process.env.NUXT_WILLS_URL,
-      supportFilingUrl: process.env.NUXT_SUPPORT_FILING_URL
+      supportFilingUrl: process.env.NUXT_SUPPORT_FILING_URL,
+      setupBCSCURL: process.env.NUXT_SETUP_BCSC_URL
     }
   },
 

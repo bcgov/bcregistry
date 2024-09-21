@@ -6,6 +6,6 @@ const isSmallScreen = useMediaQuery('(max-width: 640px)')
     class="rounded-md bg-bcGovColor-header px-6 py-3 font-semibold no-underline"
     label="Log in to my BC OnLine Account"
     :block="isSmallScreen"
-    to="https://www.bconline.gov.bc.ca/"
+    :to="useRuntimeConfig().public.bcolURL"
   />
 </template>
