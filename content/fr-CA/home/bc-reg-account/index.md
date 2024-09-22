@@ -1,6 +1,6 @@
 ::LandingSection{path="home/bc-reg-account"}
 #header
-## BC Registries Account FRENCH
+## BC Registries Account
 
 As we work to modernize our digital registries services, features from other account types are gradually being moved to the new BC Registries account system.
 

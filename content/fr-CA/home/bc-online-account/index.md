@@ -1,6 +1,6 @@
 ::LandingSection{path="home/bc-online-account"}
 #header
-## BC OnLine Account FRENCH
+## BC OnLine Account
 
 BC OnLine provides convenient online access to government information products, filings and registrations for private and public sector business customers.
 

@@ -3,8 +3,11 @@ name: Business BCeID
 badge:
 link:
   label: Go to BCeID
-  target: 'blank'
-  href: https://www.bceid.ca/register/basic/account_details.aspx?type=regular
+  target: _blank
+  href: 
+  key: bceidURL
+  appendAccountId: false
+  locale: false
 ---
 
 Provides you secure online access to services that accept Business BCeID. It proves who you are and which business you're associated with.

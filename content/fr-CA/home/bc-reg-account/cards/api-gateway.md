@@ -4,7 +4,10 @@ badge:
 link: 
   label: Go to the API Gateway
   target: '_blank'
-  href: 'regApiGatewayURL' # match runtime config
+  href: 
+  key: regApiGatewayURL
+  appendAccountId: false
+  locale: false
 ---
 
 Leverage the API Gateway & Management Services to accelerate your digital transformation.
