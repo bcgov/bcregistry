@@ -2,9 +2,12 @@
 name: OrgBook BC
 badge: 
 link:
-  label: 'Go to OrgBook BC'
-  target: 'blank'
-  href: https://orgbook.gov.bc.ca/search
+  label: Go to OrgBook BC
+  target: _blank
+  href: 
+  key: orgBookURL
+  appendAccountId: false
+  locale: false
 ---
 
 OrgBook BC provides verified data about organizations including:
