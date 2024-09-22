@@ -137,7 +137,8 @@ export default defineNuxtConfig({
       willsLearnMoreURL: process.env.NUXT_WILLS_LEARN_MORE_URL,
       willsURL: process.env.NUXT_WILLS_URL,
       supportFilingUrl: process.env.NUXT_SUPPORT_FILING_URL,
-      setupBCSCURL: process.env.NUXT_SETUP_BCSC_URL
+      setupBCSCURL: process.env.NUXT_SETUP_BCSC_URL,
+      pprMarketingURL: `${process.env.NUXT_BASE_URL}ppr-marketing`
     }
   },
 

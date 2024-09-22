@@ -21,7 +21,6 @@ defineProps<{
       }
     }"
   >
-    <!-- login button on large screens -->
     <UButton
       class="bg-bcGovColor-header font-semibold"
       size="bcGov"

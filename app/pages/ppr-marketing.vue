@@ -3,8 +3,6 @@ const keycloak = reactive(useKeycloak())
 const { locale } = useI18n()
 const isSmallScreen = useMediaQuery('(max-width: 640px)')
 const config = useRuntimeConfig()
-// import { SessionStorageKeys } from 'sbc-common-components/src/util/constants'
-// import { setLoginUrl, setLogoutUrl } from '@/utils'
 
 useHead({
   title: 'BC Personal Property Registry'
@@ -66,7 +64,7 @@ const helpfulLinks = [
     link: {
       label: 'Contact Dye & Durham',
       target: '_blank',
-      href: 'https://www.icbc.com/vehicle-registration/buy-vehicle/buy-a-used-vehicle/Vehicle-history-reports'
+      href: 'https://dyedurham.com/'
     }
   }
 ]
@@ -74,17 +72,6 @@ const helpfulLinks = [
 const { data: pprSections } = await useAsyncData(`ppr-sections-${locale.value}`, () => {
   return queryContent().where({ _locale: locale.value, _path: { $contains: 'ppr/sections' } }).find()
 })
-// computed: {
-//   isLoggedIn (): boolean {
-//     const token = sessionStorage.getItem(SessionStorageKeys.KeyCloakToken)
-//     return !!token
-//   },
-// },
-// mounted () {
-//   // if user logs in from this page, go to dashboard
-//   setLoginUrl(this.$config.registryDashboard)
-//   // if user logs out from this page, return here
-//   setLogoutUrl(this.$config.registryPprMarketing)
 </script>
 <template>
   <div>

@@ -3,8 +3,11 @@ name: Business Search
 badge:
 link: 
   label: Learn more about Business Search
-  target: blank
-  href: https://www.names.bcregistry.gov.bc.ca/
+  target: _blank
+  href: 
+  key: busSrchLearnMoreURL
+  appendAccountId: false
+  locale: false
 ---
 
 Search for businesses registered in B.C. and request copies of business documents.
