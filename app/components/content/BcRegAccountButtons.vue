@@ -38,7 +38,8 @@ const items = computed<DropdownItem[][]>(() => [
       <SbcAuthMenu :items :block="isSmallScreen" />
       <UButton
         :block="isSmallScreen"
-        class="rounded-md px-6 py-3 font-semibold text-bcGovColor-header no-underline"
+        size="bcGov"
+        class="font-semibold text-bcGovColor-footer no-underline"
         label="Create a BC Registries Account"
         variant="outline"
         to="https://www.account.bcregistry.gov.bc.ca"
@@ -46,7 +47,8 @@ const items = computed<DropdownItem[][]>(() => [
     </div>
     <UButton
       v-else
-      class="rounded-md bg-bcGovColor-header px-6 py-3 font-semibold no-underline"
+      size="bcGov"
+      class="bg-bcGovColor-header font-semibold no-underline"
       label="Go to BC Registries Dashboard"
       :block="isSmallScreen"
       to="https://www.bcregistry.gov.bc.ca/dashboard"

@@ -1,15 +1,14 @@
 <script setup lang="ts">
-import type { DropdownItem } from '#ui/types'
+const connectNav = reactive(useConnectNav())
 
 defineProps<{
   block: boolean
-  items: DropdownItem[][]
 }>()
 </script>
 <template>
   <UDropdown
     id="logged-out-options-dropdown"
-    :items
+    :items="connectNav.loggedOutUserOptions"
     :ui="{
       item: {
         base: 'group flex items-center gap-4 w-full',
@@ -24,7 +23,8 @@ defineProps<{
   >
     <!-- login button on large screens -->
     <UButton
-      class="rounded-md bg-bcGovColor-header px-6 py-3 font-semibold"
+      class="bg-bcGovColor-header font-semibold"
+      size="bcGov"
       label="Log in to my BC Registries Account"
       :block
       :aria-label="$t('label.selectLoginMethod')"

@@ -29,6 +29,7 @@ export default defineAppConfig({
       }
     },
     button: {
+      rounded: 'rounded',
       size: {
         bcGov: 'text-sm'
       },
@@ -72,6 +73,11 @@ export default defineAppConfig({
       base: 'mt-1 mr-2',
       border: 'border-gray-500',
       label: 'text-base text-bcGovColor-midGray font-normal'
+    },
+    container: {
+      base: 'mx-auto',
+      padding: 'px-4 sm:px-6 lg:px-8',
+      constrained: 'max-w-bcGovLg'
     },
     divider: {
       border: {

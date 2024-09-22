@@ -29,11 +29,11 @@ function resolvePath () {
 
 <template>
   <span>
-    <a class="text-blue-500 underline" :target :download :href="resolvePath()">
+    <a class="text-[#1a5a96] underline" :target :download :href="resolvePath()">
       <slot />
     </a>
     <span v-if="target === '_blank'" class="ml-1 inline-flex pb-1 align-middle">
-      <UIcon name="i-mdi-open-in-new" class="size-4 shrink-0 text-blue-500" />
+      <UIcon name="i-mdi-open-in-new" class="size-4 shrink-0 text-[#1a5a96]" />
     </span>
   </span>
 </template>
