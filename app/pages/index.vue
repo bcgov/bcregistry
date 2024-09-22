@@ -25,16 +25,16 @@ const homeItems = [
         class="text-lg font-semibold text-bcGovColor-darkGray"
         aria-hidden="true"
       >
-        Explore services by account type:
+        {{ $t('page.home.exploreByAccountType.title') }}
       </span>
       <UHorizontalNavigation
-        aria-label="Explore services by account type:"
+        :aria-label="$t('page.home.exploreByAccountType.title')"
         class="mx-auto"
         :links="[
-          { label: 'BC Registries Account', to: localePath('/#bc-registries-account') },
-          { label: 'BC OnLine Account', to: localePath('/#bc-online-account') },
-          { label: 'Individual / Direct Accounts', to: localePath('/#individual-direct-accounts') },
-          { label: 'Account Not Required', to: localePath('/#account-not-required') },
+          { label: $t('page.home.exploreByAccountType.bcRegAccount'), to: localePath('/#bc-registries-account') },
+          { label: $t('page.home.exploreByAccountType.bcOLAccount'), to: localePath('/#bc-online-account') },
+          { label: $t('page.home.exploreByAccountType.directAccount'), to: localePath('/#individual-direct-accounts') },
+          { label: $t('page.home.exploreByAccountType.noAccount'), to: localePath('/#account-not-required') },
         ]"
         :ui="{
           strategy: 'override',

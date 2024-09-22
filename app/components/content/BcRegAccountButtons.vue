@@ -11,7 +11,7 @@ const localePath = useLocalePath()
         :block="isSmallScreen"
         size="bcGov"
         class="font-semibold text-bcGovColor-footer no-underline"
-        label="Create a BC Registries Account"
+        :label="$t('btn.createRegAccount')"
         variant="outline"
         :to="useRuntimeConfig().public.regAccountCreateURL"
       />
@@ -20,7 +20,7 @@ const localePath = useLocalePath()
       v-else
       size="bcGov"
       class="bg-bcGovColor-header font-semibold no-underline"
-      label="Go to BC Registries Dashboard"
+      :label="$t('btn.goToBRD')"
       :block="isSmallScreen"
       :to="localePath('/dashboard')"
     />
