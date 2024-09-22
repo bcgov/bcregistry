@@ -3,8 +3,11 @@ name: Court Services Online (CSO)
 badge: NEW 
 link: 
   label: Learn more about Court Services Online
-  target: blank
-  href: https://www.names.bcregistry.gov.bc.ca/
+  target: _blank
+  href: 
+  key: csoLearnMoreURL
+  appendAccountId: false
+  locale: false
 ---
 
 Court Services Online is British Columbia's electronic court registry. Here you can:

@@ -2,11 +2,11 @@
 const keycloak = reactive(useKeycloak())
 const { locale } = useI18n()
 const isSmallScreen = useMediaQuery('(max-width: 640px)')
-// import { SessionStorageKeys } from 'sbc-common-components/src/util/constants'
-// import { setLoginUrl, setLogoutUrl } from '@/utils'
+const config = useRuntimeConfig()
+const { t } = useI18n()
 
 useHead({
-  title: 'BC Personal Property Registry'
+  title: t('page.ppr.title')
 })
 
 definePageMeta({
@@ -14,61 +14,58 @@ definePageMeta({
   layout: 'bcreghome'
 })
 
-const PPR_HREF = 'https://www2.gov.bc.ca/gov/content/employment-business/business/managing-a-business/bc-registry-services-personal-property-registry'
-const VEH_HIST_RPTS_HREF = 'https://www.icbc.com/vehicle-registration/buy-vehicle/buy-a-used-vehicle/Pages/Vehicle-history-reports.aspx'
-
 const featureCards = [
   {
     src: '/svgs/table-search.svg',
-    title: 'User Friendly Tools',
-    description: 'A new, easy-to-use application that offers improved searching and registering.'
+    title: t('page.ppr.section.features.cards.search.title'),
+    description: t('page.ppr.section.features.cards.search.description')
   },
   {
     src: '/svgs/monitor-dashboard.svg',
-    title: 'Organized Records',
-    description: 'Registrations, searches and downloadable documents are saved to your dashboard.'
+    title: t('page.ppr.section.features.cards.records.title'),
+    description: t('page.ppr.section.features.cards.records.description')
   },
   {
     src: '/svgs/account-circle.svg',
-    title: 'Account Integration',
-    description: 'Access to all of your BC Registries products and services from one location.'
+    title: t('page.ppr.section.features.cards.account.title'),
+    description: t('page.ppr.section.features.cards.account.description')
   },
   {
     src: '/svgs/table-key.svg',
-    title: 'API Services',
-    description: 'Are you a high-volume account user? Ask about our Personal Property Registry APIs.'
+    title: t('page.ppr.section.features.cards.api.title'),
+    description: t('page.ppr.section.features.cards.api.description')
   }
 ]
 
 const helpfulLinks = [
   {
-    title: 'More Information',
+    title: t('page.ppr.section.helpfulLinks.cards.moreInfo.title'),
     src: '/svgs/file-document-box-search-icon.svg',
-    description: 'Find detailed information about the Personal Property Registry.',
+    description: t('page.ppr.section.helpfulLinks.cards.moreInfo.description'),
     link: {
-      label: 'Learn More',
+      label: t('page.ppr.section.helpfulLinks.cards.moreInfo.link'),
       target: '_blank',
       href: 'https://www2.gov.bc.ca/gov/content/employment-business/business/managing-a-business/bc-registry-services-personal-property-registry'
     }
   },
   {
-    title: 'VEHICLE CLAIMS REPORT',
+    title: t('page.ppr.section.helpfulLinks.cards.vehicle.title'),
     src: '/svgs/vehicle-claim-icon.svg',
-    description: 'Vehicle claim history reports are available from ICBC and Carfax.',
+    description: t('page.ppr.section.helpfulLinks.cards.vehicle.description'),
     link: {
-      label: 'Order a Report',
+      label: t('page.ppr.section.helpfulLinks.cards.vehicle.link'),
       target: '_blank',
       href: 'https://www.icbc.com/vehicle-registration/buy-vehicle/buy-a-used-vehicle/Vehicle-history-reports'
     }
   },
   {
-    title: 'Legal Services',
+    title: t('page.ppr.section.helpfulLinks.cards.legal.title'),
     src: '/svgs/legal-services-icon.svg',
-    description: 'Get professional support filling out forms and filling documents.',
+    description: t('page.ppr.section.helpfulLinks.cards.legal.description'),
     link: {
-      label: 'Contact Dye & Durham',
+      label: t('page.ppr.section.helpfulLinks.cards.legal.link'),
       target: '_blank',
-      href: 'https://www.icbc.com/vehicle-registration/buy-vehicle/buy-a-used-vehicle/Vehicle-history-reports'
+      href: 'https://dyedurham.com/'
     }
   }
 ]
@@ -76,19 +73,6 @@ const helpfulLinks = [
 const { data: pprSections } = await useAsyncData(`ppr-sections-${locale.value}`, () => {
   return queryContent().where({ _locale: locale.value, _path: { $contains: 'ppr/sections' } }).find()
 })
-
-watchEffect(() => console.log(pprSections.value))
-// computed: {
-//   isLoggedIn (): boolean {
-//     const token = sessionStorage.getItem(SessionStorageKeys.KeyCloakToken)
-//     return !!token
-//   },
-// },
-// mounted () {
-//   // if user logs in from this page, go to dashboard
-//   setLoginUrl(this.$config.registryDashboard)
-//   // if user logs out from this page, return here
-//   setLogoutUrl(this.$config.registryPprMarketing)
 </script>
 <template>
   <div>
@@ -96,12 +80,11 @@ watchEffect(() => console.log(pprSections.value))
 
     <UContainer class="space-y-4 bg-gray-100 py-8 text-center lg:space-y-8 lg:py-20">
       <h2 class="text-3xl font-semibold text-bcGovColor-darkGray">
-        A Modern Personal Property Registry for B.C.
+        {{ $t('page.ppr.section.features.title') }}
       </h2>
 
       <p class="text-bcGovColor-midGray">
-        The Personal Property Registry is now one of BC Registries and Online
-        Services' new modernized applications.
+        {{ $t('page.ppr.section.features.description') }}
       </p>
 
       <ul class="flex flex-col gap-4 md:flex-row">
@@ -129,10 +112,10 @@ watchEffect(() => console.log(pprSections.value))
     <div class="bg-gray-100">
       <UContainer class="space-y-10 py-10 text-center lg:py-24">
         <h3 class="text-2xl font-semibold">
-          Helpful Links
+          {{ $t('page.ppr.section.helpfulLinks.title') }}
         </h3>
         <ul class="flex flex-wrap justify-center gap-6">
-          <PPRLinkCard v-for="item in helpfulLinks" :key="item.link" v-bind="item" />
+          <PPRLinkCard v-for="item in helpfulLinks" :key="item.link.href" v-bind="item" />
         </ul>
       </UContainer>
     </div>
@@ -140,41 +123,38 @@ watchEffect(() => console.log(pprSections.value))
     <div class="bg-white">
       <UContainer class="space-y-6 py-10 text-center lg:py-24">
         <h3 class="text-3xl font-semibold">
-          Create an Account to Get Started
+          {{ $t('page.ppr.section.createAccount.title') }}
         </h3>
-        <p>Log in securely using your mobile BC Services Card, government's trusted way to access online services.</p>
+        <p>{{ $t('page.ppr.section.createAccount.description') }}</p>
         <div class="flex flex-col gap-4 lg:flex-row">
           <div class="prose prose-bcGov prose-li:list-[square] prose-li:m-0 prose-ul:pl-4 prose-h3:text-2xl prose-h4:text-2xl my-auto min-w-full flex-1 grow px-4 text-left marker:text-bcGovGray-500 sm:px-6 lg:min-w-[50%]">
             <h4>
-              It's Secure
+              {{ $t('page.ppr.section.createAccount.list.1.title') }}
             </h4>
             <ul>
               <li>
-                A mobile card is a representation of your BC Services Card on your mobile device. It's used to prove who you are when you log in to access government services online.
+                {{ $t('page.ppr.section.createAccount.list.1.li1') }}
               </li>
               <li>
-                Only your name and a unique identifier is stored on the mobile device.
+                {{ $t('page.ppr.section.createAccount.list.1.li2') }}
               </li>
             </ul>
           </div>
           <div class="prose prose-bcGov prose-li:list-[square] prose-li:m-0 prose-ul:pl-4 prose-h3:text-2xl prose-h4:text-2xl my-auto min-w-full flex-1 grow px-4 text-left marker:text-bcGovGray-500 sm:px-6 lg:min-w-[50%]">
             <h4>
-              It's Quick and Easy
+              {{ $t('page.ppr.section.createAccount.list.2.title') }}
             </h4>
             <ul>
-              <li>
-                <span>
-                  It normally takes about 5 minutes to
-                  <a
-                    href="https://dev.account.bcregistry.gov.bc.ca/choose-authentication-method"
-                  >
-                    <span class="text-[#1a5a96] underline">set up a mobile card</span>
-                    <UIcon name="i-mdi-open-in-new" class="ml-1 text-[#1a5a96]" />
+              <i18n-t keypath="page.ppr.section.createAccount.list.2.li1.text" tag="li" scope="global">
+                <template #link>
+                  <a class="text-[#1a5a96] underline" target="_blank" :href="config.public.setupBCSCURL">
+                    {{ $t('page.ppr.section.createAccount.list.2.li1.link') }}
                   </a>
-                </span>
-              </li>
+                  <UIcon name="i-mdi-open-in-new" class="ml-1 text-[#1a5a96]" />
+                </template>
+              </i18n-t>
               <li>
-                You can verify your identity by video right from your mobile device. You don't need to go in person unless you can't verify by video.
+                {{ $t('page.ppr.section.createAccount.list.2.li2') }}
               </li>
             </ul>
           </div>
@@ -183,19 +163,19 @@ watchEffect(() => console.log(pprSections.value))
           <ClientOnly>
             <UButton
               v-if="!keycloak.isAuthenticated"
-              label="Create a BC Registries Account"
+              :label="$t('btn.createRegAccount')"
               size="bcGov"
               class="bg-bcGovColor-footer font-semibold"
-              to="https://dev.account.bcregistry.gov.bc.ca/choose-authentication-method"
+              :to="config.public.authWebURL + 'choose-authentication-method'"
               :block="isSmallScreen"
             />
           </ClientOnly>
           <UButton
             variant="outline"
-            label="Learn More"
+            :label="$t('btn.learnMore')"
             size="bcGov"
             class="font-semibold text-bcGovColor-footer"
-            to="https://www2.gov.bc.ca/gov/content/governments/government-id/bcservicescardapp"
+            :to="config.public.setupBCSCURL"
             :block="isSmallScreen"
           />
         </div>

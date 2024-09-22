@@ -3,8 +3,11 @@ name: Personal Property Registry
 badge:
 link: 
   label: Go to Personal Property Registry
-  target: blank
-  href: https://www.bcregistry.gov.bc.ca/ppr-marketing/
+  target: _blank
+  href: 'ppr-marketing' 
+  key:
+  appendAccountId: false
+  locale: true
 ---
 
 Record security interests and liens against personal property belonging to British Columbia businesses and individuals. Here you can:

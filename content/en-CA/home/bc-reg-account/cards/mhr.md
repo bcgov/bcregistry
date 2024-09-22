@@ -3,8 +3,11 @@ name: Manufactured Home Registry
 badge:
 link: 
   label: Learn more about Manufactured Home Registry
-  target: blank
-  href: https://www.bcregistry.gov.bc.ca/ppr-marketing/
+  target: _blank
+  href:
+  key: mhrLearnMoreURL
+  appendAccountId: false
+  locale: false
 ---
 
 In the Manufactured Home Registry, you are able to:

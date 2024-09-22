@@ -4,8 +4,8 @@ const isSmallScreen = useMediaQuery('(max-width: 640px)')
 <template>
   <UButton
     class="rounded-md bg-bcGovColor-header px-6 py-3 font-semibold no-underline"
-    label="Log in to my BC OnLine Account"
+    :label="$t('btn.loginBCOL')"
     :block="isSmallScreen"
-    to="https://www.bconline.gov.bc.ca/"
+    :to="useRuntimeConfig().public.bcolURL"
   />
 </template>

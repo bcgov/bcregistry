@@ -2,9 +2,12 @@
 name: Name Requests
 badge:
 link:
-  label: Go to Name Requests
-  target: 'blank'
-  href: https://www.names.bcregistry.gov.bc.ca/
+  label: Go to Name Request
+  target: _blank
+  href: 
+  key: nameRequestURL
+  appendAccountId: false
+  locale: false
 ---
 
 Research and request a name for your new or existing B.C. business.

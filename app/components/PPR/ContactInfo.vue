@@ -9,41 +9,40 @@ const MAILTO_HREF = 'mailto:bcolhelp@gov.bc.ca?subject=Personal%20Property%20Reg
     <div class="mx-auto flex max-w-bcGovLg flex-col gap-4 md:flex-row">
       <div class="flex-1">
         <h3 class="border-b border-blue-300 py-2 text-center text-xl font-semibold sm:text-left">
-          Need more information?
+          {{ $t('labels.needMoreInfo') }}
         </h3>
-        <p class="py-6">
-          To learn more about Personal Property Registration in British Columbia, please
-          <a
-            :href="PPR_HREF"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            <span class="underline">visit the Personal Property Information page.</span>
-          </a>
-          <UIcon name="i-mdi-open-in-new" class="ml-1 size-5 align-middle" />
-        </p>
+        <i18n-t keypath="contactInfo.ppr.moreInfo.link.p" tag="p" scope="global" class="py-6 text-white">
+          <template #link>
+            <a class="text-white underline" target="_blank" :href="PPR_HREF" rel="noopener noreferrer">
+              {{ $t('contactInfo.ppr.moreInfo.link.link') }}
+            </a>
+            <span class="ml-1 inline-flex pb-1 align-middle">
+              <UIcon name="i-mdi-open-in-new" class="size-4 shrink-0 text-white" />
+            </span>
+          </template>
+        </i18n-t>
       </div>
       <div class="flex-1 md:max-w-md lg:max-w-lg">
         <h3 class="border-b border-blue-300 py-2 text-center text-xl font-semibold sm:text-left">
-          Contact Us
+          {{ $t('labels.contactUs') }}
         </h3>
         <div class="space-y-7 py-6 pb-0 sm:pb-6">
           <p>
-            For support or questions about this application, contact us at:
+            {{ $t('contactInfo.ppr.support') }}
           </p>
           <ul class="space-y-1">
             <li>
-              <span>Toll Free: <a class="underline" href="tel:+1-877-526-1526">1-877-526-1526</a></span>
+              <span> {{ $t('contactInfo.bcRegGeneral.tollFree.title') }} <a class="underline" href="tel:+1-877-526-1526">1-877-526-1526</a></span>
             </li>
             <li>
-              <span>Email: <a class="underline" :href="MAILTO_HREF">bcolhelp@gov.bc.ca</a></span>
+              <span> {{ $t('contactInfo.bcRegGeneral.email.title') }} <a class="underline" :href="MAILTO_HREF">bcolhelp@gov.bc.ca</a></span>
             </li>
           </ul>
 
           <p>
-            <strong>Hours of Operation:</strong>
+            <strong>{{ $t('contactInfo.bcRegGeneral.hours.title') }}</strong>
             <br>
-            Monday to Friday, 8:30am - 4:30pm Pacific time
+            {{ $t('contactInfo.bcRegGeneral.hours.value') }}
           </p>
         </div>
       </div>

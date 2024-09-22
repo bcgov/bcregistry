@@ -1,15 +1,39 @@
 <script setup lang="ts">
 import type { ParsedContent } from '@nuxt/content'
-// const localePath = useLocalePath()
+const config = useRuntimeConfig()
+const accountStore = useConnectAccountStore()
+const localePath = useLocalePath()
 const props = defineProps<{
   content: ParsedContent | undefined
 }>()
 
+function resolvePath () {
+  const link = props.content?.link
+  if (!link) { return '' } // return early if no link
+
+  let path = link.href || config.public[link.key] || '' // resolve href or key from config
+
+  // append account id if required
+  if (link.appendAccountId && accountStore.currentAccount?.id) {
+    const accountId = accountStore.currentAccount.id
+    path += `?accountid=${accountId}`
+  }
+
+  // resolve locale path if required
+  if (link.locale) {
+    path = localePath(path)
+  }
+
+  return path
+}
+
 function goToItem () {
-  if (props.content?.link !== undefined) {
-    return navigateTo(props.content?.link?.href, {
+  const link = props.content?.link
+  if (resolvePath()) {
+    return navigateTo(resolvePath(), {
+      external: true,
       open: {
-        target: props.content?.link?.target === 'blank' ? '_blank' : '_self'
+        target: link.target
       }
     })
   }
@@ -29,7 +53,8 @@ const hasLinkStyle = 'cursor-pointer transition-transform focus-within:-translat
     <div class="z-0 relative flex w-[105%] -ml-2 items-center bg-blue-350 px-4 py-3.5 font-semibold tracking-wide text-white lg:px-7 dark:border-b dark:border-gray-300/50 dark:bg-bcGovColor-darkGray">
       <a
         v-if="content?.link"
-        :href="content?.link?.href"
+        :href="resolvePath()"
+        :target="content?.link?.target"
         class="text-left font-semibold text-white no-underline focus:outline-none"
         :class="{ 'w-4/5': content?.badge }"
       >
@@ -47,7 +72,7 @@ const hasLinkStyle = 'cursor-pointer transition-transform focus-within:-translat
           {{ content?.link?.label }}
           <span class="inline-flex align-middle">
             <UIcon
-              :name="content?.link?.target === 'blank' ? 'i-mdi-open-in-new' : 'i-mdi-arrow-right-thin'"
+              :name="content?.link?.target === '_blank' ? 'i-mdi-open-in-new' : 'i-mdi-arrow-right-thin'"
               class="ml-1 size-5"
             />
           </span>

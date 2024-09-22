@@ -10,6 +10,7 @@ defineProps<{
     id="logged-out-options-dropdown"
     :items="connectNav.loggedOutUserOptions"
     :ui="{
+      width: 'min-w-fit',
       item: {
         base: 'group flex items-center gap-4 w-full',
         disabled: 'cursor-default opacity-100',
@@ -21,19 +22,17 @@ defineProps<{
       }
     }"
   >
-    <!-- login button on large screens -->
     <UButton
       class="bg-bcGovColor-header font-semibold"
       size="bcGov"
-      label="Log in to my BC Registries Account"
+      :label="$t('btn.loginBCREGAccount')"
       :block
-      :aria-label="$t('label.selectLoginMethod')"
       icon="i-mdi-caret-down"
       trailing
     />
 
     <template #method>
-      <span class="font-semibold text-bcGovColor-darkGray"> {{ $t('label.selectLoginMethod') }} </span>
+      <span class="whitespace-nowrap font-semibold text-bcGovColor-darkGray"> {{ $t('label.selectLoginMethod') }} </span>
     </template>
   </UDropdown>
 </template>

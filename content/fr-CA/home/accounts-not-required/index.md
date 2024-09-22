@@ -1,6 +1,6 @@
 ::LandingSection{path="home/accounts-not-required"}
 #header
-## Account Not Required FRENCH
+## Account Not Required
 
 #### The following services do not require an account:
 

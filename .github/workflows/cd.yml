@@ -1,0 +1,29 @@
+name: BCREGISTRY UI CD
+
+on:
+  push:
+    branches:
+      - main
+  workflow_dispatch:
+    inputs:
+      target:
+        description: "Deploy To"
+        required: true
+        type: choice
+        options:
+        - dev
+        - test
+        - sandbox
+        - prod
+
+jobs:
+  bcregistry-ui-cd:
+    uses: bcgov/bcregistry-sre/.github/workflows/frontend-cd.yaml@main
+    with:
+      target: ${{ inputs.target }}
+      node_version: "20.15.0"
+      app_name: "bcregistry"
+      working_directory: "."
+    secrets:
+      WORKLOAD_IDENTIFY_POOLS_PROVIDER: ${{ secrets.WORKLOAD_IDENTIFY_POOLS_PROVIDER }}
+      GCP_SERVICE_ACCOUNT: ${{ secrets.GCP_SERVICE_ACCOUNT }}
