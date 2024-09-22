@@ -28,6 +28,7 @@ const homeItems = [
         Explore services by account type:
       </span>
       <UHorizontalNavigation
+        aria-label="Explore services by account type:"
         class="mx-auto"
         :links="[
           { label: 'BC Registries Account', to: localePath('/#bc-registries-account') },

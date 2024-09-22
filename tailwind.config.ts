@@ -10,6 +10,15 @@ module.exports = {
         'ppr-reportpaper': "url('/img/PPR_reportpaper_x2.jpg')",
         'ppr-search': "url('/img/PPR_search_screenshot.png')",
         'ppr-register': "url('/img/PPR_register_screenshot.png')"
+      },
+      typography: {
+        DEFAULT: {
+          css: {
+            h1: {
+              'font-size': '2.5em'
+            }
+          }
+        }
       }
     }
   }
