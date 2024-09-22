@@ -1,9 +1,5 @@
 {
-<<<<<<< HEAD
   "name": "bc-registry",
-=======
-  "name": "business-registry-dashboard",
->>>>>>> 90d2dd7 (update readme, contributing and code of conduct)
   "private": true,
   "type": "module",
   "version": "0.0.1",
