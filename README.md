@@ -1,37 +1,47 @@
+[![License](https://img.shields.io/badge/License-BSD%203%20Clause-blue.svg)](LICENSE)
+
 # BCRegistry
 
-This project requires Node v16.x.x (npm v8.x.x). You can use Node Version manager (nvm) to manage several versions of node...
-```
-curl -o- https://raw.githubusercontent.com/nvm-sh/nvm/v0.39.1/install.sh | bash
-nvm install 16
-```
-...and then you can do `npm install` etc as below.
+## Development & Contributing
 
-You should also create an `.env` file and copy everything from `.env.example` into `.env` to properly preview the
-static project.
-
-## Build Setup
-
+Create a fork and local copy of this repo. Answer _Y_ to create a local clone.
 ```bash
-# install dependencies
-$ npm install
-
-# serve with hot reload at localhost:8080
-# NB: supports only 2 concurrent browser sessions, so more sessions may display strangely or not at all
-$ npm run dev
-
-# build for production and launch server
-$ npm run build
-$ npm run start
+gh repo fork bcgov/bcregistry
 ```
+
+Change into the directory and install the packages.
 ```bash
-# generate static project
-# To view the statis website, it has to be hosted by a http server
-$ npm run generate
-
-# locally preview the static project
-$ npm run start
-
+cd bcregistry
+pnpm install
 ```
 
-For detailed explanation on how things work, check out [Nuxt.js docs](https://nuxtjs.org).
+Startup the development environment.
+```bash
+pnpm run dev
+```
+
+## Testing
+
+Run Vitest in watch mode for unit tests
+```bash
+pnpm test
+or
+pnpm test:unit
+```
+
+Run Vitest Coverage in watch mode for unit tests
+```bash
+pnpm test
+or
+pnpm test:unit:cov
+```
+
+Run Playwright e2e tests in headless mode
+```bash
+pnpm test:e2e
+```
+
+Run Playwright e2e tests in Playwright UI
+```bash
+pnpm test:e2e:ui
+```
