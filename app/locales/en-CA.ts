@@ -39,7 +39,9 @@ export default {
     ok: 'OK',
     loginBCOL: 'Log in to my BC OnLine Account',
     createRegAccount: 'Create a BC Registries Account',
-    goToBRD: 'Go to BC Registries Dashboard'
+    goToBRD: 'Go to BC Registries Dashboard',
+    loginBCREGAccount: 'Log in to my BC Registries Account',
+    learnMore: 'Learn More'
   },
   contactInfo: {
     bcRegGeneral: {
@@ -133,6 +135,69 @@ export default {
       intro: {
         p1: 'The Personal Property Registry records security interests and liens against personal property belonging to British Columbia businesses and individuals.',
         p2: 'New to BC Registries? {link}'
+      },
+      section: {
+        features: {
+          title: 'A Modern Personal Property Registry for B.C.',
+          description: "The Personal Property Registry is now one of BC Registries and Online Services' new modernized applications.",
+          cards: {
+            search: {
+              title: 'User Friendly Tools',
+              description: 'A new, easy-to-use application that offers improved searching and registering.'
+            },
+            records: {
+              title: 'Organized Records',
+              description: 'Registrations, searches and downloadable documents are saved to your dashboard.'
+            },
+            account: {
+              title: 'Account Integration',
+              description: 'Access to all of your BC Registries products and services from one location.'
+            },
+            api: {
+              title: 'API Services',
+              description: 'Are you a high-volume account user? Ask about our Personal Property Registry APIs.'
+            }
+          }
+        },
+        helpfulLinks: {
+          title: 'Helpful Links',
+          cards: {
+            moreInfo: {
+              title: 'More Information',
+              description: 'Find detailed information about the Personal Property Registry.',
+              link: 'Learn More'
+            },
+            vehicle: {
+              title: 'Vehicle Claims Report',
+              description: 'Vehicle claim history reports are available from ICBC and Carfax.',
+              link: 'Order a Report'
+            },
+            legal: {
+              title: 'Legal Services',
+              description: 'Get professional support filling out forms and filling documents.',
+              link: 'Contact Dye & Durham'
+            }
+          }
+        },
+        createAccount: {
+          title: 'Create an Account to Get Started',
+          description: "Log in securely using your mobile BC Services Card, government's trusted way to access online services.",
+          list: {
+            1: {
+              title: "It's Secure",
+              li1: "A mobile card is a representation of your BC Services Card on your mobile device. It's used to prove who you are when you log in to access government services online.",
+              li2: 'Only your name and a unique identifier is stored on the mobile device.'
+            },
+            2: {
+              title: "It's Quick and Easy",
+              li1: {
+                text: 'It normally takes about 5 minutes to {link}',
+                link: 'set up a mobile card.'
+              },
+              li2: "You can verify your identity by video right from your mobile device. You don't need to go in person unless you can't verify by video."
+            }
+          }
+        }
       }
     }
   },

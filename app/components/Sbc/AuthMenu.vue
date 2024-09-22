@@ -24,9 +24,8 @@ defineProps<{
     <UButton
       class="bg-bcGovColor-header font-semibold"
       size="bcGov"
-      label="Log in to my BC Registries Account"
+      :label="$t('btn.loginBCREGAccount')"
       :block
-      :aria-label="$t('label.selectLoginMethod')"
       icon="i-mdi-caret-down"
       trailing
     />
