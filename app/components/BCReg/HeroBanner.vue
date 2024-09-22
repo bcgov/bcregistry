@@ -1,16 +1,6 @@
-<script setup lang="ts">
-const divRef = ref()
-const { width } = useElementSize(divRef)
-
-watchEffect(() => console.log('width: ', width.value))
-
-</script>
 <template>
   <header class="min-[1120px]:bg-homebanner min-[1120px]:h-[30rem] bg-white bg-no-repeat lg:bg-[length:845px] lg:bg-right-bottom xl:bg-[length:955px] 2xl:h-[35rem] 2xl:bg-[length:1145px]">
-    <div
-      ref="divRef"
-      class="min-[1120px]:h-[30rem] min-[1120px]:py-0 mx-auto flex w-full max-w-bcGovLg items-center px-4 py-8 2xl:h-[35rem]"
-    >
+    <div class="min-[1120px]:h-[30rem] min-[1120px]:py-0 mx-auto flex w-full max-w-bcGovLg items-center px-4 py-8 2xl:h-[35rem]">
       <div class="prose prose-bcGov min-[1120px]:max-w-md max-w-full xl:max-w-xl 2xl:max-w-[40%]">
         <h1>Access and manage your BC Registries and Online Services</h1>
         <p>
