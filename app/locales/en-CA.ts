@@ -204,5 +204,11 @@ export default {
   // components
   ConnectHeader: {
     title: 'BC Registries and Online Services'
+  },
+  test: {
+    i18nBold: {
+      strong: 'This should have {boldStart} bold {boldEnd} text',
+      strongWithProps: 'This should have {boldStart} bold {boldEnd} text and allow a {prop}'
+    }
   }
 }
