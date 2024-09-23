@@ -10,11 +10,12 @@ function goToItem () {
 }
 </script>
 <template>
-  <UCard :ui="{ base: 'border-l-[3px] border-transparent hover:border-blue-500 focus-within:border-blue-500 cursor-pointer' }">
-    <li
-      class="flex flex-col gap-6 sm:flex-row sm:gap-8"
-      @click="goToItem"
-    >
+  <UCard
+    as="li"
+    :ui="{ base: 'border-l-[3px] border-transparent hover:border-blue-500 focus-within:border-blue-500 cursor-pointer' }"
+    @click="goToItem"
+  >
+    <div class="flex flex-col gap-6 sm:flex-row sm:gap-8">
       <img
         v-if="product.image"
         class="mx-auto h-[183px] w-[244px]"
@@ -42,6 +43,6 @@ function goToItem () {
           icon="i-mdi-chevron-right"
         />
       </div>
-    </li>
+    </div>
   </UCard>
 </template>

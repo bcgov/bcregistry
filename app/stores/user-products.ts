@@ -71,6 +71,12 @@ export const useUserProductsStore = defineStore('bcreg-user-products-store', () 
     loading.value = false
   }
 
+  // reload products if switching account
+  watch(
+    () => accountStore.currentAccount.id,
+    async () => await getUserProducts()
+  )
+
   return {
     userProducts,
     loading,

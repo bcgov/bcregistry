@@ -6,13 +6,14 @@ const props = defineProps({
 const attrs = useAttrs()
 const { t } = useI18n()
 
-const translationProps = {
-  ...attrs,
-  boldStart: '<strong>',
-  boldEnd: '</strong>'
-}
-
-const textToDisplay = t(props.translationPath, translationProps)
+const textToDisplay = computed(() => {
+  const translationProps = {
+    ...attrs,
+    boldStart: '<strong>',
+    boldEnd: '</strong>'
+  }
+  return t(props.translationPath, translationProps)
+})
 </script>
 <template>
   <!-- eslint-disable-next-line -->

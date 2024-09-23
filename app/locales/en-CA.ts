@@ -199,6 +199,69 @@ export default {
           }
         }
       }
+    },
+    dashboard: {
+      title: 'BC Registries and Online Services',
+      h1: 'BC Registries Dashboard',
+      intro: 'Access to your BC Registries account product and services',
+      products: {
+        heading: '{boldStart}My Products and Services{boldEnd} ({count})',
+        business: {
+          text: 'Register or incorporate a business, manage name requests and keep business records up to date.',
+          title: 'My Business Registry'
+        },
+        busSearch: {
+          text: 'Search for businesses registered in B.C. and access business documents.',
+          title: 'Business Search'
+        },
+        bca: {
+          text: 'Generate a BC Assessment report to find real property ownership or location information, obtain property assessment information or obtain residential property inventory details for properties within British Columbia.',
+          title: 'BC Assessment'
+        },
+        cso: {
+          text: 'Make applications or file other court documents, browse daily court listings, and search court file information.',
+          title: 'Court Services Online'
+        },
+        mhr: {
+          text: 'Search for manufactured homes, and search for personal property legal claims on manufactured homes.',
+          title: 'My Manufactured Home Registry'
+        },
+        nds: {
+          text: 'Search for the names and addresses of people associated with businesses in B.C.',
+          title: 'Director Search'
+        },
+        ppr: {
+          text: 'Register or search for legal claims on personal property in British Columbia.',
+          title: 'My Personal Property Registry'
+        },
+        rpt: {
+          text: 'Search property tax records for rural properties or leased crown land in B.C., excluding municipal and Indigenous lands.',
+          title: 'Rural Property Tax Search'
+        },
+        esra: {
+          text: 'Search for B.C. government information on the environmental condition of land.',
+          title: 'Site Registry'
+        },
+        vs: {
+          text: 'File a wills notice or search for an existing wills notice.',
+          title: 'Wills Registry'
+        },
+        mar: {
+          text: 'Search for manufactured homes, and register or search for legal claims on personal property.',
+          title: 'My Asset Registries'
+        }
+      },
+      help: {
+        addProds: {
+          title: 'Add Product and Services',
+          p1: 'To request access to additional products and services, contact the account Administrator of your BC Registries account.'
+        },
+        howToUse: {
+          title: 'Help with How to Use BC Registries Products and Services',
+          p1: 'Learn about the registries and how to use the applications through step-by-step guides, online videos, and downloadable quick guides.',
+          link: 'Go to the Registry Application Help Page'
+        }
+      }
     }
   },
   // components
