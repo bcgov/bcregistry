@@ -65,8 +65,12 @@ export default defineAppConfig({
       }
     },
     card: {
+      base: '',
+      background: 'bg-white dark:bg-gray-900',
       ring: 'ring-1 ring-gray-200 dark:ring-gray-300/50',
-      divide: 'divide-y divide-gray-200 dark:divide-gray-300/50'
+      divide: 'divide-y divide-gray-200 dark:divide-gray-300/50',
+      rounded: 'rounded',
+      shadow: 'shadow-md hover:shadow-[1px_1px_6px_0_#868e96] focus-within:shadow-[1px_1px_6px_0_#868e96]'
     },
     checkbox: {
       wrapper: 'flex items-start',
@@ -75,6 +79,7 @@ export default defineAppConfig({
       label: 'text-base text-bcGovColor-midGray font-normal'
     },
     container: {
+      strategy: 'override',
       base: 'mx-auto',
       padding: 'px-4 sm:px-6 lg:px-8',
       constrained: 'max-w-bcGovLg'

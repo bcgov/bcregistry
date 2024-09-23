@@ -137,7 +137,10 @@ export default defineNuxtConfig({
       willsLearnMoreURL: process.env.NUXT_WILLS_LEARN_MORE_URL,
       willsURL: process.env.NUXT_WILLS_URL,
       supportFilingUrl: process.env.NUXT_SUPPORT_FILING_URL,
-      setupBCSCURL: process.env.NUXT_SETUP_BCSC_URL
+      setupBCSCURL: process.env.NUXT_SETUP_BCSC_URL,
+      businessRegistryStaffDashboard: `${process.env.NUXT_AUTH_WEB_URL}staff/dashboard/active`,
+      myBusinessRegistryDashboard: `${process.env.NUXT_AUTH_WEB_URL}account/{accountId}/business`,
+      pprDashboard: `${process.env.NUXT_PPR_URL}/dashboard`
     }
   },
 
