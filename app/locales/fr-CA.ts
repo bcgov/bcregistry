@@ -199,6 +199,69 @@ export default {
           }
         }
       }
+    },
+    dashboard: {
+      title: 'Registres et Services en Ligne de la CB',
+      h1: 'Tableau de Bord des Registres de la CB',
+      intro: 'Accès à vos produits et services de compte des Registres de la CB',
+      products: {
+        heading: '{boldStart}Mes Produits et Services{boldEnd} ({count})',
+        business: {
+          text: "Enregistrez ou constituez une entreprise, gérez les demandes de nom et gardez les dossiers de l'entreprise à jour.",
+          title: "Mon Registre d'Entreprise"
+        },
+        busSearch: {
+          text: 'Recherchez des entreprises enregistrées en C.-B. et accédez aux documents commerciaux.',
+          title: "Recherche d'Entreprise"
+        },
+        bca: {
+          text: "Générez un rapport d'évaluation de la C.-B. pour trouver la propriété ou l'emplacement des biens immobiliers, obtenir des informations d'évaluation des biens ou des détails sur l'inventaire des propriétés résidentielles en CB.",
+          title: 'Évaluation de la C.-B.'
+        },
+        cso: {
+          text: "Faites des demandes ou déposez d'autres documents judiciaires, parcourez les listes quotidiennes des tribunaux et recherchez des informations sur les dossiers judiciaires.",
+          title: 'Services Judiciaires en Ligne'
+        },
+        mhr: {
+          text: 'Recherchez des maisons préfabriquées et des réclamations légales sur des biens personnels attachés à des maisons préfabriquées.',
+          title: 'Mon Registre des Maisons Préfabriquées'
+        },
+        nds: {
+          text: 'Recherchez les noms et adresses des personnes associées aux entreprises en C.-B.',
+          title: 'Recherche de Directeur'
+        },
+        ppr: {
+          text: 'Enregistrez ou recherchez des réclamations légales sur des biens personnels en CB.',
+          title: 'Mon Registre des Biens Personnels'
+        },
+        rpt: {
+          text: "Recherchez des dossiers de taxes foncières pour des propriétés rurales ou des terres de la Couronne louées en C.-B., à l'exception des terres municipales et autochtones.",
+          title: 'Recherche de Taxes Foncières Rurales'
+        },
+        esra: {
+          text: "Recherchez des informations du gouvernement de la CB sur l'état environnemental des terres.",
+          title: 'Registre des Sites'
+        },
+        vs: {
+          text: 'Déposez un avis de testament ou recherchez un avis de testament existant.',
+          title: 'Registre des Testaments'
+        },
+        mar: {
+          text: 'Recherchez des maisons préfabriquées, enregistrez ou recherchez des réclamations légales sur des biens personnels.',
+          title: 'Mes Registres des Actifs'
+        }
+      },
+      help: {
+        addProds: {
+          title: 'Ajouter des Produits et Services',
+          p1: "Pour demander l'accès à des produits et services supplémentaires, contactez l'administrateur du compte de vos Registres de la CB."
+        },
+        howToUse: {
+          title: 'Aide pour Utiliser les Produits et Services des Registres de la C.B.',
+          p1: 'Découvrez les registres et comment utiliser les applications grâce à des guides étape par étape, des vidéos en ligne et des guides rapides téléchargeables.',
+          link: "Aller à la Page d'Aide des Applications de Registre"
+        }
+      }
     }
   },
   ConnectHeader: {
