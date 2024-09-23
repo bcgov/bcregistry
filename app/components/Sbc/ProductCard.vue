@@ -51,15 +51,16 @@ const hasLinkStyle = 'cursor-pointer transition-transform focus-within:-translat
     @click="goToItem"
   >
     <div class="z-0 relative flex w-[105%] -ml-2 items-center bg-blue-350 px-4 py-3.5 font-semibold tracking-wide text-white lg:px-7 dark:border-b dark:border-gray-300/50 dark:bg-bcGovColor-darkGray">
-      <a
-        v-if="content?.link"
-        :href="resolvePath()"
-        :target="content?.link?.target"
-        class="text-left font-semibold text-white no-underline focus:outline-none"
-        :class="{ 'w-4/5': content?.badge }"
-      >
-        {{ content?.name }}
-      </a>
+      <ClientOnly v-if="content?.link">
+        <a
+          :href="resolvePath()"
+          :target="content?.link?.target"
+          class="text-left font-semibold text-white no-underline focus:outline-none"
+          :class="{ 'w-4/5': content?.badge }"
+        >
+          {{ content?.name }}
+        </a>
+      </ClientOnly>
       <span v-else>{{ content?.name }}</span>
       <span v-if="content?.badge" class="absolute right-2 top-0 rounded-b bg-bcGovColor-navDivider px-2 py-1 text-sm text-blue-600 sm:right-7">{{ content?.badge }}</span>
     </div>

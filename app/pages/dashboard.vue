@@ -5,7 +5,6 @@ const helpHref = 'https://www2.gov.bc.ca/gov/content/employment-business/busines
 
 onMounted(async () => {
   await productStore.getUserProducts()
-  console.log(productStore.userProducts)
 })
 </script>
 <template>
@@ -19,8 +18,11 @@ onMounted(async () => {
     <h3 class="pb-4 pt-6 text-lg font-semibold text-bcGovColor-darkGray  sm:pt-12">
       My Products and Services ({{ productStore.userProducts.length }})
     </h3>
-    <div class="flex flex-col gap-6 lg:flex-row">
-      <ul :aria-label="`My Products and Services (${productStore.userProducts.length})`">
+    <div v-if="!productStore.loading" class="flex flex-col gap-6 lg:flex-row">
+      <ul
+        :aria-label="`My Products and Services (${productStore.userProducts.length})`"
+        class="flex flex-col gap-6"
+      >
         <DashboardUserProduct
           v-for="product in productStore.userProducts"
           :key="product.link"
@@ -69,5 +71,8 @@ onMounted(async () => {
         </UCard>
       </div>
     </div>
+    <ClientOnly v-else>
+      <SbcLoadingSpinner overlay />
+    </ClientOnly>
   </UContainer>
 </template>

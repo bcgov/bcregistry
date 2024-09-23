@@ -1,4 +1,6 @@
 <script setup lang="ts">
+const isSmallScreen = useMediaQuery('(max-width: 640px)')
+
 const props = defineProps<{
   product: Product
 }>()
@@ -36,6 +38,7 @@ function goToItem () {
           label="Open"
           class="pointer-events-none self-start px-5 py-3"
           trailing
+          :block="isSmallScreen"
           icon="i-mdi-chevron-right"
         />
       </div>

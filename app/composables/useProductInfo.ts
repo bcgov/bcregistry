@@ -3,7 +3,7 @@ export function useProductInfo () {
   const accountStore = useConnectAccountStore()
 
   function appendAccountId (url: string): string {
-    return url ? `${url}?accountId=${accountStore.currentAccount.id}` : 'link_not_configured'
+    return url ? `${url}?accountid=${accountStore.currentAccount.id}` : 'link_not_configured'
   }
 
   /**
