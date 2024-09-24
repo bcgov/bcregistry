@@ -6,8 +6,7 @@ useHead({
 })
 
 definePageMeta({
-  order: 0,
-  layout: 'bcreghome'
+  order: 0
 })
 
 const homeItems = [
@@ -16,6 +15,10 @@ const homeItems = [
   'home/individual-direct-accounts',
   'home/accounts-not-required'
 ]
+
+setBreadcrumbs([
+  { label: t('ConnectBreadcrumb.default') }
+])
 </script>
 <template>
   <div>

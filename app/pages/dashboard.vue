@@ -1,6 +1,7 @@
 <script setup lang="ts">
 const productStore = useUserProductsStore()
 const { t } = useI18n()
+const localePath = useLocalePath()
 
 useHead({
   title: t('page.dashboard.title')
@@ -9,6 +10,10 @@ useHead({
 const helpHref = 'https://www2.gov.bc.ca/gov/content/employment-business/business/managing-a-business/permits-licences/news-updates/modernization-updates/modernization-resources'
 
 onMounted(async () => {
+  setBreadcrumbs([
+    { to: localePath('/'), label: t('ConnectBreadcrumb.default') },
+    { label: t('page.dashboard.h1') }
+  ])
   await productStore.getUserProducts()
 })
 </script>

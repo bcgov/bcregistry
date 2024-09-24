@@ -91,7 +91,9 @@ export default {
       idir: 'IDIR'
     },
     needMoreInfo: "Besoin de Plus d'Informations?",
-    contactUs: 'Contactez-Nous'
+    contactUs: 'Contactez-Nous',
+    bcRegAndOLServices: 'Registres et Services en Ligne de la CB',
+    ppr: 'Personal Property Registry'
   },
   words: {
     i: 'Je',
@@ -266,5 +268,8 @@ export default {
   },
   ConnectHeader: {
     title: 'BC Registries et Services en Ligne'
+  },
+  ConnectBreadcrumb: {
+    default: 'BC Registries et Services en Ligne'
   }
 }

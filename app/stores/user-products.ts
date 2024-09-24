@@ -2,9 +2,7 @@ export const useUserProductsStore = defineStore('bcreg-user-products-store', () 
   const accountStore = useConnectAccountStore()
   const ldStore = useConnectLaunchdarklyStore()
   const productInfo = useProductInfo()
-  // const { $authApi, $keycloak } = useNuxtApp()
-  const { $keycloak } = useNuxtApp()
-  const authUrl = useRuntimeConfig().public.authApiURL
+  const { $authApi } = useNuxtApp()
 
   const userProducts = ref<Product[]>([])
   const loading = ref<boolean>(false)
@@ -13,15 +11,9 @@ export const useUserProductsStore = defineStore('bcreg-user-products-store', () 
     try {
       loading.value = true
       userProducts.value = []
-      // auth api not returning an array for some reason
-      // const response = await $authApi(`/orgs/${accountStore.currentAccount.id}/products?include_hidden=true`)
-      const response = await fetch(`${authUrl}/orgs/${accountStore.currentAccount.id}/products?include_hidden=true`, {
-        headers: {
-          Authorization: `Bearer ${$keycloak.token}`
-        }
-      })
+      const response = await $authApi<APIProduct[]>(`/orgs/${accountStore.currentAccount.id}/products?include_hidden=true`)
 
-      const activeProducts = (await response.json() as APIProduct[]).filter(product => product.subscriptionStatus === ProductStatus.ACTIVE)
+      const activeProducts = response.filter(product => product.subscriptionStatus === ProductStatus.ACTIVE)
 
       // only show products with no placeholder
       for (const product of activeProducts) {

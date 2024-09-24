@@ -1,17 +1,16 @@
 <script setup lang="ts">
 const keycloak = reactive(useKeycloak())
-const { locale } = useI18n()
+const { locale, t } = useI18n()
 const isSmallScreen = useMediaQuery('(max-width: 640px)')
 const config = useRuntimeConfig()
-const { t } = useI18n()
+const localePath = useLocalePath()
 
 useHead({
   title: t('page.ppr.title')
 })
 
 definePageMeta({
-  order: 0,
-  layout: 'bcreghome'
+  order: 0
 })
 
 const featureCards = [
@@ -73,6 +72,11 @@ const helpfulLinks = [
 const { data: pprSections } = await useAsyncData(`ppr-sections-${locale.value}`, () => {
   return queryContent().where({ _locale: locale.value, _path: { $contains: 'ppr/sections' } }).find()
 })
+
+setBreadcrumbs([
+  { to: localePath('/'), label: t('labels.bcRegAndOLServices') },
+  { label: t('labels.ppr') }
+])
 </script>
 <template>
   <div>

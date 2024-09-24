@@ -91,7 +91,9 @@ export default {
       idir: 'IDIR'
     },
     needMoreInfo: 'Need more Information?',
-    contactUs: 'Contact Us'
+    contactUs: 'Contact Us',
+    bcRegAndOLServices: 'BC Registries and Online Services',
+    ppr: 'Personal Property Registry'
   },
   words: {
     i: 'I',
@@ -267,6 +269,9 @@ export default {
   // components
   ConnectHeader: {
     title: 'BC Registries and Online Services'
+  },
+  ConnectBreadcrumb: {
+    default: 'BC Registries and Online Services'
   },
   test: {
     i18nBold: {
