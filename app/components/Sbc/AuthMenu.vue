@@ -10,13 +10,16 @@ defineProps<{
     id="logged-out-options-dropdown"
     :items="connectNav.loggedOutUserOptions"
     :ui="{
-      width: 'min-w-fit',
+      container: 'min-w-fit',
+      padding: 'py-3 px-0',
       item: {
-        base: 'group flex items-center gap-4 w-full',
-        disabled: 'cursor-default opacity-100',
+        rounded: 'rounded-none',
+        base: 'flex items-center gap-4 w-full hover:text-bcGovColor-activeBlue hover:bg-bcGovColor-gray1',
+        padding: 'px-4 py-3',
+        disabled: 'cursor-default opacity-100 hover:bg-white py-0',
         icon: {
-          base: 'flex-shrink-0 size-6',
-          active: 'text-gray-500 dark:text-gray-400',
+          base: 'flex-shrink-0 size-5 text-bcGovColor-activeBlue',
+          active: 'text-bcGovColor-activeBlue',
           inactive: 'text-bcGovColor-midGray',
         },
       }
