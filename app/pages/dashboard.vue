@@ -87,7 +87,7 @@ onMounted(async () => {
       </div>
     </div>
     <ClientOnly v-else>
-      <SbcLoadingSpinner overlay />
+      <ConnectSpinner overlay />
     </ClientOnly>
   </UContainer>
 </template>
