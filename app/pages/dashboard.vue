@@ -31,7 +31,7 @@ onMounted(async () => {
     <p class="pt-3 text-bcGovColor-midGray">
       {{ $t('page.dashboard.intro') }}
     </p>
-    <h3 class="pb-4 pt-6 text-lg text-bcGovColor-darkGray  sm:pt-12">
+    <h3 class="pb-4 pt-6 text-lg font-normal text-bcGovColor-darkGray sm:pt-12">
       <ConnectI18nBold translation-path="page.dashboard.products.heading" :count="productStore.userProducts.length" />
     </h3>
     <div v-if="!productStore.loading" class="flex flex-col gap-6 lg:flex-row">
