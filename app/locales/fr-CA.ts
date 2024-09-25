@@ -15,6 +15,7 @@ export default {
     loginBCSC: 'Connexion avec la Carte Services BC',
     createNewAccount: 'Créer un Nouveau Compte',
     createAccount: 'Créer un Compte',
+    createAnAccount: 'Créer un Compte',
     useThisAccount: {
       main: 'Utiliser ce Compte',
       aria: 'Utiliser ce Compte, {name}'
@@ -84,6 +85,9 @@ export default {
       support: 'Pour du soutien ou des questions sur cette Application, contactez-nous au:'
     }
   },
+  imageAlt: {
+    genericLogin: 'Image de connexion générique'
+  },
   labels: {
     services: {
       bcsc: 'Carte Services BC',
@@ -104,6 +108,7 @@ export default {
     none: 'Aucun',
     or: 'ou',
     Or: 'Ou',
+    OR: 'OU',
     error: 'erreur',
     Error: 'Erreur',
     OK: 'OK',
@@ -203,7 +208,7 @@ export default {
       }
     },
     dashboard: {
-      title: 'Registres et Services en Ligne de la CB',
+      title: 'Tableau de Bord des Registres de la CB - Registres et Services en Ligne de la CB',
       h1: 'Tableau de Bord des Registres de la CB',
       intro: 'Accès à vos produits et services de compte des Registres de la CB',
       products: {
@@ -264,6 +269,12 @@ export default {
           link: "Aller à la Page d'Aide des Applications de Registre"
         }
       }
+    },
+    signin: {
+      title: 'Se connecter - Registres et Services en Ligne de la CB',
+      h1: 'Se connecter',
+      intro: 'Connectez-vous à votre compte BC Registries',
+      option: 'Connectez-vous avec {option}'
     }
   },
   ConnectHeader: {

@@ -2,9 +2,14 @@
 const productStore = useUserProductsStore()
 const { t } = useI18n()
 const localePath = useLocalePath()
+const { clearLoginRedirectUrl } = useKeycloak()
 
 useHead({
   title: t('page.dashboard.title')
+})
+
+definePageMeta({
+  middleware: ['authenticated']
 })
 
 const helpHref = 'https://www2.gov.bc.ca/gov/content/employment-business/business/managing-a-business/permits-licences/news-updates/modernization-updates/modernization-resources'
@@ -15,6 +20,7 @@ onMounted(async () => {
     { label: t('page.dashboard.h1') }
   ])
   await productStore.getUserProducts()
+  clearLoginRedirectUrl()
 })
 </script>
 <template>

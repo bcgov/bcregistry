@@ -15,6 +15,7 @@ export default {
     loginBCSC: 'Login with BC Services Card',
     createNewAccount: 'Create New Account',
     createAccount: 'Create Account',
+    createAnAccount: 'Create an Account',
     useThisAccount: {
       main: 'Use this Account',
       aria: 'Use this Account, {name}'
@@ -84,6 +85,9 @@ export default {
       support: 'For support or questions about this application, contact us at:'
     }
   },
+  imageAlt: {
+    genericLogin: 'Generic Login Image'
+  },
   labels: {
     services: {
       bcsc: 'BC Services Card',
@@ -104,6 +108,7 @@ export default {
     none: 'None',
     or: 'or',
     Or: 'Or',
+    OR: 'OR',
     error: 'error',
     Error: 'Error',
     OK: 'OK',
@@ -203,7 +208,7 @@ export default {
       }
     },
     dashboard: {
-      title: 'BC Registries and Online Services',
+      title: 'BC Registries Dashboard - BC Registries and Online Services',
       h1: 'BC Registries Dashboard',
       intro: 'Access to your BC Registries account product and services',
       products: {
@@ -264,6 +269,12 @@ export default {
           link: 'Go to the Registry Application Help Page'
         }
       }
+    },
+    signin: {
+      title: 'Log in - BC Registries and Online Services',
+      h1: 'Log in',
+      intro: 'Log in to your BC Registries Account',
+      option: 'Log in with {option}'
     }
   },
   // components

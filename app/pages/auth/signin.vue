@@ -2,6 +2,7 @@
 const connectNav = reactive(useConnectNav())
 const { t } = useI18n()
 const localePath = useLocalePath()
+// const keycloak = useKeycloak()
 
 useHead({
   title: t('page.signin.title')
@@ -15,6 +16,10 @@ setBreadcrumbs([
   { to: localePath('/'), label: t('labels.bcRegAndOLServices') },
   { label: t('page.signin.h1') }
 ])
+
+// function redirectLogin () {
+//   keycloak.login(IdpHint.BCSC, `${location.origin}/en-CA/dashboard`)
+// }
 </script>
 <template>
   <ClientOnly>
@@ -28,6 +33,10 @@ setBreadcrumbs([
         </p>
         <img src="/img/BCReg_Generic_Login_image.jpg" class="mt-4" :alt="$t('imageAlt.genericLogin')">
         <div class="space-y-4 pt-5 sm:pt-6">
+          <!-- <UButton
+            label="test"
+            @click="redirectLogin"
+          /> -->
           <UButton
             v-for="(item, i) in items"
             :key="item.label"
