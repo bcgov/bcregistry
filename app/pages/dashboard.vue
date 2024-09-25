@@ -9,7 +9,7 @@ useHead({
 })
 
 definePageMeta({
-  middleware: ['authenticated']
+  middleware: ['authenticated', 'dashboard-page']
 })
 
 const helpHref = 'https://www2.gov.bc.ca/gov/content/employment-business/business/managing-a-business/permits-licences/news-updates/modernization-updates/modernization-resources'
