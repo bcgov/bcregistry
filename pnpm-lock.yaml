@@ -37,6 +37,9 @@ devDependencies:
   '@axe-core/playwright':
     specifier: ^4.9.1
     version: 4.9.1(playwright-core@1.45.1)
+  '@iconify-json/heroicons-solid':
+    specifier: ^1.2.0
+    version: 1.2.0
   '@iconify-json/mdi':
     specifier: ^1.1.68
     version: 1.1.68
@@ -1872,6 +1875,12 @@ packages:
   /@humanwhocodes/object-schema@2.0.3:
     resolution: {integrity: sha512-93zYdMES/c1D69yZiKDBj0V24vqNzB/koF26KPaagAfd3P/4gUlh3Dys5ogAK+Exi9QyzlD8x/08Zt7wIKcDcA==}
     deprecated: Use @eslint/object-schema instead
+
+  /@iconify-json/heroicons-solid@1.2.0:
+    resolution: {integrity: sha512-o+PjtMXPr4wk0veDS7Eh6H1BnTJT1vD7HcKl+I7ixdYQC8i1P2zdtk0C2v7C9OjJBMsiwJSCxT4qQ3OzONgyjw==}
+    dependencies:
+      '@iconify/types': 2.0.0
+    dev: true
 
   /@iconify-json/heroicons@1.1.23:
     resolution: {integrity: sha512-LLev2ZBBDJKMzjnQgZRhEj0Nkz5m9O4UtQVH2TpPchdXSkxQUUOlPpsM4MVQCs49a2MaJfKiay+48WaZli5cNQ==}

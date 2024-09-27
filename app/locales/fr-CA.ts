@@ -117,7 +117,9 @@ export default {
   },
   page: {
     notFound: {
-      h1: 'Page Non Trouvée'
+      title: 'Page non trouvée - Registres et services en Ligne de la CB',
+      h1: 'Oups! Page non trouvée',
+      text: "Désolé, la page que vous cherchez n'existe pas ou a été déplacée."
     },
     home: {
       title: 'BC Registries et Services en Ligne',
@@ -145,7 +147,7 @@ export default {
       },
       section: {
         features: {
-          title: 'Un Registre Moderne des Biens Personnels pour la C.-B.',
+          title: 'Un Registre Moderne des Biens Personnels pour la C.B.',
           description: "Le Registre des Biens Personnels est Désormais l'une des Nouvelles Applications Modernisées des BC Registries et des Services en Ligne.",
           cards: {
             search: {

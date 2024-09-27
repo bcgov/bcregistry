@@ -117,7 +117,9 @@ export default {
   },
   page: {
     notFound: {
-      h1: 'Page Not Found'
+      title: 'Page Not Found - BC Registries and Online Services',
+      h1: 'Oops! Page Not Found',
+      text: "Sorry, the page you're looking for doesn't exist or has been moved."
     },
     home: {
       title: 'BC Registries and Online Services',

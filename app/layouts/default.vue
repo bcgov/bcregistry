@@ -2,16 +2,18 @@
   <div
     class="mx-auto flex min-h-screen w-full flex-col bg-bcGovColor-gray1"
   >
-    <ConnectHeader />
-    <ConnectSystemBanner />
     <ClientOnly>
+      <ConnectHeader />
+      <ConnectSystemBanner />
       <ConnectBreadcrumb />
     </ClientOnly>
-    <div
+    <main
       class="mx-auto w-full grow"
     >
       <slot />
-    </div>
-    <ConnectFooter />
+    </main>
+    <ClientOnly>
+      <ConnectFooter />
+    </ClientOnly>
   </div>
 </template>
