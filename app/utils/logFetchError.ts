@@ -1,9 +1,13 @@
-import type { FetchError } from 'ofetch'
-export function logFetchError (error: unknown, contextMessage: string) {
-  const e = error as FetchError
-  const status = e.response?.status
-  const statusText = e.response?.statusText
-  const hasMessage = e.data?.message !== undefined
+import { FetchError } from 'ofetch'
+export function logFetchError (error: unknown, message: string) {
+  if (error instanceof FetchError) {
+    const e = error as FetchError
+    const status = e.response?.status ?? 'Unknown Status'
+    const statusText = e.response?.statusText ?? 'Unknown Status Text'
+    const hasMessage = e.data?.message !== undefined
 
-  console.error(`${contextMessage}: ${status} - ${statusText} ${hasMessage ? `--- ${JSON.stringify(e.data)}` : ''}`)
+    console.error(`${message}: ${status} - ${statusText} ${hasMessage ? `--- ${JSON.stringify(e.data)}` : ''}`)
+  } else {
+    console.error(message)
+  }
 }

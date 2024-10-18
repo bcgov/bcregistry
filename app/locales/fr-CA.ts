@@ -15,6 +15,7 @@ export default {
     loginBCSC: 'Connexion avec la Carte Services BC',
     createNewAccount: 'Créer un Nouveau Compte',
     createAccount: 'Créer un Compte',
+    createAnAccount: 'Créer un Compte',
     useThisAccount: {
       main: 'Utiliser ce Compte',
       aria: 'Utiliser ce Compte, {name}'
@@ -84,6 +85,9 @@ export default {
       support: 'Pour du soutien ou des questions sur cette Application, contactez-nous au:'
     }
   },
+  imageAlt: {
+    genericLogin: 'Image de connexion générique'
+  },
   labels: {
     services: {
       bcsc: 'Carte Services BC',
@@ -91,7 +95,9 @@ export default {
       idir: 'IDIR'
     },
     needMoreInfo: "Besoin de Plus d'Informations?",
-    contactUs: 'Contactez-Nous'
+    contactUs: 'Contactez-Nous',
+    bcRegAndOLServices: 'Registres et Services en Ligne de la CB',
+    ppr: 'Personal Property Registry'
   },
   words: {
     i: 'Je',
@@ -102,6 +108,7 @@ export default {
     none: 'Aucun',
     or: 'ou',
     Or: 'Ou',
+    OR: 'OU',
     error: 'erreur',
     Error: 'Erreur',
     OK: 'OK',
@@ -110,7 +117,9 @@ export default {
   },
   page: {
     notFound: {
-      h1: 'Page Non Trouvée'
+      title: 'Page non trouvée - Registres et services en Ligne de la CB',
+      h1: 'Oups! Page non trouvée',
+      text: "Désolé, la page que vous cherchez n'existe pas ou a été déplacée."
     },
     home: {
       title: 'BC Registries et Services en Ligne',
@@ -138,7 +147,7 @@ export default {
       },
       section: {
         features: {
-          title: 'Un Registre Moderne des Biens Personnels pour la C.-B.',
+          title: 'Un Registre Moderne des Biens Personnels pour la C.B.',
           description: "Le Registre des Biens Personnels est Désormais l'une des Nouvelles Applications Modernisées des BC Registries et des Services en Ligne.",
           cards: {
             search: {
@@ -201,7 +210,7 @@ export default {
       }
     },
     dashboard: {
-      title: 'Registres et Services en Ligne de la CB',
+      title: 'Tableau de Bord des Registres de la CB - Registres et Services en Ligne de la CB',
       h1: 'Tableau de Bord des Registres de la CB',
       intro: 'Accès à vos produits et services de compte des Registres de la CB',
       products: {
@@ -262,9 +271,18 @@ export default {
           link: "Aller à la Page d'Aide des Applications de Registre"
         }
       }
+    },
+    signin: {
+      title: 'Se connecter - Registres et Services en Ligne de la CB',
+      h1: 'Se connecter',
+      intro: 'Connectez-vous à votre compte BC Registries',
+      option: 'Connectez-vous avec {option}'
     }
   },
   ConnectHeader: {
     title: 'BC Registries et Services en Ligne'
+  },
+  ConnectBreadcrumb: {
+    default: 'BC Registries et Services en Ligne'
   }
 }

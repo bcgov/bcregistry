@@ -7,7 +7,7 @@ const BCROS_HREF = 'https://www2.gov.bc.ca/gov/content/governments/organizationa
   <div class="w-full bg-bcGovColor-footer p-4 text-white sm:py-9">
     <div class="mx-auto flex max-w-bcGovLg flex-col gap-4 md:flex-row">
       <div class="flex-1">
-        <h3 class="border-b border-blue-300 py-2 text-center text-xl font-semibold sm:text-left">
+        <h3 class="border-b border-blue-300 py-2 text-center text-xl font-semibold text-white sm:text-left">
           {{ $t('labels.needMoreInfo') }}
         </h3>
         <i18n-t keypath="contactInfo.bcros.moreInfo.link.p" tag="p" scope="global" class="py-6 text-white">
@@ -22,11 +22,11 @@ const BCROS_HREF = 'https://www2.gov.bc.ca/gov/content/governments/organizationa
         </i18n-t>
       </div>
       <div class="flex-1 md:max-w-md lg:max-w-lg">
-        <h3 class="border-b border-blue-300 py-2 text-center text-xl font-semibold sm:text-left">
+        <h3 class="border-b border-blue-300 py-2 text-center text-xl font-semibold text-white sm:text-left">
           {{ $t('labels.contactUs') }}
         </h3>
-        <div class="space-y-7 py-6 pb-0 sm:pb-6">
-          <p>
+        <div class="space-y-7 py-6 pb-0 text-white sm:pb-6">
+          <p class="text-white">
             {{ $t('contactInfo.bcros.support.general') }}
           </p>
           <ul class="space-y-1">
@@ -41,7 +41,7 @@ const BCROS_HREF = 'https://www2.gov.bc.ca/gov/content/governments/organizationa
             </li>
           </ul>
 
-          <p>
+          <p class="text-white">
             {{ $t('contactInfo.bcros.support.account') }}
           </p>
           <ul>
@@ -50,7 +50,7 @@ const BCROS_HREF = 'https://www2.gov.bc.ca/gov/content/governments/organizationa
             </li>
           </ul>
 
-          <p>
+          <p class="text-white">
             <strong>{{ $t('contactInfo.bcRegGeneral.hours.title') }}</strong>
             <br>
             {{ $t('contactInfo.bcRegGeneral.hours.value') }}

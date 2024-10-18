@@ -66,9 +66,15 @@ export default defineNuxtConfig({
         'mdi:file-document-outline',
         'mdi:alert-circle-outline',
         'mdi:refresh',
+        'mdi:arrow-left',
+        'mdi:home',
+        'mdi:chevron-right',
         'heroicons:arrow-path-20-solid',
         'heroicons:circle-stack-20-solid',
-        'heroicons:check-20-solid'
+        'heroicons:check-20-solid',
+        'heroicons:currency-dollar-solid',
+        'heroicons:currency-dollar',
+        'heroicons:chevron-right-20-solid'
       ]
     }
   },

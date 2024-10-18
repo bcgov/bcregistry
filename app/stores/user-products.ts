@@ -1,10 +1,9 @@
 export const useUserProductsStore = defineStore('bcreg-user-products-store', () => {
+  const authUrl = useRuntimeConfig().public.authApiURL
   const accountStore = useConnectAccountStore()
   const ldStore = useConnectLaunchdarklyStore()
   const productInfo = useProductInfo()
-  // const { $authApi, $keycloak } = useNuxtApp()
   const { $keycloak } = useNuxtApp()
-  const authUrl = useRuntimeConfig().public.authApiURL
 
   const userProducts = ref<Product[]>([])
   const loading = ref<boolean>(false)
@@ -13,8 +12,7 @@ export const useUserProductsStore = defineStore('bcreg-user-products-store', () 
     try {
       loading.value = true
       userProducts.value = []
-      // auth api not returning an array for some reason
-      // const response = await $authApi(`/orgs/${accountStore.currentAccount.id}/products?include_hidden=true`)
+
       const response = await fetch(`${authUrl}/orgs/${accountStore.currentAccount.id}/products?include_hidden=true`, {
         headers: {
           Authorization: `Bearer ${$keycloak.token}`
