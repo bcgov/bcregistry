@@ -1,7 +1,9 @@
 <script setup lang="ts">
 const keycloak = reactive(useKeycloak())
 const { locale, t } = useI18n()
+const { width } = useWindowSize()
 const isSmallScreen = useMediaQuery('(max-width: 640px)')
+const isLargeScreen = ref(false)
 const config = useRuntimeConfig()
 const localePath = useLocalePath()
 
@@ -73,6 +75,13 @@ const { data: pprSections } = await useAsyncData(`ppr-sections-${locale.value}`,
   return queryContent().where({ _locale: locale.value, _path: { $contains: 'ppr/sections' } }).find()
 })
 
+// srr safe media query
+watchDebounced(width, () => {
+  if (import.meta.client) {
+    isLargeScreen.value = width.value > 1024
+  }
+}, { immediate: true, debounce: 100 })
+
 setBreadcrumbs([
   { to: localePath('/'), label: t('labels.bcRegAndOLServices') },
   { label: t('labels.ppr') }
@@ -104,11 +113,12 @@ setBreadcrumbs([
 
     <div class="bg-white">
       <UContainer class="flex flex-col py-10 lg:py-24">
+        <!-- cant use clientonly because content wont render -->
         <PPRSection
           v-for="(section, i) in pprSections"
           :key="section._path"
           :content="section"
-          :alternate="isSmallScreen ? false : i % 2 !== 0"
+          :alternate="!isLargeScreen ? false : i % 2 !== 0"
         />
       </UContainer>
     </div>
@@ -173,15 +183,15 @@ setBreadcrumbs([
               :to="config.public.authWebURL + 'choose-authentication-method'"
               :block="isSmallScreen"
             />
+            <UButton
+              variant="outline"
+              :label="$t('btn.learnMore')"
+              size="bcGov"
+              class="font-semibold text-bcGovColor-footer"
+              :to="config.public.setupBCSCURL"
+              :block="isSmallScreen"
+            />
           </ClientOnly>
-          <UButton
-            variant="outline"
-            :label="$t('btn.learnMore')"
-            size="bcGov"
-            class="font-semibold text-bcGovColor-footer"
-            :to="config.public.setupBCSCURL"
-            :block="isSmallScreen"
-          />
         </div>
       </UContainer>
     </div>
