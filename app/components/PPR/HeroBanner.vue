@@ -1,5 +1,5 @@
 <script setup lang="ts">
-const keycloak = reactive(useKeycloak())
+const { $keycloak } = useNuxtApp()
 const isSmallScreen = useMediaQuery('(max-width: 640px)')
 const localePath = useLocalePath()
 </script>
@@ -11,25 +11,27 @@ const localePath = useLocalePath()
         <p>
           {{ $t('page.ppr.intro.p1') }}
         </p>
-        <SbcAuthMenu v-if="!keycloak.isAuthenticated" :block="isSmallScreen" />
-        <div v-if="!keycloak.isAuthenticated">
-          <i18n-t keypath="page.ppr.intro.p2" tag="p" scope="global">
-            <template #link>
-              <a class="font-semibold text-[#1a5a96] underline" target="_blank" href="https://www.analytics.bcregistry.gov.bc.ca/">
-                {{ $t('btn.createRegAccount') }}
-              </a>
-            </template>
-          </i18n-t>
-        </div>
+        <ClientOnly>
+          <SbcAuthMenu v-if="!$keycloak.authenticated" :block="isSmallScreen" />
+          <div v-if="!$keycloak.authenticated">
+            <i18n-t keypath="page.ppr.intro.p2" tag="p" scope="global">
+              <template #link>
+                <a class="font-semibold text-[#1a5a96] underline" target="_blank" href="https://www.analytics.bcregistry.gov.bc.ca/">
+                  {{ $t('btn.createRegAccount') }}
+                </a>
+              </template>
+            </i18n-t>
+          </div>
 
-        <UButton
-          v-else
-          size="bcGov"
-          class="bg-bcGovColor-header font-semibold no-underline"
-          :label="$t('btn.goToBRD')"
-          :block="isSmallScreen"
-          :to="localePath('/dashboard')"
-        />
+          <UButton
+            v-else
+            size="bcGov"
+            class="bg-bcGovColor-header font-semibold no-underline"
+            :label="$t('btn.goToBRD')"
+            :block="isSmallScreen"
+            :to="localePath('/dashboard')"
+          />
+        </ClientOnly>
       </div>
     </div>
   </header>
