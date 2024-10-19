@@ -24,8 +24,8 @@ onMounted(async () => {
 })
 </script>
 <template>
-  <UContainer class="py-6 sm:py-12">
-    <ClientOnly>
+  <ClientOnly>
+    <UContainer class="py-6 sm:py-12">
       <h1 class="text-[32px] font-semibold text-bcGovColor-darkGray">
         {{ $t('page.dashboard.h1') }}
       </h1>
@@ -89,6 +89,6 @@ onMounted(async () => {
       </div>
 
       <ConnectSpinner v-else overlay />
-    </ClientOnly>
-  </UContainer>
+    </UContainer>
+  </ClientOnly>
 </template>
