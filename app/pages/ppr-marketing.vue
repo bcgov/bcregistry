@@ -92,7 +92,7 @@ onMounted(() => {
   // if user logs in from this page, go to dashboard
   keycloak.setLoginRedirectUrl(`${config.baseURL}${locale.value}/dashboard`)
   // if user logs out from this page, return here
-  keycloak.setLoginRedirectUrl(`${config.baseURL}${locale.value}/ppr-marketing`)
+  keycloak.setLogoutRedirectUrl(`${config.baseURL}${locale.value}/ppr-marketing`)
 })
 </script>
 <template>
