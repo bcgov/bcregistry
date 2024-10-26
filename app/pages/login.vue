@@ -1,24 +1,33 @@
 <script setup lang="ts">
 const connectNav = reactive(useConnectNav())
 const { t } = useI18n()
-const localePath = useLocalePath()
 
 useHead({
   title: t('page.signin.title')
-})
-
-definePageMeta({
-  middleware: ['signin-page']
 })
 
 const items = computed(() => {
   return connectNav.loggedOutUserOptions[1]
 })
 
-setBreadcrumbs([
-  { to: localePath('/'), label: t('labels.bcRegAndOLServices') },
-  { label: t('page.signin.h1') }
-])
+onMounted(async () => {
+  const keycloak = reactive(useKeycloak())
+  const localePath = useLocalePath()
+  const route = useRoute()
+
+  const returnUrl = route.query.return
+
+  if (keycloak.isAuthenticated) {
+    returnUrl ? await navigateTo(returnUrl as string, { external: true }) : await navigateTo(localePath('/dashboard'))
+  } else if (returnUrl) {
+    keycloak.setLoginRedirectUrl(returnUrl as string)
+  }
+
+  setBreadcrumbs([
+    { to: localePath('/'), label: t('labels.bcRegAndOLServices') },
+    { label: t('page.signin.h1') }
+  ])
+})
 </script>
 <template>
   <ClientOnly>

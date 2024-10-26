@@ -82,10 +82,18 @@ watchDebounced(width, () => {
   }
 }, { immediate: true, debounce: 100 })
 
-setBreadcrumbs([
-  { to: localePath('/'), label: t('labels.bcRegAndOLServices') },
-  { label: t('labels.ppr') }
-])
+onMounted(() => {
+  const config = useRuntimeConfig().public
+  setBreadcrumbs([
+    { to: localePath('/'), label: t('labels.bcRegAndOLServices') },
+    { label: t('labels.ppr') }
+  ])
+
+  // if user logs in from this page, go to dashboard
+  keycloak.setLoginRedirectUrl(`${config.baseURL}${locale.value}/dashboard`)
+  // if user logs out from this page, return here
+  keycloak.setLogoutRedirectUrl(`${config.baseURL}${locale.value}/ppr-marketing`)
+})
 </script>
 <template>
   <div>

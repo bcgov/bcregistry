@@ -1,6 +1,7 @@
 <script setup lang="ts">
-const { t } = useI18n()
+const { t, locale } = useI18n()
 const localePath = useLocalePath()
+const { setLoginRedirectUrl, setLogoutRedirectUrl } = useKeycloak()
 useHead({
   title: t('page.home.title')
 })
@@ -19,6 +20,16 @@ const homeItems = [
 setBreadcrumbs([
   { label: t('ConnectBreadcrumb.default') }
 ])
+
+onMounted(() => {
+  const config = useRuntimeConfig().public
+  // if user logs in from this page, go to dashboard
+  setLoginRedirectUrl(`${config.baseURL}${locale.value}/dashboard`)
+  // if user logs out from this page, return here
+  setLogoutRedirectUrl(`${config.baseURL}${locale.value}`)
+  // siteminder url to clear cookie
+  setSiteMinderLogoutUrl()
+})
 </script>
 <template>
   <div>
