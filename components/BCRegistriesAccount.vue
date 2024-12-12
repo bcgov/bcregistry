@@ -371,7 +371,9 @@
       <!-- Short-Term Rental Registry -->
       <v-card elevation="2">
         <v-card-title>Short-Term Rental Registry</v-card-title>
-
+        <span v-if="showNewFlagSTRR" class="card-title-badge-container">
+          <div class="card-title-badge font-weight-bold pt-2">NEW</div>
+        </span>
         <v-card-text>
           <p>
             Apply for and manage your registrations to comply with
@@ -512,6 +514,10 @@ export default class BCRegistriesAccount extends Vue {
 
   get showBetaMhr (): boolean {
     return getFeatureFlag('bcregistry-ui-mhr-beta-chip') as boolean
+  }
+
+  get showNewFlagSTRR (): boolean {
+    return getFeatureFlag('bcregistry-ui-strr-new-chip') as boolean
   }
 
   get dashboard (): string {
