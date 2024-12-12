@@ -175,6 +175,7 @@ export default {
     regAccountCreateURL: process.env.REGISTRY_ACCOUNT_CREATE_URL,
     regApiGatewayURL: process.env.REGISTRIES_API_GATEWAY_URL,
     rptURL: process.env.RPT_URL,
+    strrURL: process.env.STRR_URL,
     rptLearnMoreURL: process.env.RPT_LEARN_MORE_URL,
     siteMinderLogoutUrl: process.env.SITEMINDER_LOGOUT_URL,
     societiesURL: process.env.SOCIETIES_URL,
