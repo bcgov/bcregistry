@@ -96,8 +96,8 @@ export default {
     },
   },
   gtm: {
-    enabled: !!process.env.GTM_ID.trim(),
-    id: process.env.GTM_ID.trim()
+    enabled: !!process.env.GTM_ID?.trim(),
+    id: process.env.GTM_ID?.trim()
   },
   router: {
     // Ideally, these extended routes would be handled in a middleware
@@ -186,9 +186,9 @@ export default {
     keycloakRealm: process.env.KEYCLOAK_REALM,
     keycloakClientId: process.env.KEYCLOAK_CLIENTID,
     supportFilingUrl: process.env.SUPPORT_FILING_URL,
-    gtagId: process.env.GTAG_ID.trim(),
-    gtagDebug: process.env.GTAG_DEBUG.trim(),
-    gtmId: process.env.GTM_ID.trim(),
+    gtagId: process.env.GTAG_ID?.trim(),
+    gtagDebug: process.env.GTAG_DEBUG?.trim(),
+    gtmId: process.env.GTM_ID?.trim(),
     appName: JSON.parse(packageJson).name,
     appVersion: JSON.parse(packageJson).version,
     registryLogin: `${process.env.BCROS_BASE_URL}login`,
