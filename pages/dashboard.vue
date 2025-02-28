@@ -150,13 +150,9 @@ export default Vue.extend ({
       // get products list from API
       products = await fetchAccountProducts(accountId)
 
-      console.log('products:', products)
-
       const currentProducts = products.filter(
         product => product.subscriptionStatus === ProductStatus.ACTIVE
       )
-
-      console.log('currentProducts:', currentProducts)
 
       let hasCombinedSearch = false
       const searchProductCodes = [ProductCode.BUSINESS_SEARCH, ProductCode.NDS, ProductCode.CA_SEARCH]
