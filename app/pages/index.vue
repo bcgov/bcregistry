@@ -1,3 +1,3 @@
 <template>
-  TBD
+  <span>TBD</span>
 </template>
