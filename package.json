@@ -4,6 +4,7 @@
   "private": true,
   "type": "module",
   "scripts": {
+    "build-check": "nuxt build",
     "build": "nuxt build",
     "dev": "nuxt dev",
     "generate": "nuxt generate",
