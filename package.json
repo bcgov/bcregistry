@@ -15,6 +15,7 @@
   },
   "dependencies": {
     "@dwol/nuxt-core-layer-test-ui3": "^0.0.3",
+    "@nuxt/content": "^3.3.0",
     "nuxt": "^3.16.0"
   },
   "devDependencies": {

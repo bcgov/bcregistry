@@ -1,0 +1,32 @@
+<script setup lang="ts">
+// import type { Collections } from '@nuxt/content'
+// defineProps<{
+//   content: Collections['home_enCA'] | undefined
+// }>()
+
+const content = await queryCollection('home_hero_enCA').first()
+
+console.log(content)
+</script>
+<template>
+  <header class="bg-white bg-no-repeat lg:bg-[length:845px] lg:bg-right-bottom min-[1120px]:h-[30rem] min-[1120px]:bg-[url(/img/BCReg_homebanner_images_final_80compressed_032521.jpg)] xl:bg-[length:955px] 2xl:h-[35rem] 2xl:bg-[length:1145px]">
+    <div class="mx-auto flex w-full max-w-bcGovLg items-center px-4 py-8 min-[1120px]:h-[30rem] min-[1120px]:py-0 2xl:h-[35rem]">
+      <ContentRenderer 
+        v-if="content"
+        :value="content"
+        class="w-full min-[1120px]:min-w-1/2 min-[1120px]:max-w-1/2" 
+      />
+    </div>
+  </header>
+</template>
+<style>
+h1 {
+  font-weight: 900;
+  font-size: var(--text-4xl);
+  margin-bottom: 24px;
+}
+
+p {
+  margin-bottom: 24px;
+}
+</style>

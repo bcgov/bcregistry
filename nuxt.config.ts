@@ -12,8 +12,8 @@ export default defineNuxtConfig({
   css: ['~/assets/css/tw.css'],
 
   modules: [
-    '@nuxt/ui',
-    '@nuxt/eslint'
+    '@nuxt/eslint',
+    '@nuxt/content'
   ],
 
   extends: [
