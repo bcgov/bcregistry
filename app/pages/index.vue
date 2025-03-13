@@ -1,7 +1,28 @@
 <script setup lang="ts">
+const localePath = useLocalePath()
+const { locale, t } = useI18n()
+
+useHead({
+  title: t('page.home.title')
+})
+
 definePageMeta({
   layout: 'home-page'
 })
+
+const accountTypeLinks = [
+  { label: t('page.home.exploreByAccountType.bcRegAccount'), to: localePath('/#service-bc-connect-account') },
+  { label: t('page.home.exploreByAccountType.bcOLAccount'), to: localePath('/#bc-online-account') },
+  { label: t('page.home.exploreByAccountType.directAccount'), to: localePath('/#individual-direct-accounts') },
+  { label: t('page.home.exploreByAccountType.noAccount'), to: localePath('/#account-not-required') }
+]
+
+const { data: homeSections } = await useAsyncData(`home-sections-${locale.value}`, () => {
+  return queryCollection('home_sections_enCA')
+    .all()
+})
+
+// watchEffect(() => console.log(homeSections.value))
 </script>
 <template>
   <div>
@@ -13,7 +34,7 @@ definePageMeta({
       >
         {{ $t('page.home.exploreByAccountType.title') }}
       </span>
-      <!-- <nav :aria-label="$t('page.home.exploreByAccountType.title')" class="mx-auto w-full max-w-bcGovLg">
+      <nav :aria-label="$t('page.home.exploreByAccountType.title')" class="mx-auto w-full max-w-bcGovLg">
         <ul class="flex flex-col md:flex-row flex-wrap items-center justify-evenly">
           <li v-for="link in accountTypeLinks" :key="link.to" class="flex-1 md:border-gray-300 md:border-r last:border-none flex items-center justify-center py-1">
             <NuxtLink 
@@ -24,13 +45,9 @@ definePageMeta({
             </NuxtLink>
           </li>
         </ul>
-      </nav> -->
-    <!-- <div class="mx-auto max-w-bcGovLg divide-y-[3px] divide-gray-300">
-      <SbcPageSectionLanding v-for="item in homeItems" :key="item" :path="item" />
-    </div> -->
-    <!-- <BcrosContactInfo /> -->
+      </nav>
     </div>
-    <!-- <div class="px-2 py-4 md:px-4 md:py-8 max-w-bcGovLg mx-auto">
+    <div class="px-2 py-4 md:px-4 md:py-8 max-w-bcGovLg mx-auto">
       <template v-if="homeSections?.length">
         <ContentRenderer
           v-for="section in homeSections"
@@ -39,6 +56,7 @@ definePageMeta({
           tag="section"
         />
       </template>
-    </div> -->
+    </div>
+    <BcrosContactInfo />
   </div>
 </template>

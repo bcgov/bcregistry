@@ -1,12 +1,5 @@
 <script setup lang="ts">
-// import type { Collections } from '@nuxt/content'
-// defineProps<{
-//   content: Collections['home_enCA'] | undefined
-// }>()
-
 const content = await queryCollection('home_hero_enCA').first()
-
-console.log(content)
 </script>
 <template>
   <header class="bg-white bg-no-repeat lg:bg-[length:845px] lg:bg-right-bottom min-[1120px]:h-[30rem] min-[1120px]:bg-[url(/img/BCReg_homebanner_images_final_80compressed_032521.jpg)] xl:bg-[length:955px] 2xl:h-[35rem] 2xl:bg-[length:1145px]">

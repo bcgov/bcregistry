@@ -5,13 +5,13 @@ export default defineContentConfig({
     home_hero_enCA: defineCollection({
       type: 'page',
       source: {
-        include: 'en-CA/home/**/*.md'
+        include: 'en-CA/home/hero.md'
       }
     }),
     home_sections_enCA: defineCollection({
       type: 'page',
       source: {
-        include: 'en-CA/home/section/**/*.md'
+        include: 'en-CA/home/sections/**/*.md'
       }
     }),
     home_product_cards_enCA: defineCollection({
