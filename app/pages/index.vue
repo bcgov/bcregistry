@@ -1,5 +1,6 @@
 <script setup lang="ts">
 import type { Collections } from '@nuxt/content'
+
 const localePath = useLocalePath()
 const { locale, t } = useI18n()
 

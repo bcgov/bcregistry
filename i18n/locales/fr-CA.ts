@@ -39,9 +39,9 @@ export default {
     cancel: 'Annuler',
     ok: 'OK',
     loginBCOL: 'Connexion à Mon Compte BC OnLine',
-    createRegAccount: 'Créer un Compte BC Registries',
+    createBCRegAccount: 'Créer un Compte BC Registries',
     goToBRD: 'Accéder au Tableau de Bord des BC Registries',
-    loginBCREGAccount: 'Connexion à Mon Compte BC Registries',
+    loginBCRegAccount: 'Connexion à Mon Compte BC Registries',
     learnMore: 'En Savoir Plus'
   },
   contactInfo: {

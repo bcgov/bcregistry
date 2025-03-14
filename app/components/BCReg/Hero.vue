@@ -1,5 +1,9 @@
 <script setup lang="ts">
-const content = await queryCollection('home_enCA')
+import type { Collections } from '@nuxt/content'
+
+const { locale } = useI18n()
+
+const content = await queryCollection(`home_${locale.value.replace('-', '')}` as keyof Collections)
   .where('content_type', '=', 'hero')
   .first()
 </script>

@@ -1,6 +1,8 @@
 <script setup lang="ts">
 import type { Collections } from '@nuxt/content'
 
+type CardCollection = Collections['home_product_cards_enCA'] | Collections['home_product_cards_frCA']
+
 const { locale } = useI18n()
 
 const props = defineProps<{
@@ -20,7 +22,7 @@ const cards = await queryCollection(`home_product_cards_${locale.value.replace('
       <SbcProductCard
         v-for="card in cards"
         :key="card.path"
-        :content="card as Collections['home_product_cards_enCA']"
+        :content="card as CardCollection"
       />
     </ul>
     <div class="bg-blue-100 p-4 sm:px-2 sm:py-7 text-center">
