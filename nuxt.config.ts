@@ -20,7 +20,7 @@ export default defineNuxtConfig({
   ],
 
   extends: [
-    '@dwol/nuxt-core-layer-test-ui3'
+    '@sbc-connect/nuxt-core-layer-beta'
   ],
 
   router: {

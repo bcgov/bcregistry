@@ -1,6 +1,6 @@
 @import "tailwindcss" theme(static);
 @import "@nuxt/ui";
-@source "../../../node_modules/@dwol/nuxt-core-layer-test-ui3";
+@source "../../../node_modules/@sbc-connect/nuxt-core-layer-beta";
 
 @theme static {
   /* font */
