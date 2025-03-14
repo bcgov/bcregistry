@@ -47,13 +47,14 @@ const { data: homeSections } = await useAsyncData(`home-sections-${locale.value}
         </ul>
       </nav>
     </div>
-    <div class="px-2 py-4 md:px-4 md:py-8 max-w-bcGovLg mx-auto">
+    <div class="max-w-bcGovLg mx-auto flex flex-col divide-y-3 divide-solid divide-blue-100">
       <template v-if="homeSections?.length">
         <ContentRenderer
           v-for="section in homeSections"
           :key="section.id"
           :value="section"
           tag="section"
+          class="py-8 sm:py-16"
         />
       </template>
     </div>
