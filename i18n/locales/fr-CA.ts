@@ -40,8 +40,8 @@ export default {
     ok: 'OK',
     loginBCOL: 'Connexion à Mon Compte BC OnLine',
     createBCRegAccount: 'Créer un Compte BC Registries',
-    goToBRD: 'Accéder au Tableau de Bord des BC Registries',
     loginBCRegAccount: 'Connexion à Mon Compte BC Registries',
+    goToBCRegDashboard: 'Aller au Tableau de Bord',
     learnMore: 'En Savoir Plus'
   },
   contactInfo: {

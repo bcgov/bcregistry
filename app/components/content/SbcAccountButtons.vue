@@ -17,7 +17,7 @@ const localePath = useLocalePath()
     <UButton
       v-else
       class="px-6 py-3 bg-midnightBlue-900 font-bold"
-      :label="$t('btn.goToSbcDashboard')"
+      :label="$t('btn.goToBCRegDashboard')"
       :block="isSmallScreen"
       :to="localePath('/dashboard')"
     />
