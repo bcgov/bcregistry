@@ -5,7 +5,7 @@ const localePath = useLocalePath()
 <template>
   <div>
     <div v-if="!$keycloak.authenticated" class="flex flex-col justify-center gap-4 sm:flex-row">
-      <SbcAuthMenu :block="isSmallScreen" />
+      <SbcAuthMenu />
       <UButton
         :block="isSmallScreen"
         class="font-bold text-midnightBlue-900 no-underline ring-midnightBlue-900 px-6 py-3"
