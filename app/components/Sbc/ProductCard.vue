@@ -29,18 +29,18 @@ const resolvedPath = computed(() => {
   return path
 })
 
-const badgeMovedStyle = 'before:content-[""] before:absolute before:inset-0 before:bg-gray-200 before:bg-opacity-25 before:z-10'
-const hasLinkStyle = 'cursor-pointer transition-transform focus-within:-translate-y-1 focus-within:ring-2 focus-within:ring-bcGovGray-500 hover:-translate-y-1 hover:shadow-lg hover:ring-2 hover:ring-bcGovGray-500 dark:border dark:border-gray-300/50 dark:bg-bcGovColor-darkGray dark:focus-within:ring-1 dark:focus-within:ring-bcGovGray-100 dark:hover:ring-1 dark:hover:ring-bcGovGray-100'
+const linkStyle = 'cursor-pointer focus-within:ring-2 focus-within:ring-blue-350 hover:-translate-y-1 hover:inset-ring-1 hover:ring-blue-350 transition-all'
 </script>
 <template>
-  <!-- eslint-disable -->
-  <!-- relative flex max-w-[390px] flex-col overflow-hidden rounded-sm bg-white shadow-md -->
-   <!-- :class="[content?.link ? hasLinkStyle : '', content?.badge === 'MOVED' ? badgeMovedStyle : '']" -->
   <UCard 
     v-if="content"
     as="li"
+    :class="[
+      (content?.link && content?.badge !== 'MOVED') ? linkStyle : '', 
+      content?.badge === 'MOVED' ? 'opacity-80' : ''
+    ]"
     :ui="{
-      root: 'max-w-[390px] divide-none flex flex-col shadow-md relative cursor-pointer focus-within:ring-2 focus-within:ring-blue-350 hover:-translate-y-1 hover:inset-ring-1 hover:ring-blue-350 transition-all',
+      root: 'max-w-[390px] divide-none flex flex-col shadow-md relative',
       header: 'bg-blue-350 rounded-t-sm p-0 sm:px-0',
       body: 'p-4 sm:px-7 sm:pt-7 sm:pb-0 pb-0 grow',
       footer: 'p-4 sm:pb-7 sm:px-7'
@@ -52,7 +52,7 @@ const hasLinkStyle = 'cursor-pointer transition-transform focus-within:-translat
           {{ content.name }}
         </span>
         <span 
-          v-if="content?.badge"
+          v-if="content.badge"
           class="rounded-b bg-bcGovColor-navDivider px-2 py-1 text-sm text-midnightBlue-900 h-min"
         >
           {{ content.badge }}
@@ -63,7 +63,7 @@ const hasLinkStyle = 'cursor-pointer transition-transform focus-within:-translat
     <ContentRenderer class="prose" :value="content" />
 
     <template #footer>
-      <div v-if="content.link" class="text-left">
+      <div v-if="content.link && content.badge !== 'MOVED'" class="text-left">
         <NuxtLink
           :to="resolvedPath"
           :target="content.link.target"
