@@ -21,7 +21,7 @@
 .prose :where(a):not(:where([class~="not-prose"],[class~="not-prose"] *)){
   color: var(--tw-prose-links);
   text-decoration: underline;
-  font-weight: 500
+  font-weight: 900
 }
 
 .prose :where(strong):not(:where([class~="not-prose"],[class~="not-prose"] *)){
@@ -354,7 +354,7 @@
   --tw-prose-body: var(--color-bcGovGray-700);
   --tw-prose-headings: #212529;
   --tw-prose-lead: #4b5563;
-  --tw-prose-links: #111827;
+  --tw-prose-links: var(--color-bcGovColor-markBlue);
   --tw-prose-bold: #212529;
   --tw-prose-counters: #6b7280;
   --tw-prose-bullets: #d1d5db;

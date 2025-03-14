@@ -6,7 +6,7 @@ content_type: "landing-section"
 #header
 ## Account Not Required
 
-#### The following services do not require an account:
+**The following services do not require an account:**
 
 #footer
 ::TextWithIcon{icon="i-sbc-currency-usd-circle"}

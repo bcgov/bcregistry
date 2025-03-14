@@ -8,7 +8,7 @@ content_type: "landing-section"
 
 Specific sites dedicated to incorporating, registering and maintaining corporations, businesses and societies. In the future, these services will be moved to the new BC Registries account system.
 
-#### Individual accounts are available for the following services:
+**Individual accounts are available for the following services:**
 
 #footer
 ::TextWithIcon{icon="i-sbc-currency-usd-circle"}

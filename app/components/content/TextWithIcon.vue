@@ -9,7 +9,7 @@ defineProps<{
       :name="icon"
       class="size-5 text-blue-350 shrink-0"
     />
-    <span class="text-bcGovGray-900 m-0">
+    <span class="text-bcGovGray-900 m-0 text-lg">
       <slot mdc-unwrap="p" />
     </span>
   </div>

@@ -18,18 +18,9 @@ const accountTypeLinks = [
   { label: t('page.home.exploreByAccountType.noAccount'), to: localePath('/#account-not-required') }
 ]
 
-// const collection = computed(() => `home_${locale.value.replace('-', '')}` as keyof Collections)
-// const { data: homeSections } = await useAsyncData(`home-sections-${locale.value}`, () => {
-//   return queryCollection(collection.value)
-//     .where('content_type', '=', 'landing-section')
-//     .all()
-// })
-
 const homeSections = await queryCollection(`home_${locale.value.replace('-', '')}` as keyof Collections)
   .where('content_type', '=', 'landing-section')
   .all()
-
-// watchEffect(() => console.log(homeSections.value))
 </script>
 <template>
   <div>
@@ -54,7 +45,7 @@ const homeSections = await queryCollection(`home_${locale.value.replace('-', '')
         </ul>
       </nav>
     </div>
-    <div class="max-w-bcGovLg mx-auto flex flex-col divide-y-3 divide-solid divide-blue-100">
+    <div class="max-w-bcGovLg mx-auto px-4 flex flex-col divide-y-3 divide-solid divide-blue-100">
       <template v-if="homeSections?.length">
         <ContentRenderer
           v-for="section in homeSections"

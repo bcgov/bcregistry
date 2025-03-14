@@ -9,19 +9,8 @@ const content = await queryCollection('home_enCA')
       <ContentRenderer 
         v-if="content"
         :value="content"
-        class="w-full min-[1120px]:min-w-1/2 min-[1120px]:max-w-1/2" 
+        class="w-full min-w-full min-[1120px]:min-w-1/2 min-[1120px]:max-w-1/2 prose" 
       />
     </div>
   </header>
 </template>
-<style>
-h1 {
-  font-weight: 900;
-  font-size: var(--text-4xl);
-  margin-bottom: 24px;
-}
-
-p {
-  margin-bottom: 24px;
-}
-</style>

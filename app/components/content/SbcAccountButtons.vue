@@ -9,7 +9,7 @@ const localePath = useLocalePath()
       <UButton
         :block="isSmallScreen"
         class="font-bold text-midnightBlue-900 no-underline ring-midnightBlue-900 px-6 py-3"
-        :label="$t('btn.createSbcAccount')"
+        :label="$t('btn.createBCRegAccount')"
         variant="outline"
         :to="useRuntimeConfig().public.regAccountCreateURL"
       />

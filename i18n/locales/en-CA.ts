@@ -40,8 +40,10 @@ export default {
     ok: 'OK',
     loginBCOL: 'Log in to my BC OnLine Account',
     createSbcAccount: 'Create a Service BC Connect Account',
+    createBCRegAccount: 'Create a BC Registries Account',
     goToSbcDashboard: 'Go to Service BC Connect Dashboard',
     loginSbcAccount: 'Log in to my Service BC Connect Account',
+    loginBCRegAccount: 'Log in to my BC Registries Account',
     learnMore: 'Learn More'
   },
   contactInfo: {

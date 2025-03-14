@@ -8,7 +8,7 @@ content_type: "landing-section"
 
 BC OnLine provides convenient online access to government information products, filings and registrations for private and public sector business customers.
 
-#### Your BC OnLine account supports the following services:
+**Your BC OnLine account supports the following services:**
 
 #footer
 ::TextWithIcon{icon="i-sbc-currency-usd-circle"}
