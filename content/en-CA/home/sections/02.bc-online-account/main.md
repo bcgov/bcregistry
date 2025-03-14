@@ -1,3 +1,7 @@
+---
+content_type: "landing-section"
+---
+
 ::LandingSection{section="bc-online-account"}
 #header
 ## BC OnLine Account

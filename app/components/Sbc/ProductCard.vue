@@ -6,7 +6,7 @@ const accountStore = useConnectAccountStore()
 const localePath = useLocalePath()
 
 const props = defineProps<{
-  content: Collections['cards_product_enCA'] | undefined
+  content: Collections['home_product_cards_enCA'] | undefined
 }>()
 
 const resolvedPath = computed(() => {

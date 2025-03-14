@@ -1,3 +1,7 @@
+---
+content_type: "landing-section"
+---
+
 ::LandingSection{section="individual-direct-accounts"}
 #header
 ## Individual / Direct Accounts

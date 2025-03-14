@@ -1,4 +1,5 @@
 <script setup lang="ts">
+import type { Collections } from '@nuxt/content'
 const localePath = useLocalePath()
 const { locale, t } = useI18n()
 
@@ -17,10 +18,16 @@ const accountTypeLinks = [
   { label: t('page.home.exploreByAccountType.noAccount'), to: localePath('/#account-not-required') }
 ]
 
-const { data: homeSections } = await useAsyncData(`home-sections-${locale.value}`, () => {
-  return queryCollection('home_sections_enCA')
-    .all()
-})
+// const collection = computed(() => `home_${locale.value.replace('-', '')}` as keyof Collections)
+// const { data: homeSections } = await useAsyncData(`home-sections-${locale.value}`, () => {
+//   return queryCollection(collection.value)
+//     .where('content_type', '=', 'landing-section')
+//     .all()
+// })
+
+const homeSections = await queryCollection(`home_${locale.value.replace('-', '')}` as keyof Collections)
+  .where('content_type', '=', 'landing-section')
+  .all()
 
 // watchEffect(() => console.log(homeSections.value))
 </script>

@@ -1,5 +1,7 @@
 <script setup lang="ts">
-const content = await queryCollection('home_hero_enCA').first()
+const content = await queryCollection('home_enCA')
+  .where('content_type', '=', 'hero')
+  .first()
 </script>
 <template>
   <header class="bg-white bg-no-repeat lg:bg-[length:845px] lg:bg-right-bottom min-[1120px]:h-[30rem] min-[1120px]:bg-[url(/img/BCReg_homebanner_images_final_80compressed_032521.jpg)] xl:bg-[length:955px] 2xl:h-[35rem] 2xl:bg-[length:1145px]">

@@ -1,20 +1,15 @@
 <script setup lang="ts">
-import type { Collections, 
-  //CardsProductEnCACollectionItem 
-} from '@nuxt/content'
+import type { Collections } from '@nuxt/content'
+
 const { locale } = useI18n()
 
 const props = defineProps<{
   section: string
 }>()
 
-const collection = computed(() => `cards_product_${locale.value.replace('-', '')}` as keyof Collections)
-
-const { data: cards } = await useAsyncData(`${props.section}-cards-${locale.value}`, () => {
-  return queryCollection('home_product_cards_enCA')
-    .where('path', 'LIKE', `%${props.section}%`)
-    .all()
-})
+const cards = await queryCollection(`home_product_cards_${locale.value.replace('-', '')}` as keyof Collections)
+  .where('path', 'LIKE', `%${props.section}%`)
+  .all()
 </script>
 <template>
   <div class="flex flex-col app-inner-container">
@@ -25,7 +20,7 @@ const { data: cards } = await useAsyncData(`${props.section}-cards-${locale.valu
       <SbcProductCard
         v-for="card in cards"
         :key="card.path"
-        :content="card"
+        :content="card as Collections['home_product_cards_enCA']"
       />
     </ul>
     <div class="bg-blue-100 p-4 sm:px-2 sm:py-7 text-center">

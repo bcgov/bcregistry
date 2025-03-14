@@ -1,3 +1,7 @@
+---
+content_type: "landing-section"
+---
+
 ::LandingSection{section="account-not-required"}
 #header
 ## Account Not Required

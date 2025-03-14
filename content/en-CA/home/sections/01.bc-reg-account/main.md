@@ -1,3 +1,7 @@
+---
+content_type: "landing-section"
+---
+
 ::LandingSection{section="bc-reg-account"}
 #header
 ## Service BC Connect Account
