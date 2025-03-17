@@ -13,7 +13,7 @@ definePageMeta({
 })
 
 const accountTypeLinks = [
-  { label: t('page.home.exploreByAccountType.bcRegAccount'), to: localePath('/#service-bc-connect-account') },
+  { label: t('page.home.exploreByAccountType.bcRegAccount'), to: localePath('/#bc-registries-account') },
   { label: t('page.home.exploreByAccountType.bcOLAccount'), to: localePath('/#bc-online-account') },
   { label: t('page.home.exploreByAccountType.directAccount'), to: localePath('/#individual-direct-accounts') },
   { label: t('page.home.exploreByAccountType.noAccount'), to: localePath('/#account-not-required') }
