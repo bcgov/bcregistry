@@ -1,4 +1,5 @@
 // https://nuxt.com/docs/api/configuration/nuxt-config
+
 import { fileURLToPath } from 'url'
 import { dirname, join } from 'path'
 
@@ -51,7 +52,7 @@ export default defineNuxtConfig({
     langDir: 'locales',
     defaultLocale: 'en-CA',
     detectBrowserLanguage: false,
-    vueI18n: join(currentDir, './i18n.config.ts') 
+    vueI18n: join(currentDir, './i18n.config.ts')
   },
 
   icon: {
@@ -59,6 +60,20 @@ export default defineNuxtConfig({
       prefix: 'sbc',
       dir: './app/assets/svgs'
     }]
+  },
+
+  // full options
+  // https://github.com/eslint-stylistic/eslint-stylistic/blob/main/packages/eslint-plugin/configs/customize.ts#L16
+  eslint: {
+    config: {
+      stylistic: {
+        indent: 2,
+        semi: false,
+        commaDangle: 'never',
+        jsx: false,
+        quotes: 'single'
+      }
+    }
   },
 
   vite: {

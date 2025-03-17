@@ -21,7 +21,8 @@ const props = defineProps({
 const resolvedPath = computed(() => {
   if (props.target === '_blank' || props.download !== undefined) {
     return props.href
-  } else {
+  }
+  else {
     return localePath(props.href)
   }
 })
@@ -29,11 +30,22 @@ const resolvedPath = computed(() => {
 
 <template>
   <span>
-    <a class="text-bcGovColor-markBlue underline font-bold" :target :download :href="resolvedPath">
+    <a
+      class="text-bcGovColor-markBlue underline font-bold"
+      :target
+      :download
+      :href="resolvedPath"
+    >
       <slot />
     </a>
-    <span v-if="target === '_blank'" class="ml-1 inline-flex pb-1 align-middle">
-      <UIcon name="i-mdi-open-in-new" class="size-4 shrink-0 text-bcGovColor-markBlue" />
+    <span
+      v-if="target === '_blank'"
+      class="ml-1 inline-flex pb-1 align-middle"
+    >
+      <UIcon
+        name="i-mdi-open-in-new"
+        class="size-4 shrink-0 text-bcGovColor-markBlue"
+      />
     </span>
   </span>
 </template>

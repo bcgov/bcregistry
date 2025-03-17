@@ -11,7 +11,9 @@ const props = defineProps<{
 
 const resolvedPath = computed(() => {
   const link = props.content?.link
-  if (!link) { return '' } // return early if no link
+  if (!link) { // return early if no link
+    return ''
+  }
 
   let path = (link.href || link.rtcKey ? rtc[link.rtcKey!] : '') as string // resolve href or key from config
 
@@ -29,14 +31,16 @@ const resolvedPath = computed(() => {
   return path
 })
 
-const linkStyle = 'cursor-pointer focus-within:ring-2 focus-within:ring-blue-350 hover:-translate-y-1 hover:inset-ring-1 hover:ring-blue-350 transition-all'
+const linkStyle = 'cursor-pointer focus-within:ring-2 focus-within:ring-blue-350'
+  + 'hover:-translate-y-1 hover:inset-ring-1 hover:ring-blue-350 transition-all'
 </script>
+
 <template>
-  <UCard 
+  <UCard
     v-if="content"
     as="li"
     :class="[
-      (content?.link && content?.badge !== 'MOVED') ? linkStyle : '', 
+      (content?.link && content?.badge !== 'MOVED') ? linkStyle : '',
       content?.badge === 'MOVED' ? 'opacity-80' : ''
     ]"
     :ui="{
@@ -51,7 +55,7 @@ const linkStyle = 'cursor-pointer focus-within:ring-2 focus-within:ring-blue-350
         <span class="py-3.75 text-left text-white no-underline focus:outline-none">
           {{ content.name }}
         </span>
-        <span 
+        <span
           v-if="content.badge"
           class="rounded-b bg-bcGovColor-navDivider px-2 py-1 text-sm text-midnightBlue-900 h-min"
         >
@@ -60,10 +64,16 @@ const linkStyle = 'cursor-pointer focus-within:ring-2 focus-within:ring-blue-350
       </div>
     </template>
 
-    <ContentRenderer class="prose" :value="content" />
+    <ContentRenderer
+      class="prose"
+      :value="content"
+    />
 
     <template #footer>
-      <div v-if="content.link && content.badge !== 'MOVED'" class="text-left">
+      <div
+        v-if="content.link && content.badge !== 'MOVED'"
+        class="text-left"
+      >
         <NuxtLink
           :to="resolvedPath"
           :target="content.link.target"
@@ -86,6 +96,7 @@ const linkStyle = 'cursor-pointer focus-within:ring-2 focus-within:ring-blue-350
     </template>
   </UCard>
 </template>
+
 <style scoped>
 .prose :where(ul){
   list-style-type: square;

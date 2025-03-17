@@ -23,22 +23,33 @@ const homeSections = await queryCollection(`home_${locale.value.replace('-', '')
   .where('content_type', '=', 'landing-section')
   .all()
 </script>
+
 <template>
   <div>
     <BCRegHero />
-    <div class="flex flex-col items-center gap-2 md:gap-4 border-y-2 border-gray-300 bg-white px-2 py-4 md:px-4 md:py-8">
+    <div
+      class="flex flex-col items-center gap-2 md:gap-4 border-y-2 border-gray-300 bg-white px-2 py-4 md:px-4 md:py-8"
+    >
       <span
         class="text-lg font-semibold text-bcGovColor-darkGray"
         aria-hidden="true"
       >
         {{ $t('page.home.exploreByAccountType.title') }}
       </span>
-      <nav :aria-label="$t('page.home.exploreByAccountType.title')" class="mx-auto w-full max-w-bcGovLg">
+      <nav
+        :aria-label="$t('page.home.exploreByAccountType.title')"
+        class="mx-auto w-full max-w-bcGovLg"
+      >
         <ul class="flex flex-col md:flex-row flex-wrap items-center justify-evenly">
-          <li v-for="link in accountTypeLinks" :key="link.to" class="flex-1 md:border-gray-300 md:border-r last:border-none flex items-center justify-center py-1">
-            <NuxtLink 
+          <li
+            v-for="link in accountTypeLinks"
+            :key="link.to"
+            class="flex-1 md:border-gray-300 md:border-r last:border-none flex items-center justify-center py-1"
+          >
+            <NuxtLink
               :to="link.to"
-              class="text-bcGovColor-markBlue font-bold underline focus-visible:outline-2 outline-offset-2 rounded-sm outline-bcGovColor-markBlue"
+              class="text-bcGovColor-markBlue font-bold underline focus-visible:outline-2
+              outline-offset-2 rounded-sm outline-bcGovColor-markBlue"
             >
               {{ link.label }}
             </NuxtLink>
