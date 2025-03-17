@@ -9,15 +9,18 @@ export default defineNuxtConfig({
 
   devtools: { enabled: false },
 
-  css: ['~/assets/css/tw.css'],
+  css: [
+    '~/assets/css/tw.css',
+    '~/assets/css/prose.css'
+  ],
 
   modules: [
-    '@nuxt/ui',
-    '@nuxt/eslint'
+    '@nuxt/eslint',
+    '@nuxt/content'
   ],
 
   extends: [
-    '@dwol/nuxt-core-layer-test-ui3'
+    '@sbc-connect/nuxt-core-layer-beta'
   ],
 
   router: {
@@ -74,6 +77,7 @@ export default defineNuxtConfig({
 
   runtimeConfig: {
     public: {
+      version: `Registry UI v${process.env.npm_package_version || ''}`,
       addressChangeURL: process.env.NUXT_ADDRESS_CHANGE_URL,
       bcaLearnMoreURL: process.env.NUXT_BCA_LEARN_MORE_URL,
       bcaURL: process.env.NUXT_BCA_URL,
