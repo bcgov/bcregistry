@@ -93,3 +93,6 @@ sw.*
 # Firebase
 *.firebase
 *.firebaserc
+
+# nuxt/content
+.data
