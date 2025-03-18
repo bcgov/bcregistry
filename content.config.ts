@@ -55,6 +55,26 @@ export default defineContentConfig({
           locale: z.boolean()
         })
       })
+    }),
+    ppr_enCA: defineCollection({
+      type: 'page',
+      source: {
+        include: 'en-CA/ppr/**/*.md'
+      },
+      schema: z.object({
+        content_type: z.string().optional(),
+        background_image: z.string().optional()
+      })
+    }),
+    ppr_frCA: defineCollection({
+      type: 'page',
+      source: {
+        include: 'fr-CA/ppr/**/*.md'
+      },
+      schema: z.object({
+        content_type: z.string().optional(),
+        background_image: z.string().optional()
+      })
     })
   }
 })
