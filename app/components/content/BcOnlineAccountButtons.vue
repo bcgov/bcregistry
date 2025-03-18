@@ -1,6 +1,7 @@
 <script setup lang="ts">
 const isSmallScreen = useMediaQuery('(max-width: 640px)')
 </script>
+
 <template>
   <div>
     <UButton

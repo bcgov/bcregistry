@@ -13,6 +13,7 @@ const cards = await queryCollection(`home_product_cards_${locale.value.replace('
   .where('path', 'LIKE', `%${props.section}%`)
   .all()
 </script>
+
 <template>
   <div class="flex flex-col max-w-bcGovLg mx-auto">
     <div class="px-2 prose text-center mx-auto min-w-full lg:min-w-4xl">
@@ -32,6 +33,7 @@ const cards = await queryCollection(`home_product_cards_${locale.value.replace('
     </div>
   </div>
 </template>
+
 <style scoped>
 .prose :where(a){
   color: var(--color-bcGovGray-900);

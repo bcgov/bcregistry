@@ -2,6 +2,7 @@
 const { loggedOutUserOptions } = useConnectNav()
 const isSmallScreen = useMediaQuery('(max-width: 640px)')
 </script>
+
 <template>
   <UDropdownMenu
     :items="loggedOutUserOptions"

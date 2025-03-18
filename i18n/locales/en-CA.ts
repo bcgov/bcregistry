@@ -1,3 +1,4 @@
+/* eslint-disable */
 export default {
   btn: {
     getStarted: 'Get Started',

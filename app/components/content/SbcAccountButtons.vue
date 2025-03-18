@@ -2,9 +2,13 @@
 const isSmallScreen = useMediaQuery('(max-width: 640px)')
 const localePath = useLocalePath()
 </script>
+
 <template>
   <div>
-    <div v-if="!$keycloak.authenticated" class="flex flex-col justify-center gap-4 sm:flex-row">
+    <div
+      v-if="!$keycloak.authenticated"
+      class="flex flex-col justify-center gap-4 sm:flex-row"
+    >
       <SbcAuthMenu />
       <UButton
         :block="isSmallScreen"

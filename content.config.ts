@@ -34,7 +34,7 @@ export default defineContentConfig({
           href: z.string(),
           rtcKey: z.string(),
           appendAccountId: z.boolean(),
-          locale: z.boolean(),
+          locale: z.boolean()
         })
       })
     }),
@@ -52,7 +52,7 @@ export default defineContentConfig({
           href: z.string(),
           rtcKey: z.string(),
           appendAccountId: z.boolean(),
-          locale: z.boolean(),
+          locale: z.boolean()
         })
       })
     })

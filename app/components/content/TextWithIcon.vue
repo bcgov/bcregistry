@@ -3,6 +3,7 @@ defineProps<{
   icon: string
 }>()
 </script>
+
 <template>
   <div class="flex w-full items-center justify-center gap-2 text-center">
     <UIcon
