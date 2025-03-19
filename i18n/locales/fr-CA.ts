@@ -43,7 +43,8 @@ export default {
     createBCRegAccount: 'Créer un Compte BC Registries',
     loginBCRegAccount: 'Connexion à Mon Compte BC Registries',
     goToBCRegDashboard: 'Aller au Tableau de Bord',
-    learnMore: 'En Savoir Plus'
+    learnMore: 'En Savoir Plus',
+    open: 'Ouvrir'
   },
   contactInfo: {
     bcRegGeneral: {
@@ -259,6 +260,14 @@ export default {
         mar: {
           text: 'Recherchez des maisons préfabriquées, enregistrez ou recherchez des réclamations légales sur des biens personnels.',
           title: 'Mes Registres des Actifs'
+        },
+        error: {
+          title: 'Erreur lors de la Récupération des Produits',
+          description: "Une erreur s'est produite lors de la récupération de vos produits, veuillez actualiser la page ou réessayer plus tard."
+        },
+        empty: {
+          title: 'Aucun Produit Trouvé',
+          description: "Aucun produit n'a été trouvé associé à ce compte. Pour ajouter des produits et services, contactez l'administrateur du compte des Registres BC."
         }
       },
       help: {

@@ -46,7 +46,8 @@ export default {
     goToBCRegDashboard: 'Go to BC Registries Dashboard',
     loginSbcAccount: 'Log in to my Service BC Connect Account',
     loginBCRegAccount: 'Log in to my BC Registries Account',
-    learnMore: 'Learn More'
+    learnMore: 'Learn More',
+    open: 'Open'
   },
   contactInfo: {
     bcRegGeneral: {
@@ -262,6 +263,14 @@ export default {
         mar: {
           text: 'Search for manufactured homes, and register or search for legal claims on personal property.',
           title: 'My Asset Registries'
+        },
+        error: {
+          title: 'Error Retrieving Products',
+          description: 'There was an error fetching your products, please refresh the page or try again later.'
+        },
+        empty: {
+          title: 'No Products Found',
+          description: 'No products were found associated with this account. To add products and services, contact the account Administrator of your BC Registries account.'
         }
       },
       help: {

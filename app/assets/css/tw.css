@@ -2,6 +2,14 @@
 @import "@nuxt/ui";
 @source "../../../node_modules/@sbc-connect/nuxt-core-layer-beta";
 
+/* Customize Nuxt UI default tokens */
+:root {
+  /* Slightly elevated background */
+  --ui-bg-elevated: var(--ui-color-neutral-200);
+  /* More prominent background */
+  --ui-bg-accented: var(--ui-color-neutral-300);
+}
+
 @theme static {
   /* font */
   --font-sans: 'BCSans', 'Verdana', 'Arial', 'sans-serif';

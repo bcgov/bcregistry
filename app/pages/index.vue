@@ -31,7 +31,7 @@ const heroSection = await queryCollection(`home_${locale.value.replace('-', '')}
 
 onMounted(() => {
   // if user logs in from this page, go to dashboard
-  setLoginRedirectUrl(`${rtc.baseURL}${locale.value}/dashboard`)
+  setLoginRedirectUrl(`${rtc.baseUrl}${locale.value}/dashboard`)
   // if user logs out from this page, return here
   clearLogoutRedirectUrl()
   // siteminder url to clear cookie
