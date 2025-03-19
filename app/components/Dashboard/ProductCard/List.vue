@@ -20,7 +20,6 @@ defineProps<{
     </ul>
     <UAlert
       v-else-if="error"
-      as="li"
       color="error"
       variant="subtle"
       :title="$t('page.dashboard.products.error.title')"
