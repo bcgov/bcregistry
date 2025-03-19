@@ -1,5 +1,7 @@
 <script setup lang="ts">
 const localePath = useLocalePath()
+const rtc = useRuntimeConfig().public
+
 const props = defineProps({
   href: {
     type: String,
@@ -14,6 +16,11 @@ const props = defineProps({
     type: String,
     default: undefined,
     required: false
+  },
+  rtcKey: {
+    type: String,
+    default: undefined,
+    required: false
   }
 })
 
@@ -21,8 +28,9 @@ const props = defineProps({
 const resolvedPath = computed(() => {
   if (props.target === '_blank' || props.download !== undefined) {
     return props.href
-  }
-  else {
+  } else if (props.rtcKey) {
+    return rtc[props.rtcKey] as string
+  } else {
     return localePath(props.href)
   }
 })

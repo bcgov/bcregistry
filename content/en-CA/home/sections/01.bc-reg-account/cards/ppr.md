@@ -4,7 +4,7 @@ badge:
 link: 
   label: Go to Personal Property Registry
   target: _blank
-  href: '/ppr-marketing' 
+  href: "/en-CA/ppr-marketing"
   rtcKey:
   appendAccountId: false
   locale: true

@@ -8,7 +8,8 @@ export default defineContentConfig({
         include: 'en-CA/home/**/*.md'
       },
       schema: z.object({
-        content_type: z.string().optional()
+        content_type: z.string().optional(),
+        background_image: z.string().optional()
       })
     }),
     home_frCA: defineCollection({
@@ -17,7 +18,8 @@ export default defineContentConfig({
         include: 'fr-CA/home/**/*.md'
       },
       schema: z.object({
-        content_type: z.string().optional()
+        content_type: z.string().optional(),
+        background_image: z.string().optional()
       })
     }),
     home_product_cards_enCA: defineCollection({
@@ -26,6 +28,7 @@ export default defineContentConfig({
         include: 'en-CA/home/sections/**/cards/**/*.md'
       },
       schema: z.object({
+        background_image: z.string().optional(),
         name: z.string(),
         badge: z.string(),
         link: z.object({
@@ -44,6 +47,7 @@ export default defineContentConfig({
         include: 'fr-CA/home/sections/**/cards/**/*.md'
       },
       schema: z.object({
+        background_image: z.string().optional(),
         name: z.string(),
         badge: z.string(),
         link: z.object({
@@ -54,6 +58,26 @@ export default defineContentConfig({
           appendAccountId: z.boolean(),
           locale: z.boolean()
         })
+      })
+    }),
+    ppr_enCA: defineCollection({
+      type: 'page',
+      source: {
+        include: 'en-CA/ppr/**/*.md'
+      },
+      schema: z.object({
+        content_type: z.string().optional(),
+        background_image: z.string().optional()
+      })
+    }),
+    ppr_frCA: defineCollection({
+      type: 'page',
+      source: {
+        include: 'fr-CA/ppr/**/*.md'
+      },
+      schema: z.object({
+        content_type: z.string().optional(),
+        background_image: z.string().optional()
       })
     })
   }

@@ -27,6 +27,7 @@ export default withNuxt({
     'vue/comma-dangle': 'warn',
     'vue/component-api-style': 'error',
     'vue/html-indent': 'warn',
-    'vue/script-indent': 'warn'
+    'vue/script-indent': 'warn',
+    '@stylistic/brace-style': 'off'
   }
 })

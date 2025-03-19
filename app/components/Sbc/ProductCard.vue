@@ -3,7 +3,6 @@ import type { Collections } from '@nuxt/content'
 
 const rtc = useRuntimeConfig().public
 const accountStore = useConnectAccountStore()
-const localePath = useLocalePath()
 
 const props = defineProps<{
   content: Collections['home_product_cards_enCA'] | undefined
@@ -11,21 +10,23 @@ const props = defineProps<{
 
 const resolvedPath = computed(() => {
   const link = props.content?.link
+
   if (!link) { // return early if no link
     return ''
   }
 
-  let path = (link.href || link.rtcKey ? rtc[link.rtcKey!] : '') as string // resolve href or key from config
+  let path = ''
+
+  if (link.href) {
+    path = link.href
+  } else if (link.rtcKey) {
+    path = rtc[link.rtcKey] as string
+  }
 
   // append account id if required
   if (link.appendAccountId && accountStore.currentAccount?.id) {
     const accountId = accountStore.currentAccount.id
     path += `?accountid=${accountId}`
-  }
-
-  // resolve locale path if required
-  if (link.locale) {
-    path = localePath(path)
   }
 
   return path
