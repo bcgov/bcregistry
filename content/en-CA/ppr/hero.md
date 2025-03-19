@@ -1,5 +1,6 @@
 ---
 content_type: hero
+background_image: "/img/PPR_homebanner_image_v2_x2.jpg"
 ---
 
 # Register or search for legal claims on personal property

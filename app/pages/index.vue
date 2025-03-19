@@ -22,11 +22,15 @@ const accountTypeLinks = [
 const homeSections = await queryCollection(`home_${locale.value.replace('-', '')}` as keyof Collections)
   .where('content_type', '=', 'landing-section')
   .all()
+
+const heroSection = await queryCollection(`home_${locale.value.replace('-', '')}` as keyof Collections)
+  .where('content_type', '=', 'hero')
+  .first()
 </script>
 
 <template>
   <div>
-    <BCRegHero />
+    <HeroSection :content="heroSection" />
     <div
       class="flex flex-col items-center gap-2 md:gap-4 border-y-2 border-gray-300 bg-white px-2 py-4 md:px-4 md:py-8"
     >

@@ -80,11 +80,16 @@ const createAccountSection = await queryCollection(`ppr_${locale.value.replace('
   .where('content_type', '=', 'create-account-section')
   .first()
 
+const heroSection = await queryCollection(`ppr_${locale.value.replace('-', '')}` as keyof Collections)
+  .where('content_type', '=', 'hero')
+  .first()
+
 onMounted(() => {
   setBreadcrumbs([
     { to: localePath('/'), label: t('labels.bcRegAndOLServices') },
     { label: t('labels.ppr') }
   ])
+
   // if user logs out from this page, return here
   keycloak.clearLogoutRedirectUrl()
 
@@ -95,7 +100,7 @@ onMounted(() => {
 
 <template>
   <div>
-    <PPRHero />
+    <HeroSection :content="heroSection" />
 
     <div class="space-y-4 bg-gray-100 py-8 text-center lg:space-y-8 lg:py-20 app-inner-container">
       <h2 class="text-3xl font-semibold text-bcGovColor-darkGray">
