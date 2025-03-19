@@ -1,5 +1,11 @@
 /* eslint-disable */
 export default {
+  alert: {
+    sessionExpired: {
+      title: 'Session expirée',
+      description: 'Votre session a expiré. Veuillez vous reconnecter pour continuer.'
+    }
+  },
   btn: {
     getStarted: 'Commencer',
     goHome: "Retour à l'Accueil",
@@ -14,6 +20,8 @@ export default {
     openMainNav: 'Ouvrir le Menu de Navigation Principal',
     closeMainNav: 'Fermer le Menu de Navigation Principal',
     loginBCSC: 'Connexion avec la Carte Services BC',
+    loginBCEID: 'Connexion avec la BCeID',
+    loginIDIR: 'Connexion avec la IDIR',
     createNewAccount: 'Créer un Nouveau Compte',
     createAccount: 'Créer un Compte',
     createAnAccount: 'Créer un Compte',
@@ -291,11 +299,9 @@ export default {
         }
       }
     },
-    signin: {
-      title: 'Se connecter - Registres et Services en Ligne de la CB',
-      h1: 'Se connecter',
-      intro: 'Connectez-vous à votre compte BC Registries',
-      option: 'Connectez-vous avec {option}'
+    login: {
+      title: 'Connexion - Registres de la CB et Services en ligne',
+      h1: 'Connexion au compte des Registres de la CB'
     }
   },
   ConnectHeader: {

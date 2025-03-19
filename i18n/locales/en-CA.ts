@@ -1,5 +1,11 @@
 /* eslint-disable */
 export default {
+  alert: {
+    sessionExpired: {
+      title: 'Session Expired',
+      description: 'Your session has expired. Please log in again to continue.'
+    }
+  },
   btn: {
     getStarted: 'Get Started',
     goHome: 'Go Home',
@@ -14,6 +20,8 @@ export default {
     openMainNav: 'Open Main Navigation Menu',
     closeMainNav: 'Close Main Navigation Menu',
     loginBCSC: 'Login with BC Services Card',
+    loginBCEID: 'Login with BCeID',
+    loginIDIR: 'Login with IDIR',
     createNewAccount: 'Create New Account',
     createAccount: 'Create Account',
     createAnAccount: 'Create an Account',
@@ -294,11 +302,9 @@ export default {
         }
       }
     },
-    signin: {
+    login: {
       title: 'Log in - BC Registries and Online Services',
-      h1: 'Log in',
-      intro: 'Log in to your BC Registries Account',
-      option: 'Log in with {option}'
+      h1: 'BC Registries Account Login'
     }
   },
   // components
