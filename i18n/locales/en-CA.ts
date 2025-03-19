@@ -228,6 +228,10 @@ export default {
           text: 'Search for businesses registered in B.C. and access business documents.',
           title: 'Business Search'
         },
+        busPersonSearch: {
+          text: 'Search for businesses registered in B.C. and their related individuals, and request copies of business documents.',
+          title: 'Business and Person Search'
+        },
         bca: {
           text: 'Generate a BC Assessment report to find real property ownership or location information, obtain property assessment information or obtain residential property inventory details for properties within British Columbia.',
           title: 'BC Assessment'
@@ -263,6 +267,10 @@ export default {
         mar: {
           text: 'Search for manufactured homes, and register or search for legal claims on personal property.',
           title: 'My Asset Registries'
+        },
+        strr: {
+          text: 'Register your short-term rental property, platform service provider, or strata-titled hotel or motel with the province.',
+          title: 'Short-Term Rental Registry'
         },
         error: {
           title: 'Error Retrieving Products',

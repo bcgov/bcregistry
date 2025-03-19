@@ -222,12 +222,16 @@ export default {
           title: "Mon Registre d'Entreprise"
         },
         busSearch: {
-          text: 'Recherchez des entreprises enregistrées en C.-B. et accédez aux documents commerciaux.',
+          text: 'Recherchez des entreprises enregistrées en CB et accédez aux documents commerciaux.',
           title: "Recherche d'Entreprise"
         },
+        busPersonSearch: {
+          text: "Recherchez des entreprises enregistrées en CB et leurs personnes associées, et demandez des copies des documents d'entreprise.",
+          title: "Recherche d'entreprises et de personnes"
+        },
         bca: {
-          text: "Générez un rapport d'évaluation de la C.-B. pour trouver la propriété ou l'emplacement des biens immobiliers, obtenir des informations d'évaluation des biens ou des détails sur l'inventaire des propriétés résidentielles en CB.",
-          title: 'Évaluation de la C.-B.'
+          text: "Générez un rapport d'évaluation de la CB pour trouver la propriété ou l'emplacement des biens immobiliers, obtenir des informations d'évaluation des biens ou des détails sur l'inventaire des propriétés résidentielles en CB.",
+          title: 'Évaluation de la CB.'
         },
         cso: {
           text: "Faites des demandes ou déposez d'autres documents judiciaires, parcourez les listes quotidiennes des tribunaux et recherchez des informations sur les dossiers judiciaires.",
@@ -238,7 +242,7 @@ export default {
           title: 'Mon Registre des Maisons Préfabriquées'
         },
         nds: {
-          text: 'Recherchez les noms et adresses des personnes associées aux entreprises en C.-B.',
+          text: 'Recherchez les noms et adresses des personnes associées aux entreprises en CB.',
           title: 'Recherche de Directeur'
         },
         ppr: {
@@ -260,6 +264,10 @@ export default {
         mar: {
           text: 'Recherchez des maisons préfabriquées, enregistrez ou recherchez des réclamations légales sur des biens personnels.',
           title: 'Mes Registres des Actifs'
+        },
+        strr: {
+          text: 'Enregistrez votre propriété de location à court terme, votre fournisseur de services de plateforme, ou votre hôtel ou motel en copropriété auprès de la province.',
+          title: 'Registre des locations à court terme'
         },
         error: {
           title: 'Erreur lors de la Récupération des Produits',

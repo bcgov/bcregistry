@@ -32,6 +32,13 @@ export const useProductInfo = () => {
           text: t('page.dashboard.products.busSearch.text'),
           title: t('page.dashboard.products.busSearch.title')
         } as Product
+      case ProductCode.BUSINESS_PERSON_SEARCH:
+        return {
+          image: 'img/business_search_product_image.jpg',
+          link: appendAccountId(rtc.ndsUrl) || 'link_not_configured',
+          text: t('page.dashboard.products.busPersonSearch.text'),
+          title: t('page.dashboard.products.busPersonSearch.title')
+        } as Product
       case ProductCode.BCA:
         return {
           image: 'img/BCA_dashboard_thumbnail_image.jpg',
@@ -81,6 +88,13 @@ export const useProductInfo = () => {
           text: t('page.dashboard.products.esra.text'),
           title: t('page.dashboard.products.esra.title')
         } as Product
+      case ProductCode.STRR:
+        return {
+          image: 'img/STRR_dashboard_thumbnail_image.jpg',
+          link: appendAccountId(rtc.strrURL) || 'link_not_configured',
+          text: t('page.dashboard.products.strr.text'),
+          title: t('page.dashboard.products.strr.title')
+        } as Product
       case ProductCode.VS:
         return {
           image: 'img/VS_dashboard_thumbnail_image.jpg',
@@ -124,7 +138,7 @@ export const useProductInfo = () => {
   }
 
   async function getActiveUserProducts() {
-    const userProducts: Product[] = ([])
+    const userProducts: Product[] = []
 
     // using $fetch giving type mismatch
     const response = await fetch(`${rtc.authApiURL}/orgs/${accountId}/products?include_hidden=true`, {
@@ -136,34 +150,48 @@ export const useProductInfo = () => {
     const activeProducts = (await response.json() as APIProduct[])
       .filter(product => product.subscriptionStatus === ProductStatus.ACTIVE)
 
+    let hasCombinedSearch = false
+    const searchProductCodes = [ProductCode.BUSINESS_SEARCH, ProductCode.NDS, ProductCode.CA_SEARCH]
+
     // only show products with no placeholder
-    for (const product of activeProducts) {
-      const enabledFF = `bcregistry-ui-${product.code}-enabled`.toLowerCase()
+    for (let i = 0; i < activeProducts.length; i++) {
+      let productCode = activeProducts[i]?.code
+      const enabledFF = `bcregistry-ui-${productCode}-enabled`.toLowerCase()
       // ensure has a default (otherwise it might not have an enabled flag set in LD)
       if (hasDefaultValue(enabledFF) && !ldStore.getStoredFlag(enabledFF)) {
         // skip disabled products
         continue
       }
 
-      let currProduct = getProductInfo(product.code)
+      if (searchProductCodes.includes(productCode) && ldStore.getStoredFlag('bcregistry-ui-combine-search-tile')) {
+        if (hasCombinedSearch) {
+          // skip search this product since the new Business and Person Search is already in subscribedProducts
+          continue
+        } else {
+          hasCombinedSearch = true
+          productCode = ProductCode.BUSINESS_PERSON_SEARCH
+        }
+      }
 
-      if (currProduct.title === 'placeholder_title') {
-        console.info('Product tile not implemented:', product.code)
+      let thisProduct = getProductInfo(productCode)
+
+      if (thisProduct.title === 'placeholder_title') {
+        console.error('Product tile not implemented:', productCode)
         continue
       }
 
       // block for MHR/PPR special rules
       if (hasMhrAndPprProducts(activeProducts)) {
-        if (product.code === ProductCode.PPR) {
+        if (activeProducts[i]?.code === ProductCode.PPR) {
           // replace ppr tile with assets
-          currProduct = getMhrPprTileInfo()
-        } else if (product.code === ProductCode.MHR) {
+          thisProduct = getMhrPprTileInfo()
+        } else if (activeProducts[i]?.code === ProductCode.MHR) {
           // skip mhr product (included with assets tile)
           continue
         }
       }
 
-      userProducts.push(currProduct)
+      userProducts.push(thisProduct)
     }
 
     return userProducts

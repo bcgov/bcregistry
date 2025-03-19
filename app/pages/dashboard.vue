@@ -29,6 +29,7 @@ const { data: userProducts, status, error } = await useLazyAsyncData(
 onMounted(async () => {
   clearLoginRedirectUrl()
   setLogoutRedirectUrl(rtc.baseUrl)
+  setSiteMinderLogoutUrl()
 
   setBreadcrumbs([
     { to: localePath('/'), label: t('ConnectBreadcrumb.default') },
