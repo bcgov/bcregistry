@@ -4,7 +4,7 @@ import type { Collections } from '@nuxt/content'
 const { locale, t } = useI18n()
 const isLargeScreen = useMediaQuery('(min-width: 1024px)')
 const rtc = useRuntimeConfig().public
-const keycloak = useKeycloak()
+const { setLoginRedirectUrl, clearLogoutRedirectUrl } = useKeycloak()
 const localePath = useLocalePath()
 
 useHead({
@@ -91,10 +91,10 @@ onMounted(() => {
   ])
 
   // if user logs out from this page, return here
-  keycloak.clearLogoutRedirectUrl()
+  clearLogoutRedirectUrl()
 
   // if user logs in from this page, go to dashboard
-  keycloak.setLoginRedirectUrl(`${rtc.baseURL}${locale.value}/dashboard`)
+  setLoginRedirectUrl(`${rtc.baseURL}${locale.value}/dashboard`)
 })
 </script>
 

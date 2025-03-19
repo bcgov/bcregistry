@@ -125,7 +125,8 @@ export default defineNuxtConfig({
       businessRegistryStaffDashboard: `${process.env.NUXT_AUTH_WEB_URL}staff/dashboard/active`,
       myBusinessRegistryDashboard: `${process.env.NUXT_AUTH_WEB_URL}account/{accountId}/business`,
       pprDashboard: `${process.env.NUXT_PPR_URL}/dashboard`,
-      strrURL: process.env.NUXT_STRR_URL
+      strrURL: process.env.NUXT_STRR_URL,
+      createAccountNoAuthURL: `${process.env.NUXT_AUTH_WEB_URL}choose-authentication-method`
     }
   }
 })

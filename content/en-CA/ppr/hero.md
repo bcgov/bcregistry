@@ -7,4 +7,9 @@ background_image: "/img/PPR_homebanner_image_v2_x2.jpg"
 
 The Personal Property Registry records security interests and liens against personal property belonging to British Columbia businesses and individuals.
 
-For up-to-date data analytics on our products and services, [visit our Service BC Connect Statistics and Insights page.](https://www.analytics.bcregistry.gov.bc.ca/){target="_blank"}
+:SbcAccountButtons{:showCreateAccountButton="false" :center="false"}
+
+::AuthState
+#false
+New to BC Registries? [Create a BC Registries Account](){rtcKey="createAccountNoAuthURL"}
+::

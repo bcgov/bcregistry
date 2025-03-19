@@ -3,6 +3,8 @@ import type { Collections } from '@nuxt/content'
 
 const localePath = useLocalePath()
 const { locale, t } = useI18n()
+const { setLoginRedirectUrl, clearLogoutRedirectUrl } = useKeycloak()
+const rtc = useRuntimeConfig().public
 
 useHead({
   title: t('page.home.title')
@@ -26,6 +28,15 @@ const homeSections = await queryCollection(`home_${locale.value.replace('-', '')
 const heroSection = await queryCollection(`home_${locale.value.replace('-', '')}` as keyof Collections)
   .where('content_type', '=', 'hero')
   .first()
+
+onMounted(() => {
+  // if user logs in from this page, go to dashboard
+  setLoginRedirectUrl(`${rtc.baseURL}${locale.value}/dashboard`)
+  // if user logs out from this page, return here
+  clearLogoutRedirectUrl()
+  // siteminder url to clear cookie
+  setSiteMinderLogoutUrl()
+})
 </script>
 
 <template>
