@@ -36,6 +36,7 @@ export default defineNuxtConfig({
     '/signin/bcsc': { redirect: '/en-CA/signin/bcsc' },
     '/signin/bceid': { redirect: '/en-CA/signin/bceid' },
     '/signin/idir': { redirect: '/en-CA/signin/idir' },
+    '/signout': { redirect: '/en-CA/signout' },
   },
 
   i18n: {
