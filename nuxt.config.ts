@@ -31,12 +31,7 @@ export default defineNuxtConfig({
   },
 
   routeRules: {
-    '/': { redirect: '/en-CA' },
-    '/filing': { redirect: '/en-CA/filing' },
-    '/signin/bcsc': { redirect: '/en-CA/signin/bcsc' },
-    '/signin/bceid': { redirect: '/en-CA/signin/bceid' },
-    '/signin/idir': { redirect: '/en-CA/signin/idir' },
-    '/signout': { redirect: '/en-CA/signout' },
+    '/': { redirect: '/en-CA' }
   },
 
   i18n: {
