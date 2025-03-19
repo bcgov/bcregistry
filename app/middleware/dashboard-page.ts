@@ -1,8 +1,10 @@
 export default defineNuxtRouteMiddleware(() => {
-  const accountStore = useConnectAccountStore()
+  const { kcUser } = useKeycloak()
   const rtc = useRuntimeConfig().public
 
-  if (accountStore.isStaffOrSbcStaff) {
+  const isStaff = kcUser.value.roles.some(role => ['staff', 'contact_centre_staff'].includes(role))
+
+  if (isStaff) {
     return navigateTo(rtc.businessRegistryStaffDashboard, { external: true })
   }
 })
