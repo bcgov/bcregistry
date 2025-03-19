@@ -214,6 +214,7 @@ export default {
     dashboard: {
       title: 'Tableau de Bord des Registres de la CB - Registres et Services en Ligne de la CB',
       h1: 'Tableau de Bord des Registres de la CB',
+      staffH1: 'SBC Staff Registries Dashboard',
       intro: 'Accès à vos produits et services de compte des Registres de la CB',
       products: {
         heading: '{boldStart}Mes Produits et Services{boldEnd} ({count})',

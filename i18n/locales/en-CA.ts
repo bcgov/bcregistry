@@ -217,6 +217,7 @@ export default {
     dashboard: {
       title: 'BC Registries Dashboard - BC Registries and Online Services',
       h1: 'BC Registries Dashboard',
+      staffH1: 'SBC Staff Registries Dashboard',
       intro: 'Access to your BC Registries account product and services',
       products: {
         heading: '{boldStart}My Products and Services{boldEnd} ({count})',

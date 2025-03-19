@@ -3,7 +3,8 @@ const accountStore = useConnectAccountStore()
 const productInfo = useProductInfo()
 const { t } = useI18n()
 const localePath = useLocalePath()
-const { clearLoginRedirectUrl, setLogoutRedirectUrl } = useKeycloak()
+const { $authApi } = useNuxtApp()
+const { clearLoginRedirectUrl, setLogoutRedirectUrl, kcUser } = useKeycloak()
 const rtc = useRuntimeConfig().public
 
 useHead({
@@ -14,6 +15,7 @@ definePageMeta({
   middleware: ['auth', 'dashboard-page']
 })
 
+const isSbcStaff = ref(false)
 const helpHref = 'https://www2.gov.bc.ca/gov/content/employment-business/business/managing-a-business/'
   + 'permits-licences/news-updates/modernization-updates/modernization-resources'
 
@@ -35,13 +37,29 @@ onMounted(async () => {
     { to: localePath('/'), label: t('ConnectBreadcrumb.default') },
     { label: t('page.dashboard.h1') }
   ])
+
+  if (accountStore.currentAccount.id && kcUser.value.roles.includes('gov_account_user')) {
+    try {
+      const org = await $authApi(`/orgs/${accountStore.currentAccount.id}`)
+      if (org && typeof org === 'object' && 'branchName' in org) {
+        const branchName = org.branchName as string
+        isSbcStaff.value = branchName.includes('Service BC')
+      }
+    } catch {
+      isSbcStaff.value = false
+    }
+  }
 })
 </script>
 
 <template>
   <div class="py-8 sm:py-12">
     <h1>
-      {{ $t('page.dashboard.h1') }}
+      {{
+        isSbcStaff
+          ? $t('page.dashboard.staffH1')
+          : $t('page.dashboard.h1')
+      }}
     </h1>
     <p class="pt-3">
       {{ $t('page.dashboard.intro') }}
