@@ -4,7 +4,7 @@ import withNuxt from './.nuxt/eslint.config.mjs'
 export default withNuxt({
   files: ['**/*.ts', '**/*.vue'],
   rules: {
-    'no-console': 'warn',
+    'no-console': ['error', { allow: ['info', 'error'] }],
     'no-debugger': 'off',
     'max-len': ['warn',
       {

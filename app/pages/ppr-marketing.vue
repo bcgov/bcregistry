@@ -94,7 +94,7 @@ onMounted(() => {
   clearLogoutRedirectUrl()
 
   // if user logs in from this page, go to dashboard
-  setLoginRedirectUrl(`${rtc.baseURL}${locale.value}/dashboard`)
+  setLoginRedirectUrl(`${rtc.baseUrl}${locale.value}/dashboard`)
 })
 </script>
 

@@ -1,5 +1,11 @@
 /* eslint-disable */
 export default {
+  alert: {
+    sessionExpired: {
+      title: 'Session Expired',
+      description: 'Your session has expired. Please log in again to continue.'
+    }
+  },
   btn: {
     getStarted: 'Get Started',
     goHome: 'Go Home',
@@ -14,6 +20,8 @@ export default {
     openMainNav: 'Open Main Navigation Menu',
     closeMainNav: 'Close Main Navigation Menu',
     loginBCSC: 'Login with BC Services Card',
+    loginBCEID: 'Login with BCeID',
+    loginIDIR: 'Login with IDIR',
     createNewAccount: 'Create New Account',
     createAccount: 'Create Account',
     createAnAccount: 'Create an Account',
@@ -46,7 +54,8 @@ export default {
     goToBCRegDashboard: 'Go to BC Registries Dashboard',
     loginSbcAccount: 'Log in to my Service BC Connect Account',
     loginBCRegAccount: 'Log in to my BC Registries Account',
-    learnMore: 'Learn More'
+    learnMore: 'Learn More',
+    open: 'Open'
   },
   contactInfo: {
     bcRegGeneral: {
@@ -216,6 +225,7 @@ export default {
     dashboard: {
       title: 'BC Registries Dashboard - BC Registries and Online Services',
       h1: 'BC Registries Dashboard',
+      staffH1: 'SBC Staff Registries Dashboard',
       intro: 'Access to your BC Registries account product and services',
       products: {
         heading: '{boldStart}My Products and Services{boldEnd} ({count})',
@@ -226,6 +236,10 @@ export default {
         busSearch: {
           text: 'Search for businesses registered in B.C. and access business documents.',
           title: 'Business Search'
+        },
+        busPersonSearch: {
+          text: 'Search for businesses registered in B.C. and their related individuals, and request copies of business documents.',
+          title: 'Business and Person Search'
         },
         bca: {
           text: 'Generate a BC Assessment report to find real property ownership or location information, obtain property assessment information or obtain residential property inventory details for properties within British Columbia.',
@@ -262,6 +276,18 @@ export default {
         mar: {
           text: 'Search for manufactured homes, and register or search for legal claims on personal property.',
           title: 'My Asset Registries'
+        },
+        strr: {
+          text: 'Register your short-term rental property, platform service provider, or strata-titled hotel or motel with the province.',
+          title: 'Short-Term Rental Registry'
+        },
+        error: {
+          title: 'Error Retrieving Products',
+          description: 'There was an error fetching your products, please refresh the page or try again later.'
+        },
+        empty: {
+          title: 'No Products Found',
+          description: 'No products were found associated with this account. To add products and services, contact the account Administrator of your BC Registries account.'
         }
       },
       help: {
@@ -276,11 +302,9 @@ export default {
         }
       }
     },
-    signin: {
+    login: {
       title: 'Log in - BC Registries and Online Services',
-      h1: 'Log in',
-      intro: 'Log in to your BC Registries Account',
-      option: 'Log in with {option}'
+      h1: 'BC Registries Account Login'
     }
   },
   // components

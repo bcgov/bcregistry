@@ -1,5 +1,11 @@
 /* eslint-disable */
 export default {
+  alert: {
+    sessionExpired: {
+      title: 'Session expirée',
+      description: 'Votre session a expiré. Veuillez vous reconnecter pour continuer.'
+    }
+  },
   btn: {
     getStarted: 'Commencer',
     goHome: "Retour à l'Accueil",
@@ -14,6 +20,8 @@ export default {
     openMainNav: 'Ouvrir le Menu de Navigation Principal',
     closeMainNav: 'Fermer le Menu de Navigation Principal',
     loginBCSC: 'Connexion avec la Carte Services BC',
+    loginBCEID: 'Connexion avec la BCeID',
+    loginIDIR: 'Connexion avec la IDIR',
     createNewAccount: 'Créer un Nouveau Compte',
     createAccount: 'Créer un Compte',
     createAnAccount: 'Créer un Compte',
@@ -43,7 +51,8 @@ export default {
     createBCRegAccount: 'Créer un Compte BC Registries',
     loginBCRegAccount: 'Connexion à Mon Compte BC Registries',
     goToBCRegDashboard: 'Aller au Tableau de Bord',
-    learnMore: 'En Savoir Plus'
+    learnMore: 'En Savoir Plus',
+    open: 'Ouvrir'
   },
   contactInfo: {
     bcRegGeneral: {
@@ -213,6 +222,7 @@ export default {
     dashboard: {
       title: 'Tableau de Bord des Registres de la CB - Registres et Services en Ligne de la CB',
       h1: 'Tableau de Bord des Registres de la CB',
+      staffH1: 'SBC Staff Registries Dashboard',
       intro: 'Accès à vos produits et services de compte des Registres de la CB',
       products: {
         heading: '{boldStart}Mes Produits et Services{boldEnd} ({count})',
@@ -221,12 +231,16 @@ export default {
           title: "Mon Registre d'Entreprise"
         },
         busSearch: {
-          text: 'Recherchez des entreprises enregistrées en C.-B. et accédez aux documents commerciaux.',
+          text: 'Recherchez des entreprises enregistrées en CB et accédez aux documents commerciaux.',
           title: "Recherche d'Entreprise"
         },
+        busPersonSearch: {
+          text: "Recherchez des entreprises enregistrées en CB et leurs personnes associées, et demandez des copies des documents d'entreprise.",
+          title: "Recherche d'entreprises et de personnes"
+        },
         bca: {
-          text: "Générez un rapport d'évaluation de la C.-B. pour trouver la propriété ou l'emplacement des biens immobiliers, obtenir des informations d'évaluation des biens ou des détails sur l'inventaire des propriétés résidentielles en CB.",
-          title: 'Évaluation de la C.-B.'
+          text: "Générez un rapport d'évaluation de la CB pour trouver la propriété ou l'emplacement des biens immobiliers, obtenir des informations d'évaluation des biens ou des détails sur l'inventaire des propriétés résidentielles en CB.",
+          title: 'Évaluation de la CB.'
         },
         cso: {
           text: "Faites des demandes ou déposez d'autres documents judiciaires, parcourez les listes quotidiennes des tribunaux et recherchez des informations sur les dossiers judiciaires.",
@@ -237,7 +251,7 @@ export default {
           title: 'Mon Registre des Maisons Préfabriquées'
         },
         nds: {
-          text: 'Recherchez les noms et adresses des personnes associées aux entreprises en C.-B.',
+          text: 'Recherchez les noms et adresses des personnes associées aux entreprises en CB.',
           title: 'Recherche de Directeur'
         },
         ppr: {
@@ -259,6 +273,18 @@ export default {
         mar: {
           text: 'Recherchez des maisons préfabriquées, enregistrez ou recherchez des réclamations légales sur des biens personnels.',
           title: 'Mes Registres des Actifs'
+        },
+        strr: {
+          text: 'Enregistrez votre propriété de location à court terme, votre fournisseur de services de plateforme, ou votre hôtel ou motel en copropriété auprès de la province.',
+          title: 'Registre des locations à court terme'
+        },
+        error: {
+          title: 'Erreur lors de la Récupération des Produits',
+          description: "Une erreur s'est produite lors de la récupération de vos produits, veuillez actualiser la page ou réessayer plus tard."
+        },
+        empty: {
+          title: 'Aucun Produit Trouvé',
+          description: "Aucun produit n'a été trouvé associé à ce compte. Pour ajouter des produits et services, contactez l'administrateur du compte des Registres BC."
         }
       },
       help: {
@@ -273,11 +299,9 @@ export default {
         }
       }
     },
-    signin: {
-      title: 'Se connecter - Registres et Services en Ligne de la CB',
-      h1: 'Se connecter',
-      intro: 'Connectez-vous à votre compte BC Registries',
-      option: 'Connectez-vous avec {option}'
+    login: {
+      title: 'Connexion - Registres de la CB et Services en ligne',
+      h1: 'Connexion au compte des Registres de la CB'
     }
   },
   ConnectHeader: {
