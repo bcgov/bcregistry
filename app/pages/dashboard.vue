@@ -20,7 +20,7 @@ const helpHref = 'https://www2.gov.bc.ca/gov/content/employment-business/busines
   + 'permits-licences/news-updates/modernization-updates/modernization-resources'
 
 const { data: userProducts, status, error } = await useLazyAsyncData(
-  'application-list-resp',
+  'user-products',
   () => productInfo.getActiveUserProducts(),
   {
     watch: [() => accountStore.currentAccount.id],
