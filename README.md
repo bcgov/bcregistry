@@ -36,5 +36,3 @@ Locally preview the static site
 ```bash
 npx http-server .output/public
 ```
-
-For detailed explanation on how things work, check out [Nuxt.js docs](https://nuxtjs.org).
