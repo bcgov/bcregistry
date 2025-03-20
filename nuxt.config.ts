@@ -150,7 +150,7 @@ export default defineNuxtConfig({
       pprDashboard: `${process.env.NUXT_PPR_URL}/dashboard`,
       strrURL: process.env.NUXT_STRR_URL,
       createAccountNoAuthURL: `${process.env.NUXT_AUTH_WEB_URL}choose-authentication-method`,
-      ldClientId: process.env.NUXT_LD_CLIENT_ID || '',
+      ldClientId: process.env.NUXT_LD_CLIENT_ID || ''
     }
   }
 })
