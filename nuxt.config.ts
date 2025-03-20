@@ -5,6 +5,11 @@ import { dirname, join } from 'path'
 
 const currentDir = dirname(fileURLToPath(import.meta.url))
 
+// disable gtm if dev or test env or missing gtm id
+const isTestOrDev = ['test', 'development'].includes((process.env.NUXT_ENVIRONMENT_HEADER || '').toLowerCase())
+const isGtmIdEmpty = !(process.env.NUXT_GTM_ID?.trim() || '')
+const isGtmEnabled = !(isTestOrDev || isGtmIdEmpty)
+
 export default defineNuxtConfig({
   ssr: false,
 
@@ -17,7 +22,9 @@ export default defineNuxtConfig({
 
   modules: [
     '@nuxt/eslint',
-    '@nuxt/content'
+    '@nuxt/content',
+    '@zadigetvoltaire/nuxt-gtm',
+    'nuxt-gtag'
   ],
 
   extends: [
@@ -28,6 +35,10 @@ export default defineNuxtConfig({
     options: {
       scrollBehaviorType: 'smooth'
     }
+  },
+
+  routeRules: {
+    '/': { redirect: '/en-CA' }
   },
 
   i18n: {
@@ -60,6 +71,18 @@ export default defineNuxtConfig({
       prefix: 'sbc',
       dir: './app/assets/svgs'
     }]
+  },
+
+  gtm: {
+    enabled: isGtmEnabled,
+    id: isGtmEnabled ? process.env.NUXT_GTM_ID?.trim() as string : 'GTM-UNDEFINED',
+    debug: false,
+    defer: true
+  },
+
+  gtag: {
+    enabled: !!process.env.NUXT_GTAG_ID?.trim(),
+    id: process.env.NUXT_GTAG_ID?.trim()
   },
 
   // full options
@@ -126,7 +149,8 @@ export default defineNuxtConfig({
       myBusinessRegistryDashboard: `${process.env.NUXT_AUTH_WEB_URL}account/{accountId}/business`,
       pprDashboard: `${process.env.NUXT_PPR_URL}/dashboard`,
       strrURL: process.env.NUXT_STRR_URL,
-      createAccountNoAuthURL: `${process.env.NUXT_AUTH_WEB_URL}choose-authentication-method`
+      createAccountNoAuthURL: `${process.env.NUXT_AUTH_WEB_URL}choose-authentication-method`,
+      ldClientId: process.env.NUXT_LD_CLIENT_ID || ''
     }
   }
 })

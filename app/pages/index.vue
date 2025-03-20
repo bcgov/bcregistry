@@ -11,7 +11,7 @@ useHead({
 })
 
 definePageMeta({
-  layout: 'home-page'
+  layout: 'main-full-width'
 })
 
 const accountTypeLinks = [
