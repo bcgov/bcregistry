@@ -5,12 +5,12 @@ import { ProductStatus } from '~/enums/product-status'
 export const useProductInfo = () => {
   const rtc = useRuntimeConfig().public
   const ldStore = useConnectLaunchdarklyStore()
-  const accountId = useConnectAccountStore().currentAccount.id.toString()
+  const accountId = computed(() => useConnectAccountStore().currentAccount.id.toString())
   const t = useNuxtApp().$i18n.t
   const { $keycloak } = useNuxtApp()
 
   function appendAccountId(url: string): string {
-    return url ? `${url}?accountid=${accountId}` : 'link_not_configured'
+    return url ? `${url}?accountid=${accountId.value}` : 'link_not_configured'
   }
 
   /**
@@ -21,7 +21,7 @@ export const useProductInfo = () => {
       case ProductCode.BUSINESS:
         return {
           image: 'img/BCRS_dashboard_thumbnail_image.jpg',
-          link: rtc.myBusinessRegistryDashboard.replace('{accountId}', accountId) || 'link_not_configured',
+          link: rtc.myBusinessRegistryDashboard.replace('{accountId}', accountId.value) || 'link_not_configured',
           text: t('page.dashboard.products.business.text'),
           title: t('page.dashboard.products.business.title')
         } as Product
@@ -141,7 +141,7 @@ export const useProductInfo = () => {
     const userProducts: Product[] = []
 
     // using $fetch giving type mismatch
-    const response = await fetch(`${rtc.authApiURL}/orgs/${accountId}/products?include_hidden=true`, {
+    const response = await fetch(`${rtc.authApiURL}/orgs/${accountId.value}/products?include_hidden=true`, {
       headers: {
         Authorization: `Bearer ${$keycloak.token}`
       }
