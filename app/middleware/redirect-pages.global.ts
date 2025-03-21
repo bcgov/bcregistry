@@ -25,7 +25,8 @@ export default defineNuxtRouteMiddleware(async (to) => {
       case RedirectPaths.FILING:
         return navigateTo(rtc.supportFilingUrl, { external: true })
       case RedirectPaths.SIGNOUT:
-        return await logout(logoutRedirectUrl)
+        await logout(logoutRedirectUrl)
+        return new Promise(resolve => setTimeout(resolve, 300)) // wait for logout process to complete
       case RedirectPaths.SIGNIN_BCEID:
         return await login(IdpHint.BCEID, loginUrl)
       case RedirectPaths.SIGNIN_BCSC:
