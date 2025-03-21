@@ -6,7 +6,7 @@ enum RedirectPaths {
   SIGNOUT = '/signout'
 }
 
-export default defineNuxtRouteMiddleware((to) => {
+export default defineNuxtRouteMiddleware(async (to) => {
   const redirectPaths = Object.values(RedirectPaths) as string[]
 
   // remove trailing slash if it exists
@@ -24,8 +24,8 @@ export default defineNuxtRouteMiddleware((to) => {
       case RedirectPaths.FILING:
         return navigateTo(rtc.supportFilingUrl, { external: true })
       case RedirectPaths.SIGNOUT:
-        return useKeycloak().logout(logoutRedirectUrl)
-      case RedirectPaths.SIGNIN_BCEID:
+        return await useKeycloak().logout(logoutRedirectUrl)
+      case RedirectPaths.SIGNIN_BCEID: // TODO: Any reason we can't use useKeycloak().login(IdpHint.BCEID, encodeURIComponent(loginUrl)) here ?
         return navigateTo(rtc.authWebURL + 'signin/bceid/' + encodeURIComponent(loginUrl), { external: true })
       case RedirectPaths.SIGNIN_BCSC:
         return navigateTo(rtc.authWebURL + 'signin/bcsc/' + encodeURIComponent(loginUrl), { external: true })
