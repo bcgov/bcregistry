@@ -634,12 +634,13 @@ onMounted(() => {
     <div class=" bg-white bg-no-repeat bg-right-bottom">
       <div class="max-w-bcGovLg mx-auto pt-12 pb-12 px-4 flex flex-col">
         <h1 class="mb-4">
-          Product Fees
+          {{ $t('page.productFees.h1') }}
         </h1>
-        <p>An overview of fees associated with products on Service BC Connect.</p>
         <p>
-          Refunds will not be processed for amounts under $10 unless specifically requested by the client.
-          GST is not charged. Fees are subject to change.
+          {{ $t('page.productFees.p1') }}
+        </p>
+        <p>
+          {{ $t('page.productFees.p2') }}
         </p>
       </div>
     </div>
@@ -664,7 +665,7 @@ onMounted(() => {
         <div
           class="mb-4"
         >
-          Choose a product to view fees by product type:
+          {{ $t('page.productFees.selectTitle') }}
         </div>
         <USelect
           id="product-select"
