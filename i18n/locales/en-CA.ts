@@ -316,16 +316,6 @@ export default {
         columns: {
           product: 'Product or Service',
           price: 'Price'
-        },
-        rows: {
-          row1: {
-            product: 'Business Registration',
-            price: '$100.00'
-          },
-          row2: {
-            product: 'Name Request',
-            price: '$30.00'
-          }
         }
       }
     },
