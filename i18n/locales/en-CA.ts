@@ -110,7 +110,8 @@ export default {
     needMoreInfo: 'Need more Information?',
     contactUs: 'Contact Us',
     bcRegAndOLServices: 'BC Registries and Online Services',
-    ppr: 'Personal Property Registry'
+    ppr: 'Personal Property Registry',
+    productFees: 'Product Fees',
   },
   words: {
     i: 'I',
@@ -299,6 +300,32 @@ export default {
           title: 'Help with How to Use BC Registries Products and Services',
           p1: 'Learn about the registries and how to use the applications through step-by-step guides, online videos, and downloadable quick guides.',
           link: 'Go to the Registry Application Help Page'
+        }
+      }
+    },
+    productFees: {
+      title: 'Product Fees - BC Registries and Online Services',
+      h1: 'Product Fees for BC Registries and Online Services',
+      intro: {
+        p1: 'The following fees apply to the products and services provided by BC Registries and Online Services.',
+        p2: 'For more information about the fees, please contact us at {link}.',
+        link: 'BC Registries and Online Services'
+      },
+      table: {
+        heading: 'Product and Service Pricing',
+        columns: {
+          product: 'Product or Service',
+          price: 'Price'
+        },
+        rows: {
+          row1: {
+            product: 'Business Registration',
+            price: '$100.00'
+          },
+          row2: {
+            product: 'Name Request',
+            price: '$30.00'
+          }
         }
       }
     },
