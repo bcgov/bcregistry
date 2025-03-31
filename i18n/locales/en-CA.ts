@@ -304,20 +304,7 @@ export default {
       }
     },
     productFees: {
-      title: 'Product Fees - BC Registries and Online Services',
-      h1: 'Product Fees for BC Registries and Online Services',
-      intro: {
-        p1: 'The following fees apply to the products and services provided by BC Registries and Online Services.',
-        p2: 'For more information about the fees, please contact us at {link}.',
-        link: 'BC Registries and Online Services'
-      },
-      table: {
-        heading: 'Product and Service Pricing',
-        columns: {
-          product: 'Product or Service',
-          price: 'Price'
-        }
-      }
+      title: 'Product Fees - BC Registries and Online Services'
     },
     login: {
       title: 'Log in - BC Registries and Online Services',

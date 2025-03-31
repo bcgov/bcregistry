@@ -299,6 +299,9 @@ export default {
         }
       }
     },
+    productFees: {
+      title: 'Frais de produit - Registres et services en ligne de la Colombie-Britannique'
+    },
     login: {
       title: 'Connexion - Registres de la CB et Services en ligne',
       h1: 'Connexion au compte des Registres de la CB'
