@@ -566,7 +566,7 @@ const textHeader = (text: string, alignment: string) => () =>
 const serviceColumns = [
   {
     accessorKey: 'service',
-    header: textHeader('Service', 'left'),
+    header: textHeader(t('page.productFees.table.header.service'), 'left'),
     cell: ({ row }: { row: { original: { service: string, url?: string } } }) => {
       if (row.original.url) {
         return h('div', {
@@ -577,24 +577,24 @@ const serviceColumns = [
       }
     }
   },
-  { accessorKey: 'fee', header: textHeader('Fee', 'right'), cell: currencyCell('fee'), meta: {
+  { accessorKey: 'fee', header: textHeader(t('page.productFees.table.header.fee'), 'right'), cell: currencyCell('fee'), meta: {
     class: { td: 'w-[170px]' }
   } },
-  { accessorKey: 'serviceCharge', header: textHeader('Service Charge', 'right'), cell: currencyCell('serviceCharge'),
+  { accessorKey: 'serviceCharge', header: textHeader(t('page.productFees.table.header.serviceCharge'), 'right'), cell: currencyCell('serviceCharge'),
     meta: {
       class: { td: 'w-[170px]' }
     }
   },
-  { accessorKey: 'gst', header: textHeader('GST', 'right'), cell: currencyCell('gst'), meta: {
+  { accessorKey: 'gst', header: textHeader(t('page.productFees.table.header.gst'), 'right'), cell: currencyCell('gst'), meta: {
     class: { td: 'w-[170px]' }
   } },
-  { accessorKey: 'total', header: textHeader('Total', 'right'), cell: currencyCell('total'), meta: {
+  { accessorKey: 'total', header: textHeader(t('page.productFees.table.header.total'), 'right'), cell: currencyCell('total'), meta: {
     class: { td: 'w-[170px]' }
   } }
 ]
 
 const productTypes = computed(() => [
-  { label: 'All Products', value: 'all' },
+  { label: t('page.productFees.selectDefault'), value: 'all' },
   ...groupedProducts.value.map((p: { name: string }) => ({ label: p.name, value: p.name }))])
 const selectedProduct = ref('all')
 
