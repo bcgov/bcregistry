@@ -577,20 +577,38 @@ const serviceColumns = [
       }
     }
   },
-  { accessorKey: 'fee', header: textHeader(t('page.productFees.table.header.fee'), 'right'), cell: currencyCell('fee'), meta: {
-    class: { td: 'w-[170px]' }
-  } },
-  { accessorKey: 'serviceCharge', header: textHeader(t('page.productFees.table.header.serviceCharge'), 'right'), cell: currencyCell('serviceCharge'),
+  {
+    accessorKey: 'fee',
+    header: textHeader(t('page.productFees.table.header.fee'), 'right'),
+    cell: currencyCell('fee'),
     meta: {
       class: { td: 'w-[170px]' }
     }
   },
-  { accessorKey: 'gst', header: textHeader(t('page.productFees.table.header.gst'), 'right'), cell: currencyCell('gst'), meta: {
-    class: { td: 'w-[170px]' }
-  } },
-  { accessorKey: 'total', header: textHeader(t('page.productFees.table.header.total'), 'right'), cell: currencyCell('total'), meta: {
-    class: { td: 'w-[170px]' }
-  } }
+  {
+    accessorKey: 'serviceCharge',
+    header: textHeader(t('page.productFees.table.header.serviceCharge'), 'right'),
+    cell: currencyCell('serviceCharge'),
+    meta: {
+      class: { td: 'w-[170px]' }
+    }
+  },
+  {
+    accessorKey: 'gst',
+    header: textHeader(t('page.productFees.table.header.gst'), 'right'),
+    cell: currencyCell('gst'),
+    meta: {
+      class: { td: 'w-[170px]' }
+    }
+  },
+  {
+    accessorKey: 'total',
+    header: textHeader(t('page.productFees.table.header.total'), 'right'),
+    cell: currencyCell('total'),
+    meta: {
+      class: { td: 'w-[170px]' }
+    }
+  }
 ]
 
 const productTypes = computed(() => [
@@ -657,7 +675,7 @@ onMounted(() => {
         <template #header>
           <div class="flex justify-between pl-7 pr-4 font-bold">
             <span class="py-3.75 text-left text-bcGovColor-darkGray no-underline focus:outline-none">
-              View Fees by Product Type
+              {{ $t('page.productFees.header') }}
             </span>
           </div>
         </template>
@@ -671,12 +689,11 @@ onMounted(() => {
           id="product-select"
           v-model="selectedProduct"
           :items="productTypes"
-          class="w-64 p-4 w-[50%]"
+          class="w-full md:w-[50%] p-4 mb-8"
           :content="{
             sideOffset: 0
           }"
         />
-        <template #footer />
       </UCard>
       <!-- iterate over the grouped products and display them in a card -->
       <UCard
