@@ -308,6 +308,7 @@ export default {
       h1: 'Product Fees',
       p1: 'An overview of fees associated with products on Service BC Connect.',
       p2: 'Refunds will not be processed for amounts under $10 unless specifically requested by the client. GST is not charged. Fees are subject to change.',
+      header: 'View Fees by Product Type',
       selectTitle: 'Choose a product to view fees by product type:',
       selectDefault: 'All Products',
       table: {
