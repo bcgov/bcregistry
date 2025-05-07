@@ -1,6 +1,6 @@
 export default defineNuxtRouteMiddleware((to) => {
-  // Check if the route starts with /login but doesn't have the locale prefix
-  if (to.path.startsWith('/login') && !to.path.startsWith('/en-CA/login') && !to.path.startsWith('/fr-CA/login')) {
+  // Check if the route starts with /login
+  if (to.path.startsWith('/login')) {
     // Get all query parameters
     const query = { ...to.query }
 
