@@ -1,9 +1,10 @@
 {
   "name": "bc-registry",
-  "version": "3.0.5",
+  "version": "3.0.6",
   "private": true,
   "type": "module",
   "scripts": {
+    "preinstall": "npx only-allow pnpm",
     "build-check": "nuxt build",
     "build": "nuxt generate",
     "dev": "nuxt dev",
