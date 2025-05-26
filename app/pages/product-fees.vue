@@ -1,6 +1,6 @@
 <script setup lang="ts">
 import { productDisplay } from '~/enums/product-display'
-import {ProductCode} from "~/enums/product-code";
+import { ProductCode } from '~/enums/product-code'
 
 const { locale, t } = useI18n()
 const rtc = useRuntimeConfig().public
@@ -25,8 +25,8 @@ interface ProductFee {
   service: string
   serviceCharge: number
   gst: number
-  total: number | string,
-  variable: boolean,
+  total: number | string
+  variable: boolean
   url?: string
 }
 
@@ -280,7 +280,8 @@ onMounted(async () => {
             </span>
           </div>
         </template>
-        <p v-if="ProductCode.BUSINESS == product.name" class="text-sm">
+        <p v-if="ProductCode.BUSINESS == product.name"
+           class="text-sm">
           {{ t('page.productFees.noteContent') }}
         </p>
         <UTable
