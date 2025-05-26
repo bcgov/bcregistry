@@ -314,6 +314,7 @@ export default {
       selectDefault: 'Tous les produits',
       note:'Note:',
       noteContent: 'Des frais prioritaires ou des frais futurs ajoutent 100,00 $ supplémentaires au coût total.',
+      variableFeeNote: 'Les frais signalés par un astérisque (*) dans la description ont un montant variable et peuvent différer du montant affiché.',
       table: {
         header: {
           service: 'Service',

@@ -318,9 +318,10 @@ export default {
       selectDefault: 'All Products',
       note:'Note:',
       noteContent: 'A priority fee or future effective fee adds an extra $100.00 to the total cost.',
+      variableFeeNote: 'Fees indicated with an asterisk (*) in the description have a variable amount and may differ from the amount shown.',
       table: {
         header: {
-          service: 'Service',
+          service: 'Description',
           fee: 'Fee',
           serviceCharge: 'Service Charge',
           gst: 'GST',
