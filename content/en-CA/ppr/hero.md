@@ -5,7 +5,7 @@ background_image: "/img/PPR_homebanner_image_v2_x2.jpg"
 
 # Register or search for legal claims on personal property
 
-The Personal Property Registry records security interests and liens against personal property belonging to British Columbia businesses and individuals.
+The Personal Property Registry records notices of legal claims against personal property belonging to businesses and individuals.
 
 :SbcAccountButtons{:showCreateAccountButton="false" :center="false"}
 
