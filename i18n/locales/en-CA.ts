@@ -298,7 +298,7 @@ export default {
         },
         productFees: {
           title: 'Product Fees',
-          p1: 'To view fees associated with products on Service BC Connect.',
+          p1: 'To view fees associated with different products.',
           link: 'See our fee schedule for details'
         },
         howToUse: {

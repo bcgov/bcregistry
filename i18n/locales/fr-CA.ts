@@ -294,7 +294,7 @@ export default {
         },
         productFees: {
           title: 'Frais de produit',
-          p1: 'Pour voir les frais associés aux produits sur Service BC Connect.',
+          p1: 'Pour consulter les frais associés à différents produits.',
           link: 'See our fee schedule for details'
         },
         howToUse: {
