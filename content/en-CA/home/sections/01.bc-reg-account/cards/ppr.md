@@ -10,7 +10,7 @@ link:
   locale: true
 ---
 
-Record security interests and liens against personal property belonging to British Columbia businesses and individuals. Here you can:
+Record security interests and liens against personal property belonging to businesses and individuals. Here you can:
 
 - Register security agreements and liens.
 - Search for registered security agreements and liens.
