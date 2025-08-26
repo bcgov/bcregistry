@@ -198,7 +198,7 @@ export default {
             legal: {
               title: 'Legal Services',
               description: 'Get professional support filling out forms and filling documents.',
-              link: 'Contact Dye & Durham'
+              link: 'Contact Service BC'
             }
           }
         },

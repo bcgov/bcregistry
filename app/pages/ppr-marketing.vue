@@ -67,7 +67,7 @@ const helpfulLinks = [
     link: {
       label: t('page.ppr.section.helpfulLinks.cards.legal.link'),
       target: '_blank',
-      href: 'https://dyedurham.com/'
+      href: 'https://www2.gov.bc.ca/gov/content/governments/organizational-structure/ministries-organizations/ministries/citizens-services/servicebc'
     }
   }
 ]
