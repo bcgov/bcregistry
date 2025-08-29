@@ -67,6 +67,7 @@ const helpfulLinks = [
     link: {
       label: t('page.ppr.section.helpfulLinks.cards.legal.link'),
       target: '_blank',
+      // eslint-disable-next-line max-len
       href: 'https://www2.gov.bc.ca/gov/content/governments/organizational-structure/ministries-organizations/ministries/citizens-services/servicebc'
     }
   }
