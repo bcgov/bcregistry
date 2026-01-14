@@ -1,12 +1,14 @@
 <script setup lang="ts">
 const accountStore = useConnectAccountStore()
 const productInfo = useProductInfo()
-const { t, locale } = useI18n()
+const { t } = useI18n()
 const localePath = useLocalePath()
 const { $authApi } = useNuxtApp()
 const { clearLoginRedirectUrl, setLogoutRedirectUrl, kcUser } = useKeycloak()
 const rtc = useRuntimeConfig().public
+
 const router = useRouter()
+const route = useRoute()
 
 useHead({
   title: t('page.dashboard.title')
@@ -17,33 +19,48 @@ definePageMeta({
 })
 
 const isSbcStaff = ref(false)
-const helpHref = 'https://www2.gov.bc.ca/gov/content/employment-business/business/managing-a-business/'
-  + 'permits-licences/news-updates/modernization-updates/modernization-resources'
+const helpHref =
+  'https://www2.gov.bc.ca/gov/content/employment-business/business/managing-a-business/' +
+  'permits-licences/news-updates/modernization-updates/modernization-resources'
+
+/**
+ * Sync URL with accountStore.currentAccount.id
+ *
+ * Rules:
+ * 1. If store id changes -> update URL
+ * 2. If URL has no id but store has one -> add it
+ * 3. If store has no id -> do nothing
+ */
+watch(
+  () => accountStore.currentAccount.id,
+  (newId) => {
+    if (!newId) return
+    const routeId =
+      typeof route.params.id === 'string'
+        ? route.params.id
+        : undefined
+
+    if (routeId !== newId) {
+      router.replace({
+        name: route.name as string,
+        params: {
+          ...route.params,
+          id: newId
+        }
+      })
+    }
+  },
+  { immediate: true }
+)
+
 const { data: userProducts, status, error } = await useLazyAsyncData(
   'user-products',
   () => productInfo.getActiveUserProducts(),
   {
     watch: [() => accountStore.currentAccount.id],
-    default: () => ([])
+    default: () => []
   }
 )
-
-const updateDashboardUrl = async () => {
-  if (accountStore.currentAccount.id && kcUser.value.roles.includes('gov_account_user')) {
-    const dashboardWithAccountId = `/${locale.value}/dashboard?accountId=${accountStore.currentAccount.id}`
-    router.replace(dashboardWithAccountId)
-
-    try {
-      const org = await $authApi(`/orgs/${accountStore.currentAccount.id}`)
-      if (org && typeof org === 'object' && 'branchName' in org) {
-        const branchName = org.branchName as string
-        isSbcStaff.value = branchName.includes('Service BC')
-      }
-    } catch {
-      isSbcStaff.value = false
-    }
-  }
-}
 
 onMounted(async () => {
   clearLoginRedirectUrl()
@@ -54,11 +71,17 @@ onMounted(async () => {
     { label: t('page.dashboard.h1') }
   ])
 
-  await updateDashboardUrl()
-})
-
-watch(() => accountStore.currentAccount.id, async () => {
-  await updateDashboardUrl()
+  if (accountStore.currentAccount.id && kcUser.value.roles.includes('gov_account_user')) {
+    try {
+      const org = await $authApi(`/orgs/${accountStore.currentAccount.id}`)
+      if (org && typeof org === 'object' && 'branchName' in org) {
+        const branchName = org.branchName as string
+        isSbcStaff.value = branchName.includes('Service BC')
+      }
+    } catch {
+      isSbcStaff.value = false
+    }
+  }
 })
 </script>
 
