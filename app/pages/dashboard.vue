@@ -1,11 +1,12 @@
 <script setup lang="ts">
 const accountStore = useConnectAccountStore()
 const productInfo = useProductInfo()
-const { t } = useI18n()
+const { t, locale } = useI18n()
 const localePath = useLocalePath()
 const { $authApi } = useNuxtApp()
 const { clearLoginRedirectUrl, setLogoutRedirectUrl, kcUser } = useKeycloak()
 const rtc = useRuntimeConfig().public
+const router = useRouter()
 
 useHead({
   title: t('page.dashboard.title')
@@ -27,16 +28,11 @@ const { data: userProducts, status, error } = await useLazyAsyncData(
   }
 )
 
-onMounted(async () => {
-  clearLoginRedirectUrl()
-  setLogoutRedirectUrl(rtc.baseUrl)
-
-  setBreadcrumbs([
-    { to: localePath('/'), label: t('ConnectBreadcrumb.default') },
-    { label: t('page.dashboard.h1') }
-  ])
-
+const updateDashboardUrl = async () => {
   if (accountStore.currentAccount.id && kcUser.value.roles.includes('gov_account_user')) {
+    const dashboardWithAccountId = `/${locale.value}/dashboard?accountId=${accountStore.currentAccount.id}`
+    router.replace(dashboardWithAccountId)
+
     try {
       const org = await $authApi(`/orgs/${accountStore.currentAccount.id}`)
       if (org && typeof org === 'object' && 'branchName' in org) {
@@ -47,6 +43,22 @@ onMounted(async () => {
       isSbcStaff.value = false
     }
   }
+}
+
+onMounted(async () => {
+  clearLoginRedirectUrl()
+  setLogoutRedirectUrl(rtc.baseUrl)
+
+  setBreadcrumbs([
+    { to: localePath('/'), label: t('ConnectBreadcrumb.default') },
+    { label: t('page.dashboard.h1') }
+  ])
+
+  await updateDashboardUrl()
+})
+
+watch(() => accountStore.currentAccount.id, async () => {
+  await updateDashboardUrl()
 })
 </script>
 
