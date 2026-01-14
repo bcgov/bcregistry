@@ -19,10 +19,8 @@ definePageMeta({
 })
 
 const isSbcStaff = ref(false)
-const helpHref
-  = 'https://www2.gov.bc.ca/gov/content/employment-business/business/managing-a-business/'
-    + 'permits-licences/news-updates/modernization-updates/modernization-resources'
-
+const helpHref = 'https://www2.gov.bc.ca/gov/content/employment-business/business/managing-a-business/'
+  + 'permits-licences/news-updates/modernization-updates/modernization-resources'
 /**
  * Sync URL with accountStore.currentAccount.id
  *
