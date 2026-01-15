@@ -21,9 +21,9 @@ const isSbcStaff = ref(false)
 const helpHref = 'https://www2.gov.bc.ca/gov/content/employment-business/business/managing-a-business/'
   + 'permits-licences/news-updates/modernization-updates/modernization-resources'
 // Sync URL <-> accountStore.currentAccount.id
-const routeId = typeof route.params.id === 'string' ? Number(route.params.id) : undefined
-if (routeId && routeId !== accountStore.currentAccount.id) {
-  accountStore.switchCurrentAccount(routeId)
+const routeAccountId = Number(route.params.id)
+if (routeAccountId !== accountStore.currentAccount.id && Number.isFinite(routeAccountId)) {
+  accountStore.switchCurrentAccount(routeAccountId)
 }
 
 watch(() => accountStore.currentAccount.id, (newId) => {
