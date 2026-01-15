@@ -7,6 +7,8 @@ const { $authApi } = useNuxtApp()
 const { clearLoginRedirectUrl, setLogoutRedirectUrl, kcUser } = useKeycloak()
 const rtc = useRuntimeConfig().public
 
+const route = useRoute()
+
 useHead({
   title: t('page.dashboard.title')
 })
@@ -18,12 +20,24 @@ definePageMeta({
 const isSbcStaff = ref(false)
 const helpHref = 'https://www2.gov.bc.ca/gov/content/employment-business/business/managing-a-business/'
   + 'permits-licences/news-updates/modernization-updates/modernization-resources'
+// Sync URL <-> accountStore.currentAccount.id
+const routeAccountId = Number(route.params.id)
+if (routeAccountId > 0 && Number.isFinite(routeAccountId) && routeAccountId !== accountStore.currentAccount.id) {
+  accountStore.switchCurrentAccount(routeAccountId)
+}
+
+watch(() => accountStore.currentAccount.id, (newId) => {
+  if (newId) {
+    window.history.replaceState({}, '', localePath(`/dashboard/${newId}`))
+  }
+}, { immediate: true })
+
 const { data: userProducts, status, error } = await useLazyAsyncData(
   'user-products',
   () => productInfo.getActiveUserProducts(),
   {
     watch: [() => accountStore.currentAccount.id],
-    default: () => ([])
+    default: () => []
   }
 )
 
