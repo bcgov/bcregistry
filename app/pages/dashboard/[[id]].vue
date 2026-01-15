@@ -22,7 +22,7 @@ const helpHref = 'https://www2.gov.bc.ca/gov/content/employment-business/busines
   + 'permits-licences/news-updates/modernization-updates/modernization-resources'
 // Sync URL <-> accountStore.currentAccount.id
 const routeAccountId = Number(route.params.id)
-if (routeAccountId > 0 && Number.isFinite(routeAccountId && routeAccountId !== accountStore.currentAccount.id)) {
+if (routeAccountId > 0 && Number.isFinite(routeAccountId) && routeAccountId !== accountStore.currentAccount.id) {
   accountStore.switchCurrentAccount(routeAccountId)
 }
 
