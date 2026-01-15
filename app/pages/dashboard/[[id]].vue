@@ -7,7 +7,6 @@ const { $authApi } = useNuxtApp()
 const { clearLoginRedirectUrl, setLogoutRedirectUrl, kcUser } = useKeycloak()
 const rtc = useRuntimeConfig().public
 
-const router = useRouter()
 const route = useRoute()
 
 useHead({
@@ -21,38 +20,17 @@ definePageMeta({
 const isSbcStaff = ref(false)
 const helpHref = 'https://www2.gov.bc.ca/gov/content/employment-business/business/managing-a-business/'
   + 'permits-licences/news-updates/modernization-updates/modernization-resources'
-/**
- * Sync URL with accountStore.currentAccount.id
- *
- * Rules:
- * 1. If store id changes -> update URL
- * 2. If URL has no id but store has one -> add it
- * 3. If store has no id -> do nothing
- */
-watch(
-  () => accountStore.currentAccount.id,
-  (newId) => {
-    if (!newId) {
-      return
-    }
+// Sync URL <-> accountStore.currentAccount.id
+const routeId = typeof route.params.id === 'string' ? Number(route.params.id) : undefined
+if (routeId && routeId !== accountStore.currentAccount.id) {
+  accountStore.switchCurrentAccount(routeId)
+}
 
-    const routeId
-      = typeof route.params.id === 'string'
-        ? route.params.id
-        : undefined
-
-    if (routeId !== newId) {
-      router.replace({
-        name: route.name as string,
-        params: {
-          ...route.params,
-          id: newId
-        }
-      })
-    }
-  },
-  { immediate: true }
-)
+watch(() => accountStore.currentAccount.id, (newId) => {
+  if (newId) {
+    window.history.replaceState({}, '', localePath(`/dashboard/${newId}`))
+  }
+}, { immediate: true })
 
 const { data: userProducts, status, error } = await useLazyAsyncData(
   'user-products',
