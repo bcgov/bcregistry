@@ -26,8 +26,8 @@ interface ProductFee {
   service: string
   serviceCharge: number
   serviceChargeGst: number
-  total: number | string
-  variable: boolean
+  total?: number | string
+  variable: boolean | null
   url?: string
 }
 
@@ -53,7 +53,7 @@ function groupAndTotalProducts(inputProducts: ProductFee[]): GroupedProductFee[]
       variable
     } = currentItem
 
-    const total = typeof fee === 'string' ? fee : fee + feeGst + serviceCharge + serviceChargeGst
+    const total = calculateTotal(fee, feeGst, serviceCharge, serviceChargeGst)
 
     let serviceString = corpTypeDescription + ' - ' + service
     if (variable) {
@@ -95,6 +95,9 @@ function groupAndTotalProducts(inputProducts: ProductFee[]): GroupedProductFee[]
 }
 
 const groupedProducts = computed(() => groupAndTotalProducts(productsRaw.value))
+
+const calculateTotal = (fee: number | string, feeGst: number, serviceCharge: number, serviceChargeGst: number) =>
+  typeof fee === 'string' ? fee : fee + feeGst + serviceCharge + serviceChargeGst
 
 const formatCurrency = (value: number | null | undefined) =>
   new Intl.NumberFormat('en-CA', { style: 'currency', currency: 'CAD' })
