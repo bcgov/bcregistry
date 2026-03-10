@@ -322,9 +322,10 @@ export default {
       table: {
         header: {
           service: 'Description',
-          fee: 'Fee',
-          serviceCharge: 'Service Charge',
-          gst: 'GST',
+          statutoryFee: 'Statutory Fee',
+          statutoryFeeGst: 'Statutory Fee GST',
+          serviceFee: 'Service Fee',
+          serviceFeeGst: 'Service Fee GST',
           total: 'Total'
         }
       }

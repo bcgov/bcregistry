@@ -318,9 +318,10 @@ export default {
       table: {
         header: {
           service: 'Service',
-          fee: 'Frais',
-          serviceCharge: 'Frais de Service',
-          gst: 'TPS',
+          statutoryFee: 'Frais statutaires',
+          statutoryFeeGst: 'TPS frais statutaires',
+          serviceFee: 'Frais de service',
+          serviceFeeGst: 'TPS frais de service',
           total: 'Total'
         }
       }
