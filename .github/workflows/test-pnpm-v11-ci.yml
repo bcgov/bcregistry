@@ -1,0 +1,22 @@
+[TEST] pnpm v11 upgrade
+
+on:
+  push:
+    branches: ["test/pnpm-v11-upgrade"]
+  workflow_dispatch:
+
+_: &anchor # TEMP test only - delete after validation
+
+  pull_request:
+    branches: [main]
+  workflow_dispatch:
+
+jobs:
+  bcregistry-ui-ci:
+    uses: bcgov/bcregistry-sre/.github/workflows/frontend-ci.yaml@feat/upgrade-pnpm-v11
+    with:
+      pnpm_version: 'latest-11'
+      node_version: "24"
+      app_name: "bcregistry"
+      working_directory: "."
+      codecov_flag: ""
