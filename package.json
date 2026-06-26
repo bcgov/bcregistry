@@ -31,5 +31,10 @@
     "@zadigetvoltaire/nuxt-gtm": "^0.0.13",
     "eslint": "^9.23.0",
     "typescript": "^5.8.2"
+  },
+  "pnpm": {
+    "onlyBuiltDependencies": [
+      "better-sqlite3"
+    ]
   }
 }
