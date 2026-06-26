@@ -1,18 +1,12 @@
-[TEST] pnpm v11 upgrade
+name: "[TEST] pnpm v11 upgrade"
 
 on:
   push:
     branches: ["test/pnpm-v11-upgrade"]
   workflow_dispatch:
 
-_: &anchor # TEMP test only - delete after validation
-
-  pull_request:
-    branches: [main]
-  workflow_dispatch:
-
 jobs:
-  bcregistry-ui-ci:
+  test-pnpm-v11:
     uses: bcgov/bcregistry-sre/.github/workflows/frontend-ci.yaml@feat/upgrade-pnpm-v11
     with:
       pnpm_version: 'latest-11'
