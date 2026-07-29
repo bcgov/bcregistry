@@ -12,3 +12,4 @@ jobs:
       app_name: "bcregistry"
       working_directory: "."
       codecov_flag: ""
+      pnpm_version: 11.9.0
