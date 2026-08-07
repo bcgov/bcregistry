@@ -30,7 +30,7 @@
     "keycloak-js": "^26.2.0",
     "launchdarkly-vue-client-sdk": "^2.3.1",
     "maska": "^3.1.1",
-    "nuxt": "^3.16.2",
+    "nuxt": "^3.21.10",
     "nuxt-gtag": "^3.0.2",
     "pinia": "^3.0.2",
     "pinia-plugin-persistedstate": "^4.2.0",
