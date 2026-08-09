@@ -25,7 +25,7 @@
     "@pinia/nuxt": "^0.11.0",
     "@sbc-connect/nuxt-core-layer-beta": "0.0.13",
     "@vueuse/nuxt": "^13.1.0",
-    "dompurify": "^3.2.5",
+    "dompurify": "^3.4.13",
     "jsdom": "^26.1.0",
     "keycloak-js": "^26.2.0",
     "launchdarkly-vue-client-sdk": "^2.3.1",
