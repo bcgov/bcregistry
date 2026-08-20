@@ -25,6 +25,8 @@ Startup the development environment.
 pnpm run dev
 ```
 
+`pnpm install` also sets up [Lefthook](https://github.com/evilmartians/lefthook) pre-commit hooks (lint + [gitleaks](https://github.com/gitleaks/gitleaks) secret scanning) - no extra setup needed. If a commit is blocked by a false-positive secret match, add an allowlist entry to `.gitleaks.toml` rather than committing with `--no-verify`.
+
 ## Build and Preview
 
 Build the static site

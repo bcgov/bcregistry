@@ -8,6 +8,7 @@
   "type": "module",
   "scripts": {
     "preinstall": "npx only-allow pnpm",
+    "prepare": "lefthook install && node scripts/install-gitleaks.mjs",
     "build-check": "nuxt build",
     "build": "nuxt generate",
     "dev": "nuxt dev",
@@ -43,6 +44,7 @@
     "@nuxtjs/i18n": "^9.4.0",
     "@zadigetvoltaire/nuxt-gtm": "^0.0.13",
     "eslint": "^9.23.0",
+    "lefthook": "^1.11.3",
     "typescript": "^5.8.2"
   },
   "packageManager": "pnpm@11.9.0"
