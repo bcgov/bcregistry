@@ -6,7 +6,7 @@ pre-commit:
   commands:
     secret-scan:
       tags: security
-      run: node scripts/run-gitleaks.mjs
+      run: npx gitleaks-secret-scanner
     lint:
       glob: "*.{js,ts,jsx,tsx,vue,mjs,cjs}"
       run: pnpm exec eslint {staged_files}

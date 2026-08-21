@@ -8,7 +8,7 @@
   "type": "module",
   "scripts": {
     "preinstall": "npx only-allow pnpm",
-    "prepare": "lefthook install && node scripts/install-gitleaks.mjs",
+    "prepare": "lefthook install",
     "build-check": "nuxt build",
     "build": "nuxt generate",
     "dev": "nuxt dev",
