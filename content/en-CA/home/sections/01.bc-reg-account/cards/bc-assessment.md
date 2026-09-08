@@ -1,6 +1,6 @@
 ---
 name: BC Assessment
-badge:
+badge: NEW
 link: 
   label: Learn more about BC Assessment 
   target: '_blank'
@@ -10,8 +10,10 @@ link:
   locale: false
 ---
 
-Search the BC Assessment database for information about real property in B.C. Here you are able to:
+BC Assessment provides customers with convenient and affordable access to property data by making records available through BC Registries and Online Services.
 
-- Find property ownership and location information.
-- Obtain property assessment information.
-- Obtain residential property inventory details.
+Three reports are available for purchase:
+
+- Owner Location Report
+- Assessment Roll Report
+- Assessment Inventory Report

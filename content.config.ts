@@ -26,7 +26,7 @@ export default defineContentConfig({
       type: 'page',
       source: {
         include: 'en-CA/home/sections/**/cards/**/*.md',
-        exclude: ['**/bc-assessment.md'] // remove bc assessment card for now
+        exclude: ['**/02.bc-online-account/cards/bc-assessment.md']
       },
       schema: z.object({
         background_image: z.string().optional(),
@@ -46,7 +46,7 @@ export default defineContentConfig({
       type: 'page',
       source: {
         include: 'fr-CA/home/sections/**/cards/**/*.md',
-        exclude: ['**/bc-assessment.md'] // remove bc assessment card for now
+        exclude: ['**/02.bc-online-account/cards/bc-assessment.md']
       },
       schema: z.object({
         background_image: z.string().optional(),
