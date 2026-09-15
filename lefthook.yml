@@ -8,5 +8,5 @@ pre-commit:
       tags: security
       run: npx gitleaks-secret-scanner
     lint:
-      glob: "*.{js,ts,jsx,tsx,vue,mjs,cjs}"
-      run: pnpm exec eslint {staged_files}
+      glob: "*.{js,ts,vue,css,md}"
+      run: npx -y lint-staged
