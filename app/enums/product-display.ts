@@ -3,6 +3,7 @@ import { ProductCode } from './product-code'
 export const productDisplay = {
   [ProductCode.BUSINESS]: 'Business Registry & Name Request',
   [ProductCode.BUSINESS_SEARCH]: 'Business and Person Search',
+  [ProductCode.BCA]: 'BC Assessment',
   [ProductCode.CSO]: 'Court Services Online',
   [ProductCode.ESRA]: 'Site Registry',
   [ProductCode.MHR]: 'Manufactured Home Registry',
