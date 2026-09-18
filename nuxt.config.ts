@@ -123,6 +123,8 @@ export default defineNuxtConfig({
     public: {
       version: `Registry UI v${process.env.npm_package_version || ''}`,
       addressChangeURL: process.env.NUXT_ADDRESS_CHANGE_URL,
+      authApiURL: `${process.env.NUXT_AUTH_API_URL}${process.env.NUXT_AUTH_API_VERSION}`,
+      authApiKey: process.env.NUXT_AUTH_API_KEY,
       bcaLearnMoreURL: process.env.NUXT_BCA_LEARN_MORE_URL,
       bcaURL: process.env.NUXT_BCA_URL,
       bceidURL: process.env.NUXT_BCEID_URL,
