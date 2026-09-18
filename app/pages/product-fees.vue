@@ -1,5 +1,4 @@
 <script setup lang="ts">
-import { productDisplay } from '~/enums/product-display'
 import { ProductCode } from '~/enums/product-code'
 
 const { locale, t } = useI18n()
@@ -33,9 +32,13 @@ interface ProductFee {
 
 interface GroupedProductFee {
   name: string
+  description: string
   productFees: ProductFee[]
 }
 const productsRaw = ref<ProductFee[]>([])
+// Product display names come from auth-api, so a new product only needs its
+// `show_on_pricelist` fee schedules flipped on to appear on this page.
+const productDescriptions = ref<Record<string, string>>({})
 
 function groupAndTotalProducts(inputProducts: ProductFee[]): GroupedProductFee[] {
   const groupedMap = inputProducts.reduce<Record<string, GroupedProductFee>>((accumulator, currentItem) => {
@@ -77,6 +80,7 @@ function groupAndTotalProducts(inputProducts: ProductFee[]): GroupedProductFee[]
     if (!accumulator[productCode]) {
       accumulator[productCode] = {
         name: productCode,
+        description: productDescriptions.value[productCode] || productCode,
         productFees: []
       }
     }
@@ -172,9 +176,9 @@ const serviceColumns = [
 
 const productTypes = computed(() => [
   { label: t('page.productFees.selectDefault'), value: 'all' },
-  ...Object.entries(productDisplay).map(([key, value]) => ({
-    label: value,
-    value: key
+  ...groupedProducts.value.map(product => ({
+    label: product.description,
+    value: product.name
   }))
 ])
 const selectedProduct = ref('all')
@@ -194,23 +198,46 @@ watch(selectedProduct, (val: string) => {
   }
 })
 
-onMounted(async () => {
-  try {
-    const apiURL = ldStore.getStoredFlag('override-price-list-api-url') || rtc.payApiURL
-    const response = await fetch(`${apiURL}/fees`, {
-      method: 'GET',
-      headers: {
-        'Content-Type': 'application/json',
-        'Accept-Language': locale.value
-      }
-    })
-    if (!response.ok) {
-      throw new Error('Failed to fetch product fees')
+async function fetchProductFees() {
+  const payURL = ldStore.getStoredFlag('override-price-list-api-url') || rtc.payApiURL
+  const response = await fetch(`${payURL}/fees`, {
+    method: 'GET',
+    headers: {
+      'Content-Type': 'application/json',
+      'Accept-Language': locale.value
     }
-    const data = await response.json()
-    productsRaw.value = data.items
-  } catch (error) {
-    console.error('Error fetching product fees:', error)
+  })
+  if (!response.ok) {
+    throw new Error('Failed to fetch product fees')
+  }
+  const data = await response.json()
+  productsRaw.value = data.items
+}
+
+async function fetchProductDescriptions() {
+  const response = await fetch(`${rtc.authApiURL}/products`, {
+    method: 'GET',
+    headers: { 'x-apikey': rtc.authApiKey }
+  })
+  if (!response.ok) {
+    throw new Error('Failed to fetch product descriptions')
+  }
+  const data: Array<{ code: string, description: string }> = await response.json()
+  productDescriptions.value = Object.fromEntries(data.map(product => [product.code, product.description]))
+}
+
+onMounted(async () => {
+  // Run independently: a product-fees failure shouldn't block descriptions (and vice versa) --
+  // worst case a product falls back to showing its raw code instead of a friendly name.
+  const [feesResult, descriptionsResult] = await Promise.allSettled([
+    fetchProductFees(),
+    fetchProductDescriptions()
+  ])
+  if (feesResult.status === 'rejected') {
+    console.error('Error fetching product fees:', feesResult.reason)
+  }
+  if (descriptionsResult.status === 'rejected') {
+    console.error('Error fetching product descriptions:', descriptionsResult.reason)
   }
   setBreadcrumbs([
     { to: localePath('/'), label: t('labels.bcRegAndOLServices') },
@@ -291,7 +318,7 @@ onMounted(async () => {
         <template #header>
           <div class="flex justify-between pl-7 pr-4 font-bold">
             <span class="py-3.75 text-left text-bcGovColor-darkGray no-underline focus:outline-none">
-              {{ productDisplay[product.name as keyof typeof productDisplay] }}
+              {{ product.description }}
             </span>
           </div>
         </template>
