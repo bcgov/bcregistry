@@ -8,3 +8,6 @@ allowBuilds:
   sharp: true
   unrs-resolver: true
   vue-demi: true
+
+overrides:
+  better-sqlite3: 12.11.1
