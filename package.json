@@ -8,7 +8,7 @@
   "type": "module",
   "scripts": {
     "preinstall": "npx only-allow pnpm",
-    "prepare": "lefthook install || exit 0",
+    "prepare": "[ \"$CI\" = \"true\" ] || lefthook install",
     "build-check": "nuxt build",
     "build": "nuxt generate",
     "dev": "nuxt dev",
